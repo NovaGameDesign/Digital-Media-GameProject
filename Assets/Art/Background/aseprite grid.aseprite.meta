@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d29162e69769f294e8b8cc33a996ff74
+guid: 69d3004048f469c4cb3ff7e857c8ee4b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -71,9 +71,9 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -84,9 +84,9 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638424276494503554
+  platformSettingsDirtyTick: 638433730890857277
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,58 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: platform small
+  - name: aseprite grid
     originalName: 
-    pivot: {x: -0.19587624, y: -0.8356808}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 214
-      y: 533
-      width: 194
-      height: 213
-    spriteID: 9e80544038509a84385a6a0a8795ff01
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 214, y: 533}
-  - name: Platform medium
-    originalName: 
-    pivot: {x: -1.2821785, y: -0.3575269}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 533
-      width: 202
-      height: 372
-    spriteID: 1bbf93c7c38159b40a961a77dbf3bb28
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 533}
-  - name: platform Tall
-    originalName: 
-    pivot: {x: 0.94568694, y: -0.23800386}
+    pivot: {x: 1.7686568, y: -9.818182}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 313
-      height: 521
-    spriteID: 6984d30d4eafb2441ac6b2589731bb81
+      width: 134
+      height: 44
+    spriteID: 4a7c48f5c61b02946a69eeae95cba6d7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,57 +141,83 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: aseprite grid_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 4
+      width: 48
+      height: 48
+    spriteID: 2d78041033ab9cb4f88708ee6b46d2fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: aseprite grid_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 4
+      width: 48
+      height: 48
+    spriteID: 5cb21b802f87ee34ea28134d6753f027
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: aseprite grid_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 4
+      width: 48
+      height: 48
+    spriteID: e631f0505d8844d40a90805552efe227
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
-  - layerIndex: 10
-    guid: 1571823716
-    name: platform small
-    layerFlags: 3
+  - layerIndex: 0
+    guid: -5162271
+    name: aseprite grid
+    layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: platform small
+    - name: aseprite grid
       frameIndex: 0
       cellRect:
-        x: 998
-        y: 178
-        width: 194
-        height: 213
-      spriteId: 9e80544038509a84385a6a0a8795ff01
-    linkedCells: []
-    parentIndex: -1
-  - layerIndex: 11
-    guid: -389477605
-    name: Platform medium
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: Platform medium
-      frameIndex: 0
-      cellRect:
-        x: 1219
-        y: 133
-        width: 202
-        height: 372
-      spriteId: 1bbf93c7c38159b40a961a77dbf3bb28
-    linkedCells: []
-    parentIndex: -1
-  - layerIndex: 12
-    guid: -563357860
-    name: platform Tall
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: platform Tall
-      frameIndex: 0
-      cellRect:
-        x: 664
-        y: 124
-        width: 313
-        height: 521
-      spriteId: 6984d30d4eafb2441ac6b2589731bb81
+        x: 3
+        y: 432
+        width: 134
+        height: 44
+      spriteId: 4a7c48f5c61b02946a69eeae95cba6d7
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -274,4 +260,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 1920, y: 1080}
+  canvasSize: {x: 480, y: 480}
