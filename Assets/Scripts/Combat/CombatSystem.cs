@@ -38,18 +38,25 @@ namespace DigitalMedia.Combat
             _animator = GetComponent<Animator>();
         }
 
+        
+        // ========================================= Below is attacking 
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
             Debug.Log("Attacked");
 
-            if(currentState != State.Idle && currentState != State.Airborne && currentState != State.Attacking && !canInterruptState) //Check what state the player is in. Generally they'd need to be in one of the aforementioned states.
-            {   return;}
+            if (currentState != State.Idle && currentState != State.Airborne &&
+                !canInterruptState) //Check what state the player is in. Generally they'd need to be in one of the aforementioned states.
+            {
+                return;
+                
+            }
 
             if (currentState == State.Attacking)
             {
                 AirborneAttack();
             }
 
+            currentState = State.Attacking;
             switch (currentAttackIndex)
             {
                 case 0:
@@ -61,12 +68,13 @@ namespace DigitalMedia.Combat
                 }
                 case 1:
                 {
-                    _animator.Play(ANIM_ATTACK_ONE); // Update these once we have the other anims. 
+                    _animator.Play(ANIM_ATTACK_TWO); // Update these once we have the other anims. 
+                    currentAttackIndex++;
                     return;
                 }
                 case 2:
                 {
-                    _animator.Play(ANIM_ATTACK_ONE); 
+                    _animator.Play(ANIM_ATTACK_THREE); 
                     currentAttackIndex = 0;
                     return;
                 }
@@ -79,17 +87,17 @@ namespace DigitalMedia.Combat
             if (transform.rotation.y > 0)
             {
                 //Holy crap this was a pain to setup. For some reason the transform didn't want to work if it was == 180 even though that is the exact value :( 
-                Vector2 otherSide = new Vector2(data.CombatData.weaponData.weaponOffset[0].x * -1,
-                    data.CombatData.weaponData.weaponOffset[0].y);
+                Vector2 otherSide = new Vector2(data.CombatData.weaponData.weaponOffset[currentAttackIndex].x * -1,
+                    data.CombatData.weaponData.weaponOffset[currentAttackIndex].y);
                 overlapping = Physics2D.OverlapBoxAll(transform.position + (Vector3)otherSide,
-                    (Vector3)data.CombatData.weaponData.weaponRange[0], 
+                    (Vector3)data.CombatData.weaponData.weaponRange[currentAttackIndex], 
                     layersToCheck);
                 //Debug.Log("Changed the side"+ otherSide);
             }
             else if(transform.rotation.y == 0)
             {
-                overlapping = Physics2D.OverlapBoxAll(transform.position + (Vector3)data.CombatData.weaponData.weaponOffset[0],
-                    (Vector3)data.CombatData.weaponData.weaponRange[0], 
+                overlapping = Physics2D.OverlapBoxAll(transform.position + (Vector3)data.CombatData.weaponData.weaponOffset[currentAttackIndex],
+                    (Vector3)data.CombatData.weaponData.weaponRange[currentAttackIndex], 
                     layersToCheck);
             }
             
@@ -110,7 +118,7 @@ namespace DigitalMedia.Combat
 
         private void AirborneAttack()
         {
-            _animator.Play("Airborne_Attack");
+            _animator.Play("Attack_Airborne");
             
             //DO some checks to see if we hit anything
         }
@@ -118,9 +126,11 @@ namespace DigitalMedia.Combat
         public void EndAttackSequence()
         {
             currentState = State.Idle;
+            currentAttackIndex = 0;
             _animator.Play(ANIM_IDLE);
         }
 
+        // ========================================= Above is attacking  -- Below is Parrying
         private void TryToParry(InputAction.CallbackContext context)
         {
             /*if (currentState != State.Idle) return;
@@ -132,18 +142,38 @@ namespace DigitalMedia.Combat
 
         public void SpawnParryFrame()
         {
-            overlapping =  Physics2D.OverlapBoxAll(transform.position + (Vector3)data.CombatData.parryOffset, (Vector3)data.CombatData.parryRange, 0,layersToCheck);
-
-            if (overlapping == null) return;
-
-            foreach (var enemy in overlapping)
+            
+            if (transform.rotation.y > 0)
             {
-                var reference = enemy.GetComponent<EnemyBase>();
-                reference.WasParried();
+                //Holy crap this was a pain to setup. For some reason the transform didn't want to work if it was == 180 even though that is the exact value :( 
+                Vector2 otherSide = new Vector2(data.CombatData.parryOffset.x * -1,
+                    data.CombatData.parryOffset.y);
+                overlapping =  Physics2D.OverlapBoxAll(transform.position + (Vector3)data.CombatData.parryOffset, (Vector3)data.CombatData.parryRange, 0,layersToCheck);
+                //Debug.Log("Changed the side"+ otherSide);
+            }
+            else if (transform.rotation.y == 0)
+            {
+                overlapping =  Physics2D.OverlapBoxAll(transform.position + (Vector3)data.CombatData.parryOffset, (Vector3)data.CombatData.parryRange, 0,layersToCheck);
             }
             
+            
+            
+            if (overlapping == null) return;
+
+            foreach (var hit in overlapping)
+            {
+                if(hit.transform.root == transform) continue;
+                
+                hit.GetComponent<IDamageable>().WasParried();
+            }
+
+            overlapping = null; //reset the value to null once done. 
+
         }
 
+        // ========================================= Above is Parrying 
+        
+        
         //Used to visualize the range and position of attacks. Each attack can be configured from their data scriptable object. 
         public void OnDrawGizmosSelected()
         {
@@ -156,10 +186,9 @@ namespace DigitalMedia.Combat
                 {
                     case ColliderType.box:
                     {
-                        for(int i = 0; i < data.CombatData.weaponData.weaponOffset.Length; i++)
-                        {
-                            Gizmos.DrawWireCube(transform.position + (Vector3)data.CombatData.weaponData.weaponOffset[i], (Vector3)data.CombatData.weaponData.weaponRange[i]);
-                        }
+
+                        Gizmos.DrawWireCube(transform.position + (Vector3)data.CombatData.weaponData.weaponOffset[data.CombatData.weaponData.showWhat], (Vector3)data.CombatData.weaponData.weaponRange[data.CombatData.weaponData.showWhat]);
+                       
                         break;
                     }
                     case ColliderType.circle:

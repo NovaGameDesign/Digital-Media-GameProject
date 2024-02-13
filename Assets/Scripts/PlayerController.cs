@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace DigitalMedia
 {
@@ -21,6 +22,7 @@ namespace DigitalMedia
         private bool canDoubleJump = true;
 
         private string currentAnimState;
+        
         //Animation States 
         private const string PLAYER_IDLE = "Idle";
         private const string PLAYER_WALK = "Walk";
@@ -42,6 +44,9 @@ namespace DigitalMedia
             // dodge = _playerInput.actions["Dodge"];   
             
             _animator = GetComponent<Animator>();
+
+            healthbar = GetComponentInChildren<Slider>();
+            _health = data.BasicData.maxHealth;
         }
 
         private void FixedUpdate()
@@ -57,13 +62,13 @@ namespace DigitalMedia
 
         private void Jump(InputAction.CallbackContext context)
         {
-            Debug.Log("try to jump");
+            //Debug.Log("try to jump");
             //Make your jump here. 
             if (IsGrounded())
             {
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
-            else if (canDoubleJump && rb.velocity.y > 0)
+            else if (canDoubleJump && rb.velocity.y != 0)
             {
                 canDoubleJump = false;
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
@@ -128,11 +133,12 @@ namespace DigitalMedia
             currentAnimState = newState;
         }
         
-        public void DealDamage(float incomingDamage, bool interruptAction = true)
+        public override void DealDamage(float incomingDamage, bool interruptAction = true)
         {
             //write a more complex damage function to account for defense, damage type, etc. 
-            /*Debug.Log("The player took damage. " +this.gameObject.name);*/
+            /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
             _health -= incomingDamage;
+            healthbar.value = _health / data.BasicData.maxHealth;
 
             if (_health <= 0)
             {

@@ -20,21 +20,16 @@ namespace DigitalMedia.Combat
         private const string ANIM_ATTACK_ONE = "Attack_One";
         private const string ANIM_ATTACK_TWO = "Attack_Two";
         private const string ANIM_ATTACK_THREE = "Attack_Three";
+        private const string ANIM_HIT_REACTION = "Hit_Reaction";
         private const string ANIM_BLOCK = "Block";
 
         private void Start()
         {
             _animator = GetComponent<Animator>();
-
-            StartCoroutine(AttackDelay());
+            Invoke("TryToAttack",5); 
+           
         }
 
-        IEnumerator AttackDelay()
-        {
-            yield return new WaitForSeconds(5);
-            
-            TryToAttack();
-        }
         public void TryToAttack()
         {
             /*Debug.Log("Attacked");*/
@@ -72,7 +67,7 @@ namespace DigitalMedia.Combat
 
             foreach (var hit in overlapping)
             {
-                if(hit.transform.root == transform) continue;
+                if(hit.transform == transform) continue;
                 
                 if (hit.GetComponent<IDamageable>() != null)
                 {
@@ -89,12 +84,15 @@ namespace DigitalMedia.Combat
             currentState = State.Idle;
             _animator.Play(ANIM_IDLE);
 
-            StartCoroutine(AttackDelay());
+            Invoke("TryToAttack",5); 
         }
 
-        private void TryToParry()
+        public void WasParried()
         {
-         
+            Debug.Log("Parried");
+            //Spawn VFX if needed and play SFX 
+            _animator.Play(ANIM_HIT_REACTION);
+            
         }
 
         //Used to visualize the range and position of attacks. Each attack can be configured from their data scriptable object. 
