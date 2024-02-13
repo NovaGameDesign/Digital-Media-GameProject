@@ -19,7 +19,7 @@ namespace DigitalMedia
 
         private Rigidbody2D rb;
         private bool canDoubleJump = true;
-
+        private bool canWallJump = true;
         private string currentAnimState;
         //Animation States 
         private const string PLAYER_IDLE = "Idle";
@@ -68,6 +68,10 @@ namespace DigitalMedia
                 canDoubleJump = false;
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
+            if (IsWalled())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
+            }
         }
 
         private void reloadScene(InputAction.CallbackContext context)
@@ -86,7 +90,17 @@ namespace DigitalMedia
             return false;
 
         }
+        private bool IsWalled()
+        {
+            if (Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer)|| Physics2D.Raycast(transform.position, Vector2.right, 1f, groundLayer))
+            {
+                canWallJump = true;
+                return true;
+            }
 
+            return false;
+
+        }
         /// <summary>
         /// I may update this later to only trigger when the player presses a key, as right now it is quite an expensive operation. 
         /// </summary>
