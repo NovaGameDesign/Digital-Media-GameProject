@@ -68,10 +68,14 @@ namespace DigitalMedia
                 canDoubleJump = false;
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
+<<<<<<< Updated upstream
             if (IsWalled())
             {
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
+=======
+
+>>>>>>> Stashed changes
         }
 
         private void reloadScene(InputAction.CallbackContext context)
@@ -92,11 +96,23 @@ namespace DigitalMedia
         }
         private bool IsWalled()
         {
+<<<<<<< Updated upstream
             if (Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer)|| Physics2D.Raycast(transform.position, Vector2.right, 1f, groundLayer))
             {
                 canWallJump = true;
                 return true;
             }
+=======
+            if (Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer)|| Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer))
+            {
+                {
+                    canWallJump = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+>>>>>>> Stashed changes
 
             return false;
 
