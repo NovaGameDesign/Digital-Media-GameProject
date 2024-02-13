@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: MainCharacter
   m_EditorClassIdentifier: 
   BasicData:
-    maxHealth: 250
+    maxHealth: 100
     health: 100
     defense: 0.25
     stamina: 100
     speed: 10
     speedModifier: 2.5
     showJumpCheck: 0
-    jumpingStrength: 7
+    jumpingStrength: 12
     jumpDistanceCheck: 0.25
   CombatData:
     attackPower: 15
@@ -29,12 +29,17 @@ MonoBehaviour:
       innateWeaponBlock: 0
       innateWeaponStaminaDrain: 0
       hitComboLength: 0
-      ShowAttackDebug: 1
+      ShowAttackDebug: 0
+      showWhat: 2
       ColliderType: 0
       weaponRange:
       - {x: 1.65, y: 1.31}
+      - {x: 2.19, y: 1.6}
+      - {x: 1.75, y: 2.2}
       weaponOffset:
       - {x: -1.15, y: 1.14}
+      - {x: -0.85, y: 1.08}
+      - {x: -1.16, y: 1.09}
     ShowParryDebug: 0
     parryRange: {x: 1.15, y: 1.8}
     parryOffset: {x: -0.95, y: 0.88}

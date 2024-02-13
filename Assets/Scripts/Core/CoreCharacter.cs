@@ -1,5 +1,6 @@
 ﻿using DigitalMedia.Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DigitalMedia.Core
 {
@@ -18,12 +19,13 @@ namespace DigitalMedia.Core
         public CharacterStats data;
 
         protected State currentState = State.Idle;
-
         protected bool canInterruptState;
         
         protected Animator _animator;
 
         [SerializeField] protected float _health;
+
+        protected Slider healthbar;
 
         //Any data that is shared across (almost) all versions of the player, NPCs, or enemies. 
 
@@ -33,6 +35,7 @@ namespace DigitalMedia.Core
         {
             _animator = GetComponent<Animator>();
             _health = data.BasicData.maxHealth;
+            healthbar = GetComponentInChildren<Slider>();
         }
 
         /// <summary>
@@ -42,6 +45,19 @@ namespace DigitalMedia.Core
         public virtual void CanInterruptState(int yesNo)
         {
             canInterruptState = yesNo == 1 ? true : false;  //Reads as: if yesno is 1 then true, else is false. 
+        }
+        
+        public virtual void DealDamage(float incomingDamage, bool interruptAction = true)
+        {
+            //write a more complex damage function to account for defense, damage type, etc. 
+            /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
+            _health -= incomingDamage;
+            healthbar.value = _health / data.BasicData.maxHealth;
+
+            if (_health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
