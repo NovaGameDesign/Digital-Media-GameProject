@@ -5,10 +5,8 @@ using UnityEngine;
 
 namespace DigitalMedia.Combat
 {
-    public class TargetDummy : CoreCharacter, IDamageable
+    public class TargetDummy : CoreCharacter
     {
-         //Input Related
-       
         protected Collider2D[] overlapping;
 
         [SerializeField] protected LayerMask layersToCheck;
@@ -27,6 +25,7 @@ namespace DigitalMedia.Combat
         {
             _animator = GetComponent<Animator>();
             Invoke("TryToAttack",5); 
+           
            
         }
 
@@ -67,13 +66,23 @@ namespace DigitalMedia.Combat
 
             foreach (var hit in overlapping)
             {
+                //A Series of checks to see if we can or should damage the player. 
                 if(hit.transform == transform) continue;
                 
-                if (hit.GetComponent<IDamageable>() != null)
+                if (hit.GetComponent<IDamageable>() == null) return;
+
+                else if (hit.GetComponent<CombatSystem>().parrying && hit.GetComponent<ICombatCommunication>() != null)
                 {
-                    Debug.Log("tried to attack");
-                    hit.GetComponent<IDamageable>().DealDamage(data.CombatData.attackPower, true);
+                    hit.GetComponent<ICombatCommunication>().DidParry();
+                    WasParried();
                 }
+                
+                else
+                {
+                    Debug.Log("Tried to attack a target, they were not parrying.");
+                    hit.GetComponent<IDamageable>().DealDamage(data.CombatData.attackPower, this.gameObject, true);
+                }
+               
             }
 
             overlapping = null;
@@ -89,10 +98,11 @@ namespace DigitalMedia.Combat
 
         public void WasParried()
         {
-            Debug.Log("Parried");
-            //Spawn VFX if needed and play SFX 
-            _animator.Play(ANIM_HIT_REACTION);
+            Debug.Log("Tried to attack a target, they were parrying.");
             
+            _animator.Play("Dummy_Hit");
+            
+            Invoke("TryToAttack",5); 
         }
 
         //Used to visualize the range and position of attacks. Each attack can be configured from their data scriptable object. 

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace DigitalMedia
 {
-    public class PlayerController : CoreCharacter, IDamageable
+    public class PlayerController : CoreCharacter
     {
         //Movement 
         private PlayerInput _playerInput;
@@ -44,9 +44,6 @@ namespace DigitalMedia
             // dodge = _playerInput.actions["Dodge"];   
             
             _animator = GetComponent<Animator>();
-
-            healthbar = GetComponentInChildren<Slider>();
-            _health = data.BasicData.maxHealth;
         }
 
         private void FixedUpdate()
@@ -131,19 +128,6 @@ namespace DigitalMedia
         
             //Sets the current animation for later use. 
             currentAnimState = newState;
-        }
-        
-        public override void DealDamage(float incomingDamage, bool interruptAction = true)
-        {
-            //write a more complex damage function to account for defense, damage type, etc. 
-            /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
-            _health -= incomingDamage;
-            healthbar.value = _health / data.BasicData.maxHealth;
-
-            if (_health <= 0)
-            {
-                //Destroy(this.gameObject);
-            }
         }
         
     }

@@ -169,9 +169,10 @@ GameObject:
   - component: {fileID: 3083646301496896676}
   - component: {fileID: 5079828519217541178}
   - component: {fileID: 3969953581928320948}
-  - component: {fileID: 9081602426392536913}
   - component: {fileID: 3441253708461587808}
+  - component: {fileID: 9081602426392536913}
   - component: {fileID: 6217086743192648578}
+  - component: {fileID: 844985181262971707}
   m_Layer: 3
   m_Name: Player Character
   m_TagString: Player
@@ -349,23 +350,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &9081602426392536913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463992851477924735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3e420a24334ba844a87195bf8cfaeab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 92318f99222f2e940b1169ba312d6254, type: 2}
-  _health: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!95 &3441253708461587808
 Animator:
   serializedVersion: 5
@@ -387,6 +371,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9081602426392536913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463992851477924735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e420a24334ba844a87195bf8cfaeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 92318f99222f2e940b1169ba312d6254, type: 2}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6217086743192648578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,13 +400,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 92318f99222f2e940b1169ba312d6254, type: 2}
-  _health: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
   layersToCheck:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &844985181262971707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463992851477924735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6125e18317e95247b6327d7878245e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 92318f99222f2e940b1169ba312d6254, type: 2}
+  overrideHealthMax: 0
+  health: 150
 --- !u!1 &5246113538489735562
 GameObject:
   m_ObjectHideFlags: 0

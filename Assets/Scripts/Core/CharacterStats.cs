@@ -73,5 +73,10 @@ namespace DigitalMedia.Core
         public StatsRelated BasicData;
         public CombatRelated CombatData;
 
+
+        public void DealDamage()
+        {
+            
+        }
     }
 }
