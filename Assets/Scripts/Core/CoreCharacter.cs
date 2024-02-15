@@ -14,7 +14,7 @@ namespace DigitalMedia.Core
         Staggered,
         
     }
-    public class CoreCharacter : MonoBehaviour, IDamageable
+    public class CoreCharacter : MonoBehaviour
     {
         public CharacterStats data;
 
@@ -23,10 +23,6 @@ namespace DigitalMedia.Core
         
         protected Animator _animator;
 
-        [SerializeField] protected float _health;
-
-        protected Slider healthbar;
-
         //Any data that is shared across (almost) all versions of the player, NPCs, or enemies. 
 
         [SerializeField] protected LayerMask groundLayer;
@@ -34,8 +30,7 @@ namespace DigitalMedia.Core
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _health = data.BasicData.maxHealth;
-            healthbar = GetComponentInChildren<Slider>();
+           
         }
 
         /// <summary>
@@ -47,17 +42,5 @@ namespace DigitalMedia.Core
             canInterruptState = yesNo == 1 ? true : false;  //Reads as: if yesno is 1 then true, else is false. 
         }
         
-        public virtual void DealDamage(float incomingDamage, bool interruptAction = true)
-        {
-            //write a more complex damage function to account for defense, damage type, etc. 
-            /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
-            _health -= incomingDamage;
-            healthbar.value = _health / data.BasicData.maxHealth;
-
-            if (_health <= 0)
-            {
-                Destroy(this.gameObject);
-            }
-        }
     }
 }
