@@ -4,10 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace DigitalMedia
 {
-    public class PlayerController : CoreCharacter, IDamageable
+    public class PlayerController : CoreCharacter
     {
         //Movement 
         private PlayerInput _playerInput;
@@ -19,22 +20,16 @@ namespace DigitalMedia
 
         private Rigidbody2D rb;
         private bool canDoubleJump = true;
-        private bool canWallJump = true;
-        private bool isWallSliding;
-        private float wallSlidingSpeed = 2f;
-        private float wallJumpingDirection;
-        private float wallJumpingTime = 0.2f;
-        private float wallJumpingCounter;
-        private float wallJumpingDuration = 0.4f;
-        private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
         private string currentAnimState;
+        
         //Animation States 
         private const string PLAYER_IDLE = "Idle";
         private const string PLAYER_WALK = "Walk";
         private const string PLAYER_RUN = "Player_Run";
         private const string PLAYER_JUMP = "Player_Jump";
         //Add above values as needed. 
-
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -45,9 +40,9 @@ namespace DigitalMedia
             jump.performed += Jump;
             reload = _playerInput.actions["Reload"];
             reload.performed += reloadScene;
-
+            
             // dodge = _playerInput.actions["Dodge"];   
-
+            
             _animator = GetComponent<Animator>();
         }
 
@@ -64,31 +59,18 @@ namespace DigitalMedia
 
         private void Jump(InputAction.CallbackContext context)
         {
-            Debug.Log("try to jump");
+            //Debug.Log("try to jump");
             //Make your jump here. 
             if (IsGrounded())
             {
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
-            else if (canDoubleJump && rb.velocity.y > 0)
+            else if (canDoubleJump && rb.velocity.y != 0)
             {
                 canDoubleJump = false;
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
-
-            if (IsWalled())
-            {
-                wallJumpingDirection = -transform.localScale.x;
-                rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            }
-            else if (canWallJump && rb.velocity.y > 0 && (rb.velocity.x>0 || rb.velocity.x < 0))
-            {
-                canWallJump = false;
-            }
         }
-
-
-
 
         private void reloadScene(InputAction.CallbackContext context)
         {
@@ -106,44 +88,18 @@ namespace DigitalMedia
             return false;
 
         }
-        private bool IsWalled()
-        {
 
-            if (Physics2D.Raycast(transform.position, Vector2.left, .5f, groundLayer) || Physics2D.Raycast(transform.position, Vector2.right, .5f, groundLayer))
-            {
-                canWallJump = true;
-                canDoubleJump = true;
-                return true;
-            }
-
-            return false;
-        }
-        private void WallSlide()
-        {
-            if (IsWalled() && !IsGrounded() && (rb.velocity.x > 0 || rb.velocity.x < 0))
-            {
-                isWallSliding = true;
-                rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
-            }
-            else
-            {
-                isWallSliding = false;
-            }
-        }
-        
-
-
-
+        /// <summary>
         /// I may update this later to only trigger when the player presses a key, as right now it is quite an expensive operation. 
-
+        /// </summary>
         private void Move()
         {
             Vector2 moveDirection = move.ReadValue<Vector2>();
-
-            if (currentState != State.Idle)
+            
+            if(currentState != State.Idle)
                 return;
-
-
+            
+            
             Vector2 playerVelocity = new Vector2(moveDirection.x * data.BasicData.speed, rb.velocity.y);
             rb.velocity = playerVelocity;
             if (playerVelocity.x > 0)
@@ -166,25 +122,13 @@ namespace DigitalMedia
         {
             //Checks if the animation is already playing 
             if (newState == currentAnimState) return;
-
+        
             //Plays a new animation
             _animator.Play(newState);
-
+        
             //Sets the current animation for later use. 
             currentAnimState = newState;
         }
-
-        public void DealDamage(float incomingDamage, bool interruptAction = true)
-        {
-            //write a more complex damage function to account for defense, damage type, etc. 
-            /*Debug.Log("The player took damage. " +this.gameObject.name);*/
-            _health -= incomingDamage;
-
-            if (_health <= 0)
-            {
-                //Destroy(this.gameObject);
-            }
-        }
-
+        
     }
 }

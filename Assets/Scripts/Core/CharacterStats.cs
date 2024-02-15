@@ -46,6 +46,7 @@ namespace DigitalMedia.Core
         public int hitComboLength;
 
         public bool ShowAttackDebug;
+        public int showWhat;
         public ColliderType ColliderType = ColliderType.box;
         public Vector2[] weaponRange;
         public Vector2[] weaponOffset;
@@ -72,5 +73,10 @@ namespace DigitalMedia.Core
         public StatsRelated BasicData;
         public CombatRelated CombatData;
 
+
+        public void DealDamage()
+        {
+            
+        }
     }
 }

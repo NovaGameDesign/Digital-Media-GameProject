@@ -1,0 +1,55 @@
+
+
+There's two ways to change the animation speed of this file in unity. These are just instructions to help with changing the speed of the animation loop for future reference.
+
+==============================
+
+First method (it's barely effective but still good to know):
+
+- Click on the .anim file
+- Click on the 3 dot icon next to the lock in the upper right of the inspector to open a dropdown menu.
+- In the dropdown menu, Click Debug. This switches from the Normal menu to the Debug menu.
+- Increase the number in the Sample Rate to slow down the speed of each frame. Decrease the number to speed up the sampling rate.
+- That's it. If you need to return to the normal menu, open the dropdown again and click normal.
+
+
+==============================
+
+Second Method (and in my opinion, the better method):
+
+- Click on the .anim file, click open in the inspector to open the animation menu
+- Click and drag the mouse over all of the frames
+- There's a vertical blue bar at the start and end of all combined frames. 
+- Click the bar at the end/to the right and drag it. This will change the length of the animation loop.
+- That's it. 
+
+
+It took me a hot minute to figure this out. I think this info will be helpful for adjusting the animation speed of all sprites in the future if needed.
+
+
+==============================
+Other Info
+
+Note 1: The length of time for each frame in the original boss idle animation is exactly 150 milliseconds per frame. The basic enemy attack animation is also about 100 milliseconds per frame (with some variation).
+
+Note 2: If the timing of the animation is changed and the animation doesn't loop smoothly anymore:
+
+- go into the debug menu (from method 1)
+- click on the .anim file in the folder, go to "Animation Clip Settings" in the inspector and look for "Stop Time"
+- increase or decrease the stop time by about 5 or 10 seconds depending on whether the animation takes more or less time to loop. 
+
+For some reason unity wants to preemptively cut the last frame off or freeze the last frame before looping when I change the animation speed lol.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
