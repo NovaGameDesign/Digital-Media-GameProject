@@ -1,6 +1,5 @@
-﻿using DigitalMedia.Interfaces;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+
 
 namespace DigitalMedia.Core
 {
