@@ -9,11 +9,15 @@ namespace DigitalMedia
 {
     public class PauseMenu : MonoBehaviour
     {
-        private PlayerInput _playerInput;
+        //Input Related
+        [SerializeField] PlayerInput _playerInput;
         private InputAction menu;
+        
+        //Pause Info
         public static bool GameIsPaused = false;
         public GameObject pauseMenuUI;
         void Start()
+        
         {
             menu = _playerInput.actions["Menu"];
             menu.performed += Menu;
@@ -22,7 +26,8 @@ namespace DigitalMedia
         // Update is called once per frame
         void Menu (InputAction.CallbackContext context)
         {
-            if(GameIsPaused= true)
+            Debug.Log("Tried to pause");
+            if(GameIsPaused == true)
             {
                 Resume();
             }
