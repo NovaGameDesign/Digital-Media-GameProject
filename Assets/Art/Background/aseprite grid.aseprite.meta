@@ -713,10 +713,10 @@ ScriptedImporter:
     - name: aseprite grid
       frameIndex: 0
       cellRect:
-        x: 2
-        y: 288
-        width: 450
-        height: 189
+        x: 0
+        y: 144
+        width: 452
+        height: 333
       spriteId: 4a7c48f5c61b02946a69eeae95cba6d7
     linkedCells: []
     parentIndex: -1
