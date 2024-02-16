@@ -1,80 +1,50 @@
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace DigitalMedia.AI
 {
-    public enum NodeState
+    public abstract class Node : ScriptableObject
     {
-        RUNNING,
-        SUCCESS,
-        FAILURE
-    }
-
-    public class Node
-    {
-        protected NodeState state;
-
-        public Node parent;
-        protected List<Node> children = new List<Node>();   
-
-        private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
-        public Node()
+        public enum State
         {
-            parent = null;
-        }
-        public Node(List<Node> children) 
-        { 
-            foreach(Node child in children) 
-            { 
-                _Attach(child); 
-            }
-        }
-        private void _Attach(Node node) 
-        {
-            node.parent = this;
-            children.Add(node);
+            Running,
+            Failure,
+            Success
         }
 
-        public virtual NodeState Evaluate() => NodeState.FAILURE;
+        [HideInInspector] public State state = State.Running;
+        [HideInInspector] public bool started = false;
+        [HideInInspector] public string guid;
+        [HideInInspector] public Vector2 position; 
 
-        public void SetData(string key, object value) 
+        public State Update()
         {
-            _dataContext[key] = value;            
-        }
-
-        public object GetData(string key) 
-        {
-            object value = null;
-            if( _dataContext.TryGetValue(key, out value) )
-                return value;
-
-            Node node = parent;
-            while(node != null) 
-            {  
-                value = node.GetData(key); 
-                if(value!= null)
-                    return value;             
-                node = node.parent;
-            }
-            return null;
-        }
-
-        public bool ClearData(string key)
-        {
-            if(_dataContext.ContainsKey(key))
+            if (!started)
             {
-                _dataContext.Remove(key);
-                return true;
+                OnsStart();
+                started = true;
             }
 
-            Node node = parent;
-            while(node != null) 
-            { 
-                bool cleared = node.ClearData(key);
-                if(cleared) { return true; }
-                node = node.parent; 
+            state = OnUpdate();
+            
+            if(state == State.Failure || state == State.Success)
+            {
+                OnStop();
+                started = false;
+                
             }
-            return false;
+
+            return state;
         }
+
+        public virtual Node Clone()
+        {
+            return Instantiate(this);
+        }
+
+        protected abstract void OnsStart();
+        protected abstract void OnStop();
+        protected abstract State OnUpdate();
     }
 }
-
