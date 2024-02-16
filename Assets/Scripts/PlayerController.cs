@@ -1,10 +1,7 @@
 using DigitalMedia.Core;
-using DigitalMedia.Interfaces;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace DigitalMedia
 {
@@ -20,8 +17,22 @@ namespace DigitalMedia
 
         private Rigidbody2D rb;
         private bool canDoubleJump = true;
-
+     
         private string currentAnimState;
+
+        #region wall sliding
+        
+        private bool canWallJump = true;
+        private bool isWallSliding;
+        private float wallSlidingSpeed = 2f;
+        private float wallJumpingDirection;
+        private float wallJumpingTime = 0.2f;
+        private float wallJumpingCounter;
+        private float wallJumpingDuration = 0.4f;
+        private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
+        #endregion
+  
         
         //Animation States 
         private const string PLAYER_IDLE = "Idle";
@@ -46,15 +57,11 @@ namespace DigitalMedia
             _animator = GetComponent<Animator>();
         }
 
+        
+       
         private void FixedUpdate()
         {
             Move();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            /*Jump();*/
         }
 
         private void Jump(InputAction.CallbackContext context)
@@ -71,7 +78,58 @@ namespace DigitalMedia
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
         }
+        
+        #region Wall Jumping and Sliding 
 
+        private bool IsWalled()
+        {
+
+            if (Physics2D.Raycast(transform.position, Vector2.left, .5f, groundLayer) || Physics2D.Raycast(transform.position, Vector2.right, .5f, groundLayer))
+            {
+                canWallJump = true;
+                canDoubleJump = true;
+                return true;
+            }
+
+            return false;
+        }
+        private void WallSlide()
+        {
+            if (IsWalled() && !IsGrounded() && rb.velocity.x != 0)
+            {
+                isWallSliding = true;
+                rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
+            }
+            else
+            {
+                isWallSliding = false;
+            }
+
+            if (IsWalled())
+            {
+                wallJumpingDirection = -transform.localScale.x;
+                rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            }
+            else if (canWallJump && rb.velocity.y > 0 && (rb.velocity.x>0 || rb.velocity.x < 0))
+            {
+                canWallJump = false;
+            }
+
+            if (IsWalled())
+            {
+                wallJumpingDirection = -transform.localScale.x;
+                rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            }
+            else if (canWallJump && rb.velocity.y > 0 && (rb.velocity.x>0 || rb.velocity.x < 0))
+            {
+                canWallJump = false;
+            }
+        }
+       
+
+        #endregion
+        
+        
         private void reloadScene(InputAction.CallbackContext context)
         {
             SceneManager.LoadScene("Main");
@@ -86,7 +144,6 @@ namespace DigitalMedia
             }
 
             return false;
-
         }
 
         /// <summary>
@@ -117,18 +174,18 @@ namespace DigitalMedia
                 ChangeAnimationState(PLAYER_IDLE);
             }
         }
-
+        
         private void ChangeAnimationState(string newState)
         {
             //Checks if the animation is already playing 
             if (newState == currentAnimState) return;
-        
+
             //Plays a new animation
             _animator.Play(newState);
-        
+
             //Sets the current animation for later use. 
             currentAnimState = newState;
         }
-        
+
     }
 }
