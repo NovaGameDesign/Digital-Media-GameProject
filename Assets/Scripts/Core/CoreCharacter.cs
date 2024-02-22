@@ -7,17 +7,17 @@ namespace DigitalMedia.Core
     {
         None,
         Idle,
+        Moving,
         Airborne,
         Attacking,
         Blocking,
         Staggered,
-        
     }
-    public class CoreCharacter : MonoBehaviour
-    {
-        public CharacterStats data;
 
-        protected State currentState = State.Idle;
+    public class CoreCharacter : MonoBehaviour, IStateController
+    {
+        public CharacterData data;
+        
         protected bool canInterruptState;
         
         protected Animator _animator;
@@ -26,6 +26,9 @@ namespace DigitalMedia.Core
 
         [SerializeField] protected LayerMask groundLayer;
 
+        protected string currentAnimState;
+        [System.NonSerialized] public State currentState = State.Idle;
+        
         private void Start()
         {
             _animator = GetComponent<Animator>();
@@ -41,5 +44,30 @@ namespace DigitalMedia.Core
             canInterruptState = yesNo == 1 ? true : false;  //Reads as: if yesno is 1 then true, else is false. 
         }
         
+        public virtual void ChangeAnimationState(string newState)
+        {
+            //Checks if the animation is already playing 
+            if (newState == currentAnimState) return;
+
+            //Plays a new animation
+            _animator.Play(newState);
+
+            //Sets the current animation for later use. 
+            currentAnimState = newState;
+        }
+
+        public void StateChanger(State changeToState)
+        {
+            currentState = changeToState;
+        }
+
+        public void InitateStateChange(State changeStateTo)
+        {
+            var childrenWithInterface = gameObject.GetComponents<IStateController>();
+            foreach (var item in childrenWithInterface)
+            {
+                item.StateChanger(changeStateTo);
+            }
+        }
     }
 }

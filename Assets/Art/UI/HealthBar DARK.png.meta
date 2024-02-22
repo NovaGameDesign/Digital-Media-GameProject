@@ -116,7 +116,7 @@ TextureImporter:
         x: 19
         y: 147
         width: 57
-        height: 7
+        height: 2
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,27 +147,6 @@ TextureImporter:
       bones: []
       spriteID: 6f5392ff82d8cab49af6ec26cc3e031a
       internalID: 958571975
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthBar DARK_2
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 134
-        width: 64
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c47c9cc854af6ea428d54e92ea7f7def
-      internalID: 155019573
       vertices: []
       indices: 
       edges: []
@@ -349,7 +328,7 @@ TextureImporter:
         width: 19
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,6 +336,48 @@ TextureImporter:
       bones: []
       spriteID: 967e7176f588a104796687d7fab75357
       internalID: 1018056638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBar DARK_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 150
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c5cf6db064d8246aaa162c1f8371c9
+      internalID: -2051734488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBar DARK_14
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 135
+        width: 64
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a8c0805cfe5e1419c2ca61b7d557cc
+      internalID: -823257859
       vertices: []
       indices: 
       edges: []
@@ -376,6 +397,9 @@ TextureImporter:
       HealthBar DARK_1: 958571975
       HealthBar DARK_10: 314297828
       HealthBar DARK_11: 1018056638
+      HealthBar DARK_12: -2051734488
+      HealthBar DARK_13: -1153375716
+      HealthBar DARK_14: -823257859
       HealthBar DARK_2: 155019573
       HealthBar DARK_3: -1403040469
       HealthBar DARK_4: 1588239321

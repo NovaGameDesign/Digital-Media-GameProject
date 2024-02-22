@@ -17,8 +17,6 @@ namespace DigitalMedia
 
         private Rigidbody2D rb;
         private bool canDoubleJump = true;
-     
-        private string currentAnimState;
 
         #region wall sliding
         
@@ -32,11 +30,10 @@ namespace DigitalMedia
         private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
         #endregion
-  
         
         //Animation States 
         private const string PLAYER_IDLE = "Idle";
-        private const string PLAYER_WALK = "Walk";
+        private const string PLAYER_WALK = "Walk_Start";
         private const string PLAYER_RUN = "Player_Run";
         private const string PLAYER_JUMP = "Player_Jump";
         //Add above values as needed. 
@@ -56,8 +53,6 @@ namespace DigitalMedia
             
             _animator = GetComponent<Animator>();
         }
-
-        
        
         private void FixedUpdate()
         {
@@ -151,41 +146,40 @@ namespace DigitalMedia
         /// </summary>
         private void Move()
         {
-            Vector2 moveDirection = move.ReadValue<Vector2>();
             
-            if(currentState != State.Idle)
+            //Check if the player was moving and if so set their velocity (x) back to 0 and return. 
+            if(currentState == State.Attacking)
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
                 return;
-            
-            
-            Vector2 playerVelocity = new Vector2(moveDirection.x * data.BasicData.speed, rb.velocity.y);
-            rb.velocity = playerVelocity;
-            if (playerVelocity.x > 0)
-            {
-                transform.rotation = new Quaternion(0, 180, 0, 0);
-                ChangeAnimationState(PLAYER_WALK);
-            }
-            else if (playerVelocity.x < 0)
-            {
-                transform.rotation = new Quaternion(0, 0, 0, 0);
-                ChangeAnimationState(PLAYER_WALK);
             }
             else
             {
-                ChangeAnimationState(PLAYER_IDLE);
+                Vector2 moveDirection = move.ReadValue<Vector2>();
+                Vector2 playerVelocity = new Vector2(moveDirection.x * data.BasicData.speed, rb.velocity.y);
+                rb.velocity = playerVelocity;
+            
+                if (playerVelocity.x > 0)
+                {
+                    InitateStateChange(State.Moving);
+               
+                    transform.rotation = new Quaternion(0, 180, 0, 0);
+                    ChangeAnimationState(PLAYER_WALK);
+                }
+                else if (playerVelocity.x < 0)
+                {
+                    InitateStateChange(State.Moving);
+                
+                    transform.rotation = new Quaternion(0, 0, 0, 0);
+                    ChangeAnimationState(PLAYER_WALK);
+                }
+                else
+                {
+                    ChangeAnimationState(PLAYER_IDLE);
+                }
             }
+            
+          
         }
-        
-        private void ChangeAnimationState(string newState)
-        {
-            //Checks if the animation is already playing 
-            if (newState == currentAnimState) return;
-
-            //Plays a new animation
-            _animator.Play(newState);
-
-            //Sets the current animation for later use. 
-            currentAnimState = newState;
-        }
-
     }
 }

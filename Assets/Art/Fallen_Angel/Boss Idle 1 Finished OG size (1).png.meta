@@ -110,6 +110,48 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: Boss Idle 1 Finished OG size (1)_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 150
+        height: 150
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b80acebae7f49848ad15ab0d932b17d
+      internalID: -1149567146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Idle 1 Finished OG size (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 150
+        height: 150
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438fc59649db61248b9520291b967030
+      internalID: -867370599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Boss Idle 1 Finished OG size (1)_0
       rect:
         serializedVersion: 2
@@ -117,14 +159,14 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0b97b3711411774e928590a64986f21
+      spriteID: 50839914755e7134fb9a927a42643c0e
       internalID: 1594705043
       vertices: []
       indices: 
@@ -138,14 +180,14 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9272b3c189b7b6346826a6021f68e8e8
+      spriteID: f04c0798f497c8f4f9e14f4968f540c0
       internalID: 564932754
       vertices: []
       indices: 
@@ -159,14 +201,14 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d550e9d7da391a4a942b0a3bd42b079
+      spriteID: 7af80c8266f54cc4395b483579b66939
       internalID: 861536803
       vertices: []
       indices: 
@@ -180,36 +222,15 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4bdc3634d7a08640a93c71fe3224b5f
+      spriteID: 1889ce80b1e502742a1b123ceb29f5f6
       internalID: 1842620273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss Idle 1 Finished OG size (1)_4
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 150
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b80acebae7f49848ad15ab0d932b17d
-      internalID: -1149567146
       vertices: []
       indices: 
       edges: []
@@ -222,14 +243,14 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41240e9dd656da948afb0ea0d7bdee31
+      spriteID: 475dab331cba7294e8be9dfee1fef994
       internalID: 280815012
       vertices: []
       indices: 
@@ -243,36 +264,15 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f5184db75dfdf24a98181999dee65c2
+      spriteID: a7b74e1816b8c9a468c2e5ad28750b8e
       internalID: -1517782937
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss Idle 1 Finished OG size (1)_7
-      rect:
-        serializedVersion: 2
-        x: 1050
-        y: 0
-        width: 150
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 438fc59649db61248b9520291b967030
-      internalID: -867370599
       vertices: []
       indices: 
       edges: []

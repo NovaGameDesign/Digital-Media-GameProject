@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7240847963615986317}
   - component: {fileID: 631446852819556026}
   - component: {fileID: 3306303527067374545}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7602735825399929447}
   - component: {fileID: 3569324115600833233}
   - component: {fileID: 4997182761444523920}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Health Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 7421598088086253509}
   - component: {fileID: 2891306476013368725}
   - component: {fileID: 6917418581996708081}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 2016652416074528837}
   - component: {fileID: 7475295460978363409}
   - component: {fileID: 5873474986906255364}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,12 +393,13 @@ GameObject:
   - component: {fileID: 5191036674185710151}
   - component: {fileID: 988880164570383326}
   - component: {fileID: 3177141946236178803}
-  - component: {fileID: 1599223612551864140}
   - component: {fileID: 1827509286672496978}
   - component: {fileID: 3254078647042271710}
-  m_Layer: 3
+  - component: {fileID: 6631169985997930655}
+  - component: {fileID: 5805524978273425112}
+  m_Layer: 8
   m_Name: Dummy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,22 +528,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1599223612551864140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5540487374320638976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbfddd649c700964eab749d097967857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 0ebba08a7138ae847a678cbdb8a8271d, type: 2}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &1827509286672496978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,10 +543,14 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 0ebba08a7138ae847a678cbdb8a8271d, type: 2}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  isAnAgent: 0
+  behaviourTreeInstance: {fileID: 0}
+  player: {fileID: 0}
   layersToCheck:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
+  parrying: 0
 --- !u!114 &3254078647042271710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,4 +564,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 0ebba08a7138ae847a678cbdb8a8271d, type: 2}
+  overrideHealthMax: 0
   health: 100
+  vitalityBar: {fileID: 0}
+  statsUI: {fileID: 0}
+--- !u!114 &6631169985997930655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540487374320638976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviourTree: {fileID: 11400000, guid: 1a9a208fc584f6a449ed81ed43552903, type: 2}
+  validate: 1
+  blackboardOverrides: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!195 &5805524978273425112
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540487374320638976}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.171875
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.34375
+  m_BaseOffset: 1.171875
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

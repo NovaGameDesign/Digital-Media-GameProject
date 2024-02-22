@@ -14,12 +14,10 @@ namespace DigitalMedia.Combat
         private PlayerInput _playerInput;
         private InputAction attack;
         private InputAction block;
-
-
+        
         #endregion
 
-
-        protected Collider2D[] overlapping;
+        private Collider2D[] overlapping;
 
         [SerializeField] protected LayerMask layersToCheck;
 
@@ -39,10 +37,9 @@ namespace DigitalMedia.Combat
 
         //Unlike the Player character's animation names, these are intended to be used across the base version of all that inherits from these. In other words, these should work on both the player and enemy. 
 
-
         private void Start()
         {
-            currentState = State.Idle;
+            InitateStateChange(State.Idle);
             //Input
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
@@ -58,21 +55,21 @@ namespace DigitalMedia.Combat
 
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
-            Debug.Log("Attacked");
+            // Debug.Log("Attacked");
 
-            if (currentState != State.Idle && currentState != State.Airborne &&
-                !canInterruptState) //Check what state the player is in. Generally they'd need to be in one of the aforementioned states.
+            if (currentState != State.Idle && currentState != State.Moving && currentState != State.Airborne && !canInterruptState) //Check what state the player is in. Generally they'd need to be in one of the aforementioned states.
             {
                 return;
-
             }
 
-            if (currentState == State.Attacking)
+            InitateStateChange(State.Attacking);
+            //Debug.Log($"The player's new state is: {currentState}");
+            /*if (currentState == State.Airborne)
             {
                 AirborneAttack();
-            }
-
-            currentState = State.Attacking;
+                return;
+            }*/
+         
             switch (currentAttackIndex)
             {
                 case 0:
@@ -142,7 +139,7 @@ namespace DigitalMedia.Combat
 
         public void EndAttackSequence()
         {
-            currentState = State.Idle;
+            InitateStateChange(State.Idle);
             currentAttackIndex = 0;
             _animator.Play(ANIM_IDLE);
         }
@@ -156,17 +153,19 @@ namespace DigitalMedia.Combat
         {
             if (context.canceled)
             {
-                Debug.Log("Stopped holding right click;");
-                currentState = State.Idle;
+                //Debug.Log("Stopped holding right click;");
+                InitateStateChange(State.Idle);
                 _animator.Play("Player_Block_End");
+                blocking = false;
             }
             else if (context.performed)
             {
                 if (currentState != State.Idle && !canInterruptState) return;
 
-                currentState = State.Blocking;
+                InitateStateChange(State.Blocking);
 
                 _animator.Play(ANIM_BLOCK);
+                blocking = true;
                 parrying = true;
             }
         }
@@ -174,40 +173,7 @@ namespace DigitalMedia.Combat
         public void StartStopParrying(string shouldParry)
         {
             parrying = shouldParry == "true" ? true : false;;
-            /* I'm pretty sure we don't even need to overlap but I'm leaving this here in case I need it later on.
-            if (transform.rotation.y > 0)
-            {
-                //Holy crap this was a pain to setup. For some reason the transform didn't want to work if it was == 180 even though that is the exact value :(
-                Vector2 otherSide = new Vector2(data.CombatData.parryOffset.x * -1,
-                    data.CombatData.parryOffset.y);
-                overlapping =  Physics2D.OverlapBoxAll(transform.position + (Vector3)data.CombatData.parryOffset, (Vector3)data.CombatData.parryRange, 0,layersToCheck);
-                //Debug.Log("Changed the side"+ otherSide);
-            }
-            else if (transform.rotation.y == 0)
-            {
-                overlapping =  Physics2D.OverlapBoxAll(transform.position + (Vector3)data.CombatData.parryOffset, (Vector3)data.CombatData.parryRange, 0,layersToCheck);
-            }
-
-            /*
-             *
-             * I want to check if the player is actively parrying when hit. To do that I need a bool isParrying. the enemy can then grab that value from Combatsystem and do stuff.
-             #1#
-
-
-            if (overlapping == null) return;
-
-            foreach (var hit in overlapping)
-            {
-                if(hit.transform.root == transform) continue;
-
-                hit.GetComponent<IDamageable>().WasParried();
-            }
-
-            overlapping = null; //reset the value to null once done.
-            */
         }
-
-       
 
         public void WasParried()
         {
@@ -229,9 +195,6 @@ namespace DigitalMedia.Combat
         }
 
         #endregion
-
-
-
 
         //Used to visualize the range and position of attacks. Each attack can be configured from their data scriptable object. 
         public void OnDrawGizmosSelected()
@@ -257,7 +220,6 @@ namespace DigitalMedia.Combat
                     {
                         for (int i = 0; i < data.CombatData.weaponData.weaponOffset.Length; i++)
                         {
-                            Debug.Log("test");
                             Gizmos.DrawWireSphere(
                                 transform.position + (Vector3)data.CombatData.weaponData.weaponOffset[i],
                                 data.CombatData.weaponData.weaponRange[i].x);
@@ -281,7 +243,6 @@ namespace DigitalMedia.Combat
 
 
         }
-        
     }
 
 }
