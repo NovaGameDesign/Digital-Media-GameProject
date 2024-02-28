@@ -24,8 +24,10 @@ namespace DigitalMedia.Combat
         private int currentAttackIndex = 0;
         public bool parrying;
         public GameObject deathblowTarget = null;
-        [SerializeField] protected GameObject deathblowAirSlash; 
-        protected bool blocking;
+        [SerializeField] protected GameObject deathblowAirSlash;
+        [SerializeField] private GameObject blood;
+        
+        [System.NonSerialized] public bool blocking;
 
         #region Animation
 
@@ -129,7 +131,8 @@ namespace DigitalMedia.Combat
 
                 if (hit.GetComponent<IDamageable>() != null)
                 {
-                    hit.GetComponent<IDamageable>().DealDamage(data.CombatData.attackPower, this.gameObject, true);
+                    var damage = data.CombatData.weaponData.innateWeaponDamage * data.CombatData.attackPower;
+                    hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, true);
                 }
             }
 
@@ -173,7 +176,6 @@ namespace DigitalMedia.Combat
 
                 _animator.Play(ANIM_BLOCK);
                 blocking = true;
-                parrying = true;
             }
         }
 
@@ -210,7 +212,8 @@ namespace DigitalMedia.Combat
         {
             InitateStateChange(State.Deathblowing);
             /*transform.GetComponent<Rigidbody2D>().simulated = false; The idea here is to maybe let the player "teleport" to their destination and do some sort of flash step quick attack deathblow. Idrk I'll probably do it when I have a bit more time to do afterimages for the player teleporting and stuff.
-            transform.position = deathblowTarget.transform.Find("Deathblow Position").position;*/ 
+            transform.position = deathblowTarget.transform.Find("Deathblow Position").position;*/
+           
             _animator.Play("Deathblow");
         }
 
@@ -225,6 +228,7 @@ namespace DigitalMedia.Combat
         {
             //Play animations if we end up having one, otherwise just destroy the target and spawn the slash
             Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
+            Instantiate(blood, deathblowTarget.transform);
             
             Destroy(deathblowTarget.gameObject);
             deathblowTarget = null;

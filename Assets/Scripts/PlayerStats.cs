@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DigitalMedia.Combat;
 using DigitalMedia.Core;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace DigitalMedia
     {
 
         [SerializeField] private GameObject deathUI;
+        private CombatSystem _combatSystem;
         
         private void Start()
         {
@@ -18,7 +20,9 @@ namespace DigitalMedia
             stamina = data.BasicData.stamina;
          
             healthbar = GetComponentInChildren<Slider>();
-            
+
+            _combatSystem = GetComponent<CombatSystem>();
+
         }
         
         // Update is called once per frame
@@ -26,6 +30,10 @@ namespace DigitalMedia
         {
             //write a more complex damage function to account for defense, damage type, etc. 
             /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
+            if (_combatSystem.blocking)
+            {
+                incomingDamage -= (incomingDamage * data.CombatData.weaponData.innateWeaponBlock);
+            }
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
 
