@@ -10,6 +10,7 @@ namespace DigitalMedia.Core
         Moving,
         Airborne,
         Attacking,
+        Deathblowing,
         Blocking,
         Staggered,
     }

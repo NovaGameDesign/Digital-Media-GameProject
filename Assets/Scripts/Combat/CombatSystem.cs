@@ -23,6 +23,8 @@ namespace DigitalMedia.Combat
 
         private int currentAttackIndex = 0;
         public bool parrying;
+        public GameObject deathblowTarget = null;
+        [SerializeField] protected GameObject deathblowAirSlash; 
         protected bool blocking;
 
         #region Animation
@@ -56,7 +58,12 @@ namespace DigitalMedia.Combat
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
             // Debug.Log("Attacked");
-
+            if (deathblowTarget != null)
+            {
+               Deathblow();
+               return;
+            }
+            
             if (currentState != State.Idle && currentState != State.Moving && currentState != State.Airborne && !canInterruptState) //Check what state the player is in. Generally they'd need to be in one of the aforementioned states.
             {
                 return;
@@ -183,6 +190,7 @@ namespace DigitalMedia.Combat
         public void DidParry()
         {
             _animator.Play("Player_Parry");
+            parrying = false; 
             
             GameObject sparks = ObjectPool.SharedInstance.GetPooledObject(); 
             if (sparks != null)
@@ -196,6 +204,33 @@ namespace DigitalMedia.Combat
 
         #endregion
 
+        #region Deathblow
+        
+        public void Deathblow()
+        {
+            InitateStateChange(State.Deathblowing);
+            /*transform.GetComponent<Rigidbody2D>().simulated = false; The idea here is to maybe let the player "teleport" to their destination and do some sort of flash step quick attack deathblow. Idrk I'll probably do it when I have a bit more time to do afterimages for the player teleporting and stuff.
+            transform.position = deathblowTarget.transform.Find("Deathblow Position").position;*/ 
+            _animator.Play("Deathblow");
+        }
+
+        public void EndDeathblowSequence()
+        {
+            InitateStateChange(State.Idle);
+            transform.GetComponent<Rigidbody2D>().simulated = true;
+            //Other stuff
+        }
+        
+        public void SpawnDeathblowSlash()
+        {
+            //Play animations if we end up having one, otherwise just destroy the target and spawn the slash
+            Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
+            
+            Destroy(deathblowTarget.gameObject);
+            deathblowTarget = null;
+        }
+        
+        #endregion
         //Used to visualize the range and position of attacks. Each attack can be configured from their data scriptable object. 
         public void OnDrawGizmosSelected()
         {

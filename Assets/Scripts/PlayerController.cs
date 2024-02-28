@@ -12,7 +12,6 @@ namespace DigitalMedia
         private InputAction move;
         private InputAction jump;
         private InputAction dodge;
-        private InputAction reload;
         private InputAction placeholder; // Use this as needed and add more. 
 
         private Rigidbody2D rb;
@@ -46,8 +45,6 @@ namespace DigitalMedia
             move = _playerInput.actions["Move"];
             jump = _playerInput.actions["Jump"];
             jump.performed += Jump;
-            reload = _playerInput.actions["Reload"];
-            reload.performed += reloadScene;
             
             // dodge = _playerInput.actions["Dodge"];   
             
@@ -63,15 +60,30 @@ namespace DigitalMedia
         {
             //Debug.Log("try to jump");
             //Make your jump here. 
+            if(currentState == State.Attacking)
+                return;
+            
             if (IsGrounded())
             {
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
+                InitateStateChange(State.Airborne);
             }
             else if (canDoubleJump && rb.velocity.y != 0)
             {
+                InitateStateChange(State.Airborne);
                 canDoubleJump = false;
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
             }
+        }
+        private bool IsGrounded()
+        {
+            if (Physics2D.Raycast(transform.position, Vector2.down, data.BasicData.jumpDistanceCheck, groundLayer))
+            {
+                canDoubleJump = true;
+                return true;
+            }
+
+            return false;
         }
         
         #region Wall Jumping and Sliding 
@@ -124,22 +136,8 @@ namespace DigitalMedia
 
         #endregion
         
-        
-        private void reloadScene(InputAction.CallbackContext context)
-        {
-            SceneManager.LoadScene("Main");
-        }
 
-        private bool IsGrounded()
-        {
-            if (Physics2D.Raycast(transform.position, Vector2.down, data.BasicData.jumpDistanceCheck, groundLayer))
-            {
-                canDoubleJump = true;
-                return true;
-            }
-
-            return false;
-        }
+     
 
         /// <summary>
         /// I may update this later to only trigger when the player presses a key, as right now it is quite an expensive operation. 
@@ -162,14 +160,13 @@ namespace DigitalMedia
                 if (playerVelocity.x > 0)
                 {
                     InitateStateChange(State.Moving);
-               
                     transform.rotation = new Quaternion(0, 180, 0, 0);
                     ChangeAnimationState(PLAYER_WALK);
                 }
                 else if (playerVelocity.x < 0)
                 {
+                 
                     InitateStateChange(State.Moving);
-                
                     transform.rotation = new Quaternion(0, 0, 0, 0);
                     ChangeAnimationState(PLAYER_WALK);
                 }
@@ -178,8 +175,6 @@ namespace DigitalMedia
                     ChangeAnimationState(PLAYER_IDLE);
                 }
             }
-            
-          
         }
     }
 }

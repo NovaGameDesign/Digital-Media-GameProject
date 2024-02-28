@@ -8,12 +8,14 @@ namespace DigitalMedia.Core
 {
     public class StatsComponent : MonoBehaviour, IDamageable
     {
-        [SerializeField] private CharacterData data;
+        [SerializeField] protected CharacterData data;
 
         [SerializeField] private bool overrideHealthMax;
         public float health;
+        //Attacking
         protected float stamina;
-        protected float vitality;
+        //Posture
+        public float vitality;
         
         protected Slider healthbar;
 
@@ -39,6 +41,8 @@ namespace DigitalMedia.Core
             }
         }
 
+        [SerializeField] private GameObject blood;
+ 
         private void Start()
         {
             if (!overrideHealthMax)
@@ -50,19 +54,35 @@ namespace DigitalMedia.Core
             stamina = data.BasicData.stamina;
          
             healthbar = GetComponentInChildren<Slider>();
-            
         }
 
-        public void DealDamage(float incomingDamage, GameObject attackOrigin, bool interruptAction = true)
+        public virtual void DealDamage(float incomingDamage, GameObject attackOrigin, bool interruptAction = true)
         {
             //write a more complex damage function to account for defense, damage type, etc. 
             /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
 
+            Instantiate(blood, gameObject.transform);
+            if (attackOrigin.transform.position.x > gameObject.transform.position.x && gameObject.GetComponent<Rigidbody2D>() != null)
+            {
+                Vector2 direction = new Vector2(-.5f, transform.position.y);
+                gameObject.GetComponent<Rigidbody2D>().velocity = direction;
+                StartCoroutine(BasicKBDelay(.1f));
+       
+            }
+            else if (gameObject.GetComponent<Rigidbody2D>() != null)
+            {
+                Vector2 direction = new Vector2(.5f, transform.position.y);
+                gameObject.GetComponent<Rigidbody2D>().velocity = direction;
+                StartCoroutine(BasicKBDelay(.1f));
+                
+            }
+            
             if (health <= 0)
             {
                 if (this.gameObject.name == "Player") return;
+                //spawn other things like guts and blood!
                 Destroy(this.gameObject);
             }
         }
@@ -75,11 +95,6 @@ namespace DigitalMedia.Core
             
             if (vitality <= 0)
             {
-                /*if (this.gameObject.tag("Enemy"))
-                {
-                    
-                }*/
-                
                 //do something 
             }
 
@@ -96,6 +111,17 @@ namespace DigitalMedia.Core
             {
                 StartCoroutine(RegenerateVitality());
             }
+        }
+        
+        IEnumerator BasicKBDelay(float delayTime)
+        {
+            //Wait for the specified delay time before continuing.
+            
+            yield return new WaitForSeconds(delayTime);
+            
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            Debug.Log("We stopped the velocity");
+            //Do the action after the delay time has finished.
         }
     }
 }

@@ -53,5 +53,11 @@ namespace DigitalMedia
             Debug.Log("Quitting Game....");
             Application.Quit();
         }
+        
+        public void reloadScene()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Main");
+        }
     }
 }

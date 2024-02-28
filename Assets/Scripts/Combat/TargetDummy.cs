@@ -7,6 +7,6 @@ namespace DigitalMedia.Combat
 {
     public class TargetDummy : EnemyCoreCombat
     {
-      
+
     }
 }

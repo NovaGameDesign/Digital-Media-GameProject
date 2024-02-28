@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boss_Attack_Combo
+  m_Name: Auriel_Attack_Combo
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -141,7 +141,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 2.45
+  - time: 2.1833334
     functionName: HandleBasicAttack
     data: 
     objectReferenceParameter: {fileID: 0}

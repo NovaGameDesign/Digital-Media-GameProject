@@ -12,7 +12,7 @@ namespace DigitalMedia
         void OnTriggerEnter2D(Collider2D col)
         {
             bossRef.SetActive(true);
-            bossRef.GetComponent<Animator>().Play("Summoning");
+            //bossRef.GetComponent<Animator>().Play("Summoning");
             Destroy(this.gameObject);
         }
     }

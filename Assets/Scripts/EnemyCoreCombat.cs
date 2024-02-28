@@ -18,6 +18,7 @@ namespace DigitalMedia
         [SerializeField] private Transform player;
 
         private BlackboardKey<Vector2> keyRef;
+        private BlackboardKey<GameObject> playerKeyRef;
         
         #endregion
         
@@ -28,6 +29,7 @@ namespace DigitalMedia
         private int currentAttackIndex = 0;
         public bool parrying;
         protected bool blocking;
+        private GameObject targetThatParried;
         
         //Unlike the Player character's animation names, these are intended to be used across the base version of all that inherits from these. In other words, these should work on both the player and enemy. 
 
@@ -37,18 +39,20 @@ namespace DigitalMedia
         void Start()
         {
             _animator = GetComponent<Animator>();
-            
+
+            stats = GetComponent<StatsComponent>();
+
             InitateStateChange(State.Idle);
             
+            playerKeyRef = behaviourTreeInstance.FindBlackboardKey<GameObject>("Player GameObject");
             if (isAnAgent)
             {
                 agent = GetComponent<NavMeshAgent>();
                 agent.updateRotation = false;
                 agent.updateUpAxis = false;
                 keyRef = behaviourTreeInstance.FindBlackboardKey<Vector2>("Player Position");
+                playerKeyRef.value = player.gameObject;
             }
-
-            stats = GetComponent<StatsComponent>();
         }
 
         private void FixedUpdate()
@@ -98,6 +102,10 @@ namespace DigitalMedia
             }
         }
 
+        /// <summary>
+        /// Handle the attack functionality related to hit boxes and dealing damage. In here we spawn colliders and then do a variety of checks. 
+        /// </summary>
+        /// <param name="rangeToUse"></param>
         public virtual void HandleBasicAttack(int rangeToUse = 0)
         {
             //Theoretically if the enemy has multiple attacks, and thus attack sizes, we'd change the index from 0 -> whatever is associated  with that attack. 
@@ -117,11 +125,27 @@ namespace DigitalMedia
             foreach (var hit in overlapping)
             {
                 if (hit.transform.root == transform) continue;
+                
+                // If the target is deathblowing we don't want to deal any damage to them. 
+                if (hit.GetComponent<CombatSystem>()?.currentState == State.Deathblowing)
+                {
+                    overlapping = null;
+                    return; 
+                }
 
                 if (hit.GetComponent<CombatSystem>() != null && hit.GetComponent<CombatSystem>().parrying)
                 {
-                    hit.GetComponent<ICombatCommunication>().DidParry();
+                   
+                    hit.GetComponent<ICombatCommunication>().DidParry(); //Calling on the target
                     WasParried();
+                    if (stats.vitality < 0)
+                    {
+                        InitateStateChange(State.Staggered);
+                        _animator.Play("Staggered");
+                        hit.GetComponent<CombatSystem>().deathblowTarget = this.gameObject;
+                        targetThatParried = hit.gameObject;
+                    }
+                    overlapping = null;
                     return;
                 }
                 
@@ -139,6 +163,14 @@ namespace DigitalMedia
             InitateStateChange(State.Idle);
             currentAttackIndex = 0;
             _animator.Play("Idle");
+        }
+
+        public void DisableDeathblow()
+        {
+            InitateStateChange(State.Idle);
+            _animator.Play("Idle");
+            targetThatParried.GetComponent<CombatSystem>().deathblowTarget = null;
+            stats.vitality = data.BasicData.maxVitality / 4;
         }
 
         #endregion
@@ -175,10 +207,10 @@ namespace DigitalMedia
             //Implement animation parry reaction and state changes. 
             _animator.Play("Parried");
             stats.DealVitalityDamage(15);
-            
+            return;
         }
 
-        public void DidParry()
+        public void DidParry() 
         {
             _animator.Play("Parry");
 
@@ -238,10 +270,7 @@ namespace DigitalMedia
                 Gizmos.DrawWireCube(transform.position + (Vector3)data.CombatData.parryOffset,
                     (Vector3)data.CombatData.parryRange);
             }
-
-
         }
     }
-
 }
 
