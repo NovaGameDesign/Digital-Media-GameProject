@@ -15,7 +15,12 @@ namespace DigitalMedia
         
         private void Start()
         {
-         
+            if (!overrideHealthMax)
+            {
+                health = data.BasicData.maxHealth;
+               
+            }
+            
             vitality = data.BasicData.maxVitality;
             stamina = data.BasicData.stamina;
          
@@ -28,14 +33,17 @@ namespace DigitalMedia
         // Update is called once per frame
         public override void DealDamage(float incomingDamage, GameObject attackOrigin, bool interruptAction = true)
         {
+            
             //write a more complex damage function to account for defense, damage type, etc. 
             /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
             if (_combatSystem.blocking)
             {
                 incomingDamage -= (incomingDamage * data.CombatData.weaponData.innateWeaponBlock);
             }
+            
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
+            
 
             if (health <= 0)
             { 

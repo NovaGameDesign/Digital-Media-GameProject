@@ -10,7 +10,7 @@ namespace DigitalMedia.Core
     {
         [SerializeField] protected CharacterData data;
 
-        [SerializeField] private bool overrideHealthMax;
+        [SerializeField] protected bool overrideHealthMax;
         public float health;
         //Attacking
         protected float stamina;

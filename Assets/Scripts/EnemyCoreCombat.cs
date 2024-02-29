@@ -151,6 +151,7 @@ namespace DigitalMedia
                 
                 if (hit.GetComponent<IDamageable>() != null)
                 {
+                   
                     var damage = data.CombatData.weaponData.innateWeaponDamage * data.CombatData.attackPower;
                     hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, true);
                 }
