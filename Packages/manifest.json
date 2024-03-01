@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.thekiwicoder.behaviourtreeditor": "https://github.com/thekiwicoder0/UnityBehaviourTreeEditor.git",
+    "com.thekiwicoder.behaviourtreeditor": "file:C:/Users/cbrad/Downloads/com.thekiwicoder.behaviourtreeditor6f38f061f6/com.thekiwicoder.behaviourtreeditor@6f38f061f6",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.2.0",
