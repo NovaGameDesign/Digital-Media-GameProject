@@ -121,14 +121,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: transition from spaceship to background
     originalName: 
-    pivot: {x: 0.6862745, y: 0}
+    pivot: {x: 0.5957895, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 3060
+      width: 2375
       height: 1080
     spriteID: 396f6a3a83c903a499ca302d7e0aea9b
     spriteBone: []
@@ -151,9 +151,9 @@ ScriptedImporter:
     - name: transition from spaceship to background
       frameIndex: 0
       cellRect:
-        x: -1140
+        x: -455
         y: 0
-        width: 3060
+        width: 2375
         height: 1080
       spriteId: 396f6a3a83c903a499ca302d7e0aea9b
     linkedCells: []
