@@ -12,6 +12,8 @@ namespace DigitalMedia.Core
 
         [SerializeField] protected bool overrideHealthMax;
         public float health;
+        public int livesRemaining;
+        
         //Attacking
         protected float stamina;
         //Posture
@@ -81,10 +83,27 @@ namespace DigitalMedia.Core
             
             if (health <= 0)
             {
-                if (this.gameObject.name == "Player") return;
-                //spawn other things like guts and blood!
-                Destroy(this.gameObject);
+                livesRemaining--;
+                if (livesRemaining <= 0)
+                {
+                    if (this.gameObject.name == "Player") return;
+                    //spawn other things like guts and blood!
+                    Destroy(this.gameObject);
+                }
+
+                HandleLives();
             }
+        }
+        
+        
+        //I honestly had no clue what to call this. There may be a better name out there. 
+        public void HandleLives()
+        {
+            //We need to: 
+            //1. Update UI to match remaining lives 
+            //2. Increase health and reset any existing modifiers. 
+            //3. Reenabling enemy states if they were attacking -- or just turn their BTs back on. 
+            //4. ?? 
         }
 
         public void DealVitalityDamage(float incomingVitalityDamage)

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -115,7 +128,7 @@ TextureImporter:
         serializedVersion: 2
         x: 958
         y: 1679
-        width: 284
+        width: 282
         height: 421
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -135,9 +148,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1369
-        y: 1679
-        width: 311
-        height: 421
+        y: 1680
+        width: 261
+        height: 420
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,8 +315,8 @@ TextureImporter:
       name: player_walk_10
       rect:
         serializedVersion: 2
-        x: 1389
-        y: 859
+        x: 1391
+        y: 861
         width: 272
         height: 302
       alignment: 7
@@ -388,7 +401,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1369
         y: 419
-        width: 302
+        width: 301
         height: 322
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -431,7 +444,7 @@ TextureImporter:
         x: 1358
         y: 0
         width: 322
-        height: 421
+        height: 323
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
