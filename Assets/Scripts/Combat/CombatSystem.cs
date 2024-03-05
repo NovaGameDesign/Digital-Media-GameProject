@@ -1,3 +1,4 @@
+using DigitalMedia.Combat.Abilities;
 using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
 using UnityEngine;
@@ -7,8 +8,9 @@ namespace DigitalMedia.Combat
 {
     public class CombatSystem : CoreCharacter, ICombatCommunication
     {
-        //Input Related
-
+        public AbilityHolder abilities;
+        
+        
         #region Input
 
         private PlayerInput _playerInput;
