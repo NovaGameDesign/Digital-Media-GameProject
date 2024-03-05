@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace DigitalMedia.Core
 {
     public enum State
