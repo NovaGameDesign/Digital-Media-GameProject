@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using DigitalMedia;
-using DigitalMedia.Core;
-using UnityEngine;
 using TheKiwiCoder;
+using UnityEngine;
 
 
 [System.Serializable]
@@ -11,7 +8,7 @@ public class AttackCombo : ActionNode
 {
     private bool justAttacked;
     private EnemyCoreCombat combatReference;
-    public string attackToTry = "Attack_Combo";
+    public string abilityToTry = "Attack_Combo";
     public NodeProperty<GameObject> playerReference = new NodeProperty<GameObject> { defaultValue = null };
     protected override void OnStart()
     {
@@ -40,11 +37,12 @@ public class AttackCombo : ActionNode
         else
         {
             if(context.agent.isOnNavMesh) context.agent.isStopped = true;
-  
-            combatReference.TryToAttack(attackToTry);
+            
+            combatReference.TriggerAbility(abilityToTry);
             justAttacked = true; 
             //context.animator.GetCurrentAnimatorStateInfo()
         }
         return State.Success;
     }
 }
+

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
@@ -9,7 +6,7 @@ public class FloatCheck : DecoratorNode
     public NodeProperty<float> ValueToCheck = new NodeProperty<float> { defaultValue = 0.1f };
 
     public float TargetValue = 0;
-    
+
     protected override void OnStart() {
     }
 
@@ -24,3 +21,4 @@ public class FloatCheck : DecoratorNode
         return State.Failure;
     }
 }
+

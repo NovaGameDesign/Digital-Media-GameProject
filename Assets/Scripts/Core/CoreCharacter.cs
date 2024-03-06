@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DigitalMedia.Interfaces;
+using UnityEngine;
 
 namespace DigitalMedia.Core
 {
@@ -21,6 +22,7 @@ namespace DigitalMedia.Core
         protected bool canInterruptState;
         
         protected Animator _animator;
+        protected AudioSource _audioPlayer;
 
         //Any data that is shared across (almost) all versions of the player, NPCs, or enemies. 
 
@@ -32,7 +34,7 @@ namespace DigitalMedia.Core
         private void Start()
         {
             _animator = GetComponent<Animator>();
-           
+            _audioPlayer = GetComponent<AudioSource>();
         }
 
         /// <summary>

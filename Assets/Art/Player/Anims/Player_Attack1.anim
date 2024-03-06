@@ -362,11 +362,11 @@ AnimationClip:
       value: {fileID: 306631958, guid: 3c66144fa74560e4f9c7dfe15adcf5b1, type: 3}
     - time: 0.41666666
       value: {fileID: -1729944619, guid: 3c66144fa74560e4f9c7dfe15adcf5b1, type: 3}
-    - time: 0.46666667
-      value: {fileID: -1064919239, guid: 3c66144fa74560e4f9c7dfe15adcf5b1, type: 3}
     - time: 0.5
+      value: {fileID: -1064919239, guid: 3c66144fa74560e4f9c7dfe15adcf5b1, type: 3}
+    - time: 0.6333333
       value: {fileID: -988572637, guid: 3c66144fa74560e4f9c7dfe15adcf5b1, type: 3}
-    - time: 0.53333336
+    - time: 0.6666667
       value: {fileID: 1669218070, guid: 3c66144fa74560e4f9c7dfe15adcf5b1, type: 3}
     attribute: m_Sprite
     path: 
@@ -486,7 +486,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -843,21 +843,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.2
-    functionName: HandleBasicAttack
+  - time: 0.23333333
+    functionName: ActivateAbilityEffects
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.38333333
+  - time: 0.25
+    functionName: HandleAbilityUsage
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
     functionName: CanInterruptState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.5833333
+  - time: 0.6666667
     functionName: EndAttackSequence
     data: 
     objectReferenceParameter: {fileID: 0}

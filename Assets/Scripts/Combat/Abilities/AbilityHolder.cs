@@ -41,7 +41,7 @@ namespace DigitalMedia.Combat.Abilities
             yield return new WaitForSeconds(ability.castTime);
             
             //Functionality stored in the Scriptable Object that performs the ability's logic. 
-            ability.Activate(this);
+            //ability.Activate(this);
 
             //Swap the ability's state to cooldown
             currentAbilityState = AbilityStates.OnCooldown;

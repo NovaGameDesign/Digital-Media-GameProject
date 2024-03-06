@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1383763104251814600}
   - component: {fileID: 5633415055407032113}
   - component: {fileID: 7111708901927554541}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Boss Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 5134756687566530493}
   - component: {fileID: 6533006858414484783}
   - component: {fileID: 287095277072266095}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Random thingy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 6533349180095516807}
   - component: {fileID: 7730507714229244757}
   - component: {fileID: 7086406919545071529}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Vitality Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,13 +301,14 @@ GameObject:
   - component: {fileID: 5418642651894759646}
   - component: {fileID: 5289724392564529451}
   - component: {fileID: 4819974143326034049}
-  m_Layer: 8
+  - component: {fileID: 4121636004800924499}
+  m_Layer: 10
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6268569701883027873
 Transform:
   m_ObjectHideFlags: 0
@@ -494,24 +495,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 2ee69d8649ddbfb439b323b4375e5322, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 83b765d147237e746a4a57f20900153b, type: 2}
   validate: 1
   blackboardOverrides:
   - key:
-      rid: 4748780310176727040
+      rid: 3939234741473509403
     value:
-      rid: 4748780310176727041
+      rid: 3939234741473509404
   references:
     version: 2
     RefIds:
-    - rid: 4748780310176727040
+    - rid: 3939234741473509403
       type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
       data:
         name: Player GameObject
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 4748780310176727041
+    - rid: 3939234741473509404
       type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
       data:
         name: 
@@ -541,6 +542,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 136
   parrying: 0
+  abilities:
+    _serializedList:
+    - Key: Attack_Combo
+      Value: {fileID: 11400000, guid: aa1e6602a2fb62544ba8601b4d976042, type: 2}
+    - Key: Attack_ThreeHit
+      Value: {fileID: 11400000, guid: aa1e6602a2fb62544ba8601b4d976042, type: 2}
+    - Key: Attack_Stab
+      Value: {fileID: 11400000, guid: aa1e6602a2fb62544ba8601b4d976042, type: 2}
 --- !u!114 &4819974143326034049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,10 +565,107 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: ae22c354baf8c76449aaf2ab43f8a9af, type: 2}
   overrideHealthMax: 0
   health: 400
+  livesRemaining: 0
   vitality: 0
   vitalityBar: {fileID: 9118126068686193817}
   statsUI: {fileID: 6775470271333324993}
   blood: {fileID: 7150051775368357156, guid: 27a2ed7675c61e340b7babf009115e3c, type: 3}
+--- !u!82 &4121636004800924499
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767863345217715289}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 850310750931199010, guid: 4826cda8ad5e3f444a134728c458a828, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 4
+  MaxDistance: 12
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5383671724712514978
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +677,7 @@ GameObject:
   - component: {fileID: 5551973219696376004}
   - component: {fileID: 3825109174849189698}
   - component: {fileID: 1210886679685339136}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +755,7 @@ GameObject:
   - component: {fileID: 2463498963853701371}
   - component: {fileID: 1686207984765295450}
   - component: {fileID: 5734260604775662466}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: MyCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,7 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4255071467632050052}
   - component: {fileID: 9118126068686193817}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +1013,7 @@ GameObject:
   - component: {fileID: 4133408371680960110}
   - component: {fileID: 7681609992470664119}
   - component: {fileID: 523848523728184284}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Health Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +1035,7 @@ RectTransform:
   m_Father: {fileID: 4255071467632050052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 16.602112, y: 9.872711}
   m_SizeDelta: {x: 249.97107, y: 92.76849}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -981,7 +1087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8334021936252229135}
   - component: {fileID: 2918255959107687515}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Deathblow Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}

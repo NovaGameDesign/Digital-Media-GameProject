@@ -139,7 +139,7 @@ namespace DigitalMedia.Core
             yield return new WaitForSeconds(delayTime);
             
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            Debug.Log("We stopped the velocity");
+            //Debug.Log("We stopped the velocity");
             //Do the action after the delay time has finished.
         }
     }

@@ -17,8 +17,30 @@ namespace DigitalMedia.Combat.Abilities
         [Header("Allowed Ability Usage States")]
         public List<State> allowedUsageStates = new List<State>() { State.Idle };
 
+        [Header("Ability Details")]
+        public AnimationClip animToPlay;
+
+        [Header("Sounds")]
+        public AudioClip sfxBasic;
+        public AudioClip sfxHit;
+
+        public AbilityStates currentAbilityState = AbilityStates.ReadyToActivate;
+        
+        public enum AbilityStates
+        {
+            ReadyToActivate = 0,
+            Using = 1, 
+            OnCooldown = 2
+        }
+        
         public virtual void OnAbilityUpdate(AbilityHolder holder) { }
-        public abstract void Activate(AbilityHolder holder);
+
+        public abstract void Activate(GameObject holder);
+
+        public virtual void ActivateAbilityEffects(GameObject holder)
+        {
+           holder.gameObject.GetComponent<AudioSource>()?.PlayOneShot(sfxBasic);
+        }
 
     }
 }

@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using AYellowpaper.SerializedCollections;
 using DigitalMedia.Combat.Abilities;
 using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
@@ -8,9 +11,6 @@ namespace DigitalMedia.Combat
 {
     public class CombatSystem : CoreCharacter, ICombatCommunication
     {
-        public AbilityHolder abilities;
-        
-        
         #region Input
 
         private PlayerInput _playerInput;
@@ -23,7 +23,7 @@ namespace DigitalMedia.Combat
 
         [SerializeField] protected LayerMask layersToCheck;
 
-        private int currentAttackIndex = 0;
+        [NonSerialized] public int currentAttackIndex = 0;
         public bool parrying;
         public GameObject deathblowTarget = null;
         [SerializeField] protected GameObject deathblowAirSlash;
@@ -40,6 +40,16 @@ namespace DigitalMedia.Combat
         private const string ANIM_BLOCK = "Player_Block_Start";
 
         #endregion
+        
+        #region Ability System Variables and enums 
+        
+        [SerializedDictionary("Attack Name", "Attack Scriptable Object Ref")]
+        public SerializedDictionary<string, AbilityBase> abilities;
+
+        private AbilityBase currentAbility;
+        private AbilityBase oldAbility; 
+        
+        #endregion
 
         //Unlike the Player character's animation names, these are intended to be used across the base version of all that inherits from these. In other words, these should work on both the player and enemy. 
 
@@ -49,8 +59,9 @@ namespace DigitalMedia.Combat
             //Input
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
-            attack.performed += TryToAttack;
             block = _playerInput.actions["Block"];
+            //Assigning Functionality
+            attack.performed += TryToAttack;
             block.performed += TryToBlock;
             block.canceled += TryToBlock;
 
@@ -61,26 +72,37 @@ namespace DigitalMedia.Combat
 
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
-            // Debug.Log("Attacked");
+            //Convert this to ability and have functionality for the different deathblow types (ie. boss vs basic enemy). 
             if (deathblowTarget != null)
             {
-               Deathblow();
-               return;
+                Deathblow();
+                return;
             }
             
-            if (currentState != State.Idle && currentState != State.Moving && currentState != State.Airborne && !canInterruptState) //Check what state the player is in. Generally they'd need to be in one of the aforementioned states.
+            if (currentState == State.Airborne)
             {
+                TriggerAbility("Attack_Airborne");
                 return;
             }
-
-            InitateStateChange(State.Attacking);
-            //Debug.Log($"The player's new state is: {currentState}");
-            /*if (currentState == State.Airborne)
+            
+            switch (currentAttackIndex)
             {
-                AirborneAttack();
-                return;
-            }*/
-         
+                case 0:
+                    TriggerAbility("Attack_Combo_One");
+                    break;
+                case 1:
+                    TriggerAbility("Attack_Combo_Two");
+                    break;
+                case 2:
+                    TriggerAbility("Attack_Combo_Three");
+                    break;
+                default:
+                    currentAttackIndex = 0;
+                    break;
+            }
+
+            /*
+
             switch (currentAttackIndex)
             {
                 case 0:
@@ -92,7 +114,7 @@ namespace DigitalMedia.Combat
                 }
                 case 1:
                 {
-                    _animator.Play(ANIM_ATTACK_TWO); // Update these once we have the other anims. 
+                    _animator.Play(ANIM_ATTACK_TWO); // Update these once we have the other anims.
                     currentAttackIndex++;
                     return;
                 }
@@ -102,10 +124,83 @@ namespace DigitalMedia.Combat
                     currentAttackIndex = 0;
                     return;
                 }
+            }*/
+        }
+        
+       public void TriggerAbility(string desiredAbility)
+        {
+            //Store the old ability in case we get in trouble. 
+            oldAbility = currentAbility;
+            
+            //Find the desired ability 
+            abilities.TryGetValue(desiredAbility, out currentAbility);
+            if (currentAbility == null) return;
+            
+            //Debug.Log($"The ability we found was {currentAbility}. The owning script is {this.gameObject}");
+
+            if (currentAbility.currentAbilityState != AbilityBase.AbilityStates.ReadyToActivate)
+            {
+                currentAbility = oldAbility;
+                return;  
             }
+            if (!CharacterIsInAllowedState() && !canInterruptState)
+            {
+                //If we can't use the new ability then we need to swap back to the old ability in case it had any additional checks to complete.
+                //Debug.Log($"The player was not in the right state, they were in {currentState}");
+                currentAbility = oldAbility;
+                return;
+            }
+            
+            //play animation 
+            _animator.Play(currentAbility.animToPlay.name);
+            InitateStateChange(State.Attacking);
         }
 
-        public virtual void HandleBasicAttack()
+        /// <summary>
+        /// 
+        /// </summary>
+        private void HandleAbilityUsage()
+        {
+            //currentAbility.currentAbilityState = AbilityBase.AbilityStates.Using;
+            
+            //Functionality stored in the Scriptable Object that performs the ability's logic. 
+            //While most of these will likely just call HandleBasicAttack, in some cases we might not do this or have additional logic performed either on the SO or here. 
+            currentAbility.Activate(this.gameObject);
+        }
+
+        public void ActivateAbilityEffects()
+        {
+            currentAbility.ActivateAbilityEffects(this.gameObject);
+        }
+        
+        public void EndAbilityUsage()
+        {
+            //Swap the ability's state to cooldown
+            currentAbility.currentAbilityState = AbilityBase.AbilityStates.OnCooldown;
+            
+            InitateStateChange(State.Idle);
+            _animator.Play("Idle");
+            
+            if (currentAbility.hasCooldown)
+            {
+                StartCoroutine(HandleCooldown_CO());
+            }
+        }
+        
+        private IEnumerator HandleCooldown_CO()
+        {
+            yield return new WaitForSeconds(currentAbility.cooldown);
+
+            currentAbility.currentAbilityState = AbilityBase.AbilityStates.ReadyToActivate;
+        }
+        
+        public bool CharacterIsInAllowedState()
+        {
+            return currentAbility.allowedUsageStates.Contains(currentState);
+        }
+        
+
+        public virtual void HandleBasicAttack(Vector2 weaponOffset, Vector2 weaponRange)
         {
             //Theoretically if the enemy has multiple attacks, and thus attack sizes, we'd change the index from 0 -> whatever is associated  with that attack. 
             if (transform.rotation.y > 0)

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6631169985997930655}
   - component: {fileID: 3254078647042271710}
   - component: {fileID: 5487160598272473432}
+  - component: {fileID: 2131087918643861417}
   m_Layer: 8
   m_Name: Dummy
   m_TagString: Enemy
@@ -209,24 +210,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 1a9a208fc584f6a449ed81ed43552903, type: 2}
-  validate: 1
+  behaviourTree: {fileID: 11400000, guid: 238ab8f30cd828e40ad10e9dc3854a98, type: 2}
+  validate: 0
   blackboardOverrides:
   - key:
-      rid: 4748780298299768835
+      rid: 3939234741473509401
     value:
-      rid: 4748780298299768836
+      rid: 3939234741473509402
   references:
     version: 2
     RefIds:
-    - rid: 4748780298299768835
+    - rid: 3939234741473509401
       type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
       data:
         name: Player GameObject
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 4748780298299768836
+    - rid: 3939234741473509402
       type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
       data:
         name: 
@@ -248,6 +249,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 0ebba08a7138ae847a678cbdb8a8271d, type: 2}
   overrideHealthMax: 0
   health: 100
+  livesRemaining: 0
   vitality: 30
   vitalityBar: {fileID: 7156911662084417108}
   statsUI: {fileID: 1690146559821964813}
@@ -275,6 +277,106 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 136
   parrying: 0
+  abilities:
+    _serializedList:
+    - Key: Attack_Combo
+      Value: {fileID: 11400000, guid: bbc09e00adc47f24bb5ce77fc8eb9450, type: 2}
+--- !u!82 &2131087918643861417
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540487374320638976}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 850310750931199010, guid: 4826cda8ad5e3f444a134728c458a828, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 4
+  MaxDistance: 12
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2798175448296679326
 PrefabInstance:
   m_ObjectHideFlags: 0
