@@ -6,12 +6,12 @@ namespace DigitalMedia.Combat.Abilities
     public class AurielMainCombo : AbilityBase
     {
         private Collider2D[] overlapping;
-        [SerializeField] protected LayerMask layersToCheck;
 
         [SerializeField] private Vector2 [] weaponOffset; 
         [SerializeField] private Vector2 [] weaponRange;
 
         private int currentAttackIndex;
+
         public override void Activate(GameObject holder)
         {
             

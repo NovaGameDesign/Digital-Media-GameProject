@@ -11,8 +11,8 @@ namespace DigitalMedia.Combat.Abilities
         
         public override void Activate(GameObject holder)
         {
-            holder.GetComponent<CombatSystem>()?.HandleBasicAttack(weaponOffset, weaponRange);
-            holder.GetComponent<CombatSystem>().currentAttackIndex = 0;
+            holder.GetComponent<PlayerCombatSystem>()?.HandleBasicAttack(weaponOffset, weaponRange);
+            holder.GetComponent<PlayerCombatSystem>().currentAttackIndex = 0;
             //Play audio 
             //Play Effects 
         }

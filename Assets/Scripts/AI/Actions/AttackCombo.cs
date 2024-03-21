@@ -1,4 +1,5 @@
 using DigitalMedia;
+using DigitalMedia.Core;
 using TheKiwiCoder;
 using UnityEngine;
 
@@ -20,9 +21,9 @@ public class AttackCombo : ActionNode
 
     protected override State OnUpdate()
     {
-        if (playerReference.Value.GetComponent<PlayerStats>() != null)
+        if (playerReference.Value.GetComponent<StatsComponent>() != null)
         {
-            if(playerReference.Value.GetComponent<PlayerStats>().health <= 0) return State.Success;
+            if(playerReference.Value.GetComponent<StatsComponent>().currentLives <= 0) return State.Success;
         }
         //Maybe check the current animation state's name and see if it matches our attack to try. There may be a situation where the attackCombo tries a new attack but it indicates it already is attacking if that makes sense.
         if (combatReference.currentState == DigitalMedia.Core.State.Attacking) 

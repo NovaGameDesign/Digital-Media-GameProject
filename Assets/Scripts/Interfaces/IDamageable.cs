@@ -9,8 +9,9 @@ namespace DigitalMedia.Interfaces
         /// </summary>
         /// <param name="incomingDamage"></param>
         /// <param name="attackOrigin"></param>
+        /// <param name="knockbackForce"></param>
         /// <param name="interruptAction"></param>
-        public void DealDamage(float incomingDamage, GameObject attackOrigin, bool interruptAction = true);
+        public void DealDamage(float incomingDamage, GameObject attackOrigin, float knockbackForce = .5f, bool interruptAction = true);
 
         /// <summary>
         /// 
