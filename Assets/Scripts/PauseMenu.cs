@@ -1,6 +1,3 @@
-using DigitalMedia.Core;
-using DigitalMedia.Interfaces;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;

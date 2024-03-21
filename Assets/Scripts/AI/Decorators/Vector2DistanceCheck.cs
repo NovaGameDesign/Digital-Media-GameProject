@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TheKiwiCoder;
+using UnityEngine;
 
 [System.Serializable]
 public class Vector2DistanceCheck : DecoratorNode
@@ -12,7 +10,7 @@ public class Vector2DistanceCheck : DecoratorNode
     /// Distance that we are ok with proceeding in execution,.
     /// </summary>
     public float acceptanceRange = 0;
-    
+
     protected override void OnStart() {
     }
 
@@ -41,3 +39,4 @@ public class Vector2DistanceCheck : DecoratorNode
 
     }
 }
+

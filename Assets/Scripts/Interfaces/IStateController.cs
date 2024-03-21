@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using DigitalMedia.Core;
-using UnityEngine;
 
-namespace DigitalMedia
+namespace DigitalMedia.Interfaces
 {
     public interface IStateController
     {

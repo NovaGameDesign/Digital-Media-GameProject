@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.thekiwicoder.behaviourtreeditor": {
-      "version": "file:C:/Users/cbrad/Downloads/com.thekiwicoder.behaviourtreeditor6f38f061f6/com.thekiwicoder.behaviourtreeditor@6f38f061f6",
+      "version": "file:com.thekiwicoder.behaviourtreeditor@6f38f061f6",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {}
     },
     "com.unity.2d.animation": {

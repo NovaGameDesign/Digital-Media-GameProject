@@ -1,7 +1,6 @@
 using DigitalMedia.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 namespace DigitalMedia
 {
@@ -15,12 +14,12 @@ namespace DigitalMedia
         private InputAction placeholder; // Use this as needed and add more. 
 
         private Rigidbody2D rb;
-        private bool canDoubleJump = true;
 
-        #region wall sliding
+        #region Wall Jumping and Sliding
         
         private bool canWallJump = true;
         private bool isWallSliding;
+        private bool jumpLeft, jumpRight; 
         private float wallSlidingSpeed = 2f;
         private float wallJumpingDirection;
         private float wallJumpingTime = 0.2f;
@@ -54,6 +53,12 @@ namespace DigitalMedia
         private void FixedUpdate()
         {
             Move();
+            if (currentState == State.Airborne)
+                if (IsGrounded())
+                {
+                    _animator.Play("Player_Jump-End");
+                    InitateStateChange(State.Idle);
+                };
         }
 
         private void Jump(InputAction.CallbackContext context)
@@ -66,40 +71,66 @@ namespace DigitalMedia
             if (IsGrounded())
             {
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
-                InitateStateChange(State.Airborne);
+               // InitateStateChange(State.Airborne);
+                _animator.Play("Player_Jumping");
             }
-            else if (canDoubleJump && rb.velocity.y != 0)
+            else if (canWallJump)
+            {
+                //InitateStateChange(State.Airborne);
+                canWallJump = false;
+                if (jumpLeft)
+                {
+                    rb.velocity = new Vector2(-550, data.BasicData.jumpingStrength);
+                }
+                else if (jumpRight)
+                {
+                    rb.velocity = new Vector2(15, data.BasicData.jumpingStrength);
+                }
+            }
+            /*else if (canDoubleJump && rb.velocity.y != 0)
             {
                 InitateStateChange(State.Airborne);
                 canDoubleJump = false;
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
-            }
+            }*/
+            
         }
         private bool IsGrounded()
         {
             if (Physics2D.Raycast(transform.position, Vector2.down, data.BasicData.jumpDistanceCheck, groundLayer))
             {
-                canDoubleJump = true;
+                //canDoubleJump = true;
                 return true;
             }
 
             return false;
         }
         
-        #region Wall Jumping and Sliding 
+        #region Wall Sliding 
 
         private bool IsWalled()
         {
-
-            if (Physics2D.Raycast(transform.position, Vector2.left, .5f, groundLayer) || Physics2D.Raycast(transform.position, Vector2.right, .5f, groundLayer))
+            //Split this to an individual left and right check. 
+            if (Physics2D.Raycast(transform.position, Vector2.left, 1f, groundLayer))
             {
                 canWallJump = true;
-                canDoubleJump = true;
+                jumpLeft = true; 
+                return true;
+            }
+            else if (Physics2D.Raycast(transform.position, Vector2.right, 1f, groundLayer))
+            {
+                canWallJump = true;
+                jumpRight = true; 
                 return true;
             }
 
+            canWallJump = false;
+            jumpRight = false;
+            jumpLeft = false; 
+            
             return false;
         }
+        
         private void WallSlide()
         {
             if (IsWalled() && !IsGrounded() && rb.velocity.x != 0)
@@ -111,44 +142,19 @@ namespace DigitalMedia
             {
                 isWallSliding = false;
             }
-
-            if (IsWalled())
-            {
-                wallJumpingDirection = -transform.localScale.x;
-                rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            }
-            else if (canWallJump && rb.velocity.y > 0 && (rb.velocity.x>0 || rb.velocity.x < 0))
-            {
-                canWallJump = false;
-            }
-
-            if (IsWalled())
-            {
-                wallJumpingDirection = -transform.localScale.x;
-                rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            }
-            else if (canWallJump && rb.velocity.y > 0 && (rb.velocity.x>0 || rb.velocity.x < 0))
-            {
-                canWallJump = false;
-            }
         }
-       
 
         #endregion
-        
-
-     
 
         /// <summary>
         /// I may update this later to only trigger when the player presses a key, as right now it is quite an expensive operation. 
         /// </summary>
         private void Move()
         {
-            
             //Check if the player was moving and if so set their velocity (x) back to 0 and return. 
             if(currentState == State.Attacking)
             {
-                rb.velocity = new Vector2(0, rb.velocity.y);
+                /*rb.velocity = new Vector2(0, rb.velocity.y);*/
                 return;
             }
             else
@@ -159,19 +165,21 @@ namespace DigitalMedia
             
                 if (playerVelocity.x > 0)
                 {
+                    WallSlide();
                     InitateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 180, 0, 0);
                     ChangeAnimationState(PLAYER_WALK);
                 }
                 else if (playerVelocity.x < 0)
                 {
-                 
+                    WallSlide();
                     InitateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 0, 0, 0);
                     ChangeAnimationState(PLAYER_WALK);
                 }
                 else
                 {
+                    canWallJump = false; 
                     ChangeAnimationState(PLAYER_IDLE);
                 }
             }
