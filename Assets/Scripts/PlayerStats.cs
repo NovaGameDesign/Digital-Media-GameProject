@@ -29,7 +29,7 @@ namespace DigitalMedia
             _combatSystem = GetComponent<CombatSystem>();
 
         }
-        
+        //add a health increase method here something like set healthbar to 1 for example for healing items
         // Update is called once per frame
         public override void DealDamage(float incomingDamage, GameObject attackOrigin, bool interruptAction = true)
         {
