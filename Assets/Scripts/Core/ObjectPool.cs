@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DigitalMedia
+namespace DigitalMedia.Core
 {
     public class ObjectPool : MonoBehaviour
     {

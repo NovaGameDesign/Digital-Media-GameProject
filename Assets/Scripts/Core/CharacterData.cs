@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DigitalMedia.Core
@@ -55,7 +56,6 @@ namespace DigitalMedia.Core
         public ColliderType ColliderType = ColliderType.box;
         public Vector2[] weaponRange;
         public Vector2[] weaponOffset;
-    
     }
 
     [Serializable]
@@ -69,7 +69,7 @@ namespace DigitalMedia.Core
         public bool ShowParryDebug;
         public Vector2 parryRange;
         public Vector2 parryOffset;
-
+        
     }
 
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CharacterStats", order = 1)]
@@ -77,11 +77,5 @@ namespace DigitalMedia.Core
     {
         public StatsRelated BasicData;
         public CombatRelated CombatData;
-
-
-        public void DealDamage()
-        {
-            
-        }
     }
 }

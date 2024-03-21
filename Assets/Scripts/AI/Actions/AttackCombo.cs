@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using DigitalMedia;
 using DigitalMedia.Core;
-using UnityEngine;
 using TheKiwiCoder;
+using UnityEngine;
 
 
 [System.Serializable]
@@ -11,7 +9,7 @@ public class AttackCombo : ActionNode
 {
     private bool justAttacked;
     private EnemyCoreCombat combatReference;
-    public string attackToTry = "Attack_Combo";
+    public string abilityToTry = "Attack_Combo";
     public NodeProperty<GameObject> playerReference = new NodeProperty<GameObject> { defaultValue = null };
     protected override void OnStart()
     {
@@ -23,9 +21,9 @@ public class AttackCombo : ActionNode
 
     protected override State OnUpdate()
     {
-        if (playerReference.Value.GetComponent<PlayerStats>() != null)
+        if (playerReference.Value.GetComponent<StatsComponent>() != null)
         {
-            if(playerReference.Value.GetComponent<PlayerStats>().health <= 0) return State.Success;
+            if(playerReference.Value.GetComponent<StatsComponent>().currentLives <= 0) return State.Success;
         }
         //Maybe check the current animation state's name and see if it matches our attack to try. There may be a situation where the attackCombo tries a new attack but it indicates it already is attacking if that makes sense.
         if (combatReference.currentState == DigitalMedia.Core.State.Attacking) 
@@ -40,11 +38,12 @@ public class AttackCombo : ActionNode
         else
         {
             if(context.agent.isOnNavMesh) context.agent.isStopped = true;
-  
-            combatReference.TryToAttack(attackToTry);
+            
+            combatReference.TriggerAbility(abilityToTry);
             justAttacked = true; 
             //context.animator.GetCurrentAnimatorStateInfo()
         }
         return State.Success;
     }
 }
+

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6631169985997930655}
   - component: {fileID: 3254078647042271710}
   - component: {fileID: 5487160598272473432}
+  - component: {fileID: 2131087918643861417}
   m_Layer: 8
   m_Name: Dummy
   m_TagString: Enemy
@@ -122,7 +123,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 5540487374320638976}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2d2d10f117137dc4e8768c1d654cd991, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -209,24 +210,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 1a9a208fc584f6a449ed81ed43552903, type: 2}
-  validate: 1
+  behaviourTree: {fileID: 11400000, guid: 238ab8f30cd828e40ad10e9dc3854a98, type: 2}
+  validate: 0
   blackboardOverrides:
   - key:
-      rid: 4748780298299768835
+      rid: 3939234741473509401
     value:
-      rid: 4748780298299768836
+      rid: 3939234741473509402
   references:
     version: 2
     RefIds:
-    - rid: 4748780298299768835
+    - rid: 3939234741473509401
       type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
       data:
         name: Player GameObject
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 4748780298299768836
+    - rid: 3939234741473509402
       type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
       data:
         name: 
@@ -246,9 +247,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 0ebba08a7138ae847a678cbdb8a8271d, type: 2}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   overrideHealthMax: 0
   health: 100
+  currentLives: 0
+  maxLives: 0
   vitality: 30
+  vitalityRegenerationSpeed: 0
+  livesUI: []
   vitalityBar: {fileID: 7156911662084417108}
   statsUI: {fileID: 1690146559821964813}
   blood: {fileID: 7150051775368357156, guid: 27a2ed7675c61e340b7babf009115e3c, type: 3}
@@ -268,13 +276,122 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  isAnAgent: 0
-  behaviourTreeInstance: {fileID: 6631169985997930655}
-  player: {fileID: 0}
   layersToCheck:
     serializedVersion: 2
     m_Bits: 136
   parrying: 0
+  abilities:
+    _serializedList:
+    - Key: Attack_Combo
+      Value: {fileID: 11400000, guid: bbc09e00adc47f24bb5ce77fc8eb9450, type: 2}
+  isAnAgent: 0
+  behaviourTreeInstance: {fileID: 6631169985997930655}
+  player: {fileID: 0}
+--- !u!82 &2131087918643861417
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540487374320638976}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 850310750931199010, guid: 4826cda8ad5e3f444a134728c458a828, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 4
+  MaxDistance: 12
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.33333334
+      value: 1
+      inSlope: -3.0011995
+      outSlope: -3.0011995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6666667
+      value: 0.5
+      inSlope: -0.7502999
+      outSlope: -0.7502999
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.33346638
+      outSlope: -0.33346638
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2798175448296679326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,7 +402,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2209832078987801172, guid: 562a55b759572bb449731ffa9ce1ee8e, type: 3}
       propertyPath: m_Name
-      value: Enemy Default UI
+      value: User Interface
       objectReference: {fileID: 0}
     - target: {fileID: 2583260324855389724, guid: 562a55b759572bb449731ffa9ce1ee8e, type: 3}
       propertyPath: m_AnchorMax.x

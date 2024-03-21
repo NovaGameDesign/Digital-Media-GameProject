@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,12 +126,12 @@ TextureImporter:
       name: deathblow_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 338
+        width: 341
         height: 480
       alignment: 9
-      pivot: {x: 0.76754797, y: 0}
+      pivot: {x: 0.7791178, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +152,7 @@ TextureImporter:
         width: 431
         height: 480
       alignment: 9
-      pivot: {x: 0.8256556, y: 0}
+      pivot: {x: 0.83364254, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,7 +173,7 @@ TextureImporter:
         width: 431
         height: 480
       alignment: 9
-      pivot: {x: 0.82624435, y: 0}
+      pivot: {x: 0.82488686, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +189,12 @@ TextureImporter:
       name: deathblow_3
       rect:
         serializedVersion: 2
-        x: 2248
+        x: 2250
         y: 0
         width: 442
         height: 480
       alignment: 9
-      pivot: {x: 0.8138522, y: 0}
+      pivot: {x: 0.8243922, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
