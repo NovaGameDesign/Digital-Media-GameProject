@@ -123,7 +123,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 5540487374320638976}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2d2d10f117137dc4e8768c1d654cd991, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -247,10 +247,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 0ebba08a7138ae847a678cbdb8a8271d, type: 2}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   overrideHealthMax: 0
   health: 100
-  livesRemaining: 0
+  currentLives: 0
+  maxLives: 0
   vitality: 30
+  vitalityRegenerationSpeed: 0
+  livesUI: []
   vitalityBar: {fileID: 7156911662084417108}
   statsUI: {fileID: 1690146559821964813}
   blood: {fileID: 7150051775368357156, guid: 27a2ed7675c61e340b7babf009115e3c, type: 3}
@@ -270,9 +276,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  isAnAgent: 0
-  behaviourTreeInstance: {fileID: 6631169985997930655}
-  player: {fileID: 0}
   layersToCheck:
     serializedVersion: 2
     m_Bits: 136
@@ -281,6 +284,9 @@ MonoBehaviour:
     _serializedList:
     - Key: Attack_Combo
       Value: {fileID: 11400000, guid: bbc09e00adc47f24bb5ce77fc8eb9450, type: 2}
+  isAnAgent: 0
+  behaviourTreeInstance: {fileID: 6631169985997930655}
+  player: {fileID: 0}
 --- !u!82 &2131087918643861417
 AudioSource:
   m_ObjectHideFlags: 0
@@ -304,7 +310,7 @@ AudioSource:
   MinDistance: 4
   MaxDistance: 12
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -312,23 +318,32 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.33333334
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.0011995
+      outSlope: -3.0011995
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6666667
+      value: 0.5
+      inSlope: -0.7502999
+      outSlope: -0.7502999
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.33346638
+      outSlope: -0.33346638
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -387,7 +402,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2209832078987801172, guid: 562a55b759572bb449731ffa9ce1ee8e, type: 3}
       propertyPath: m_Name
-      value: Enemy Default UI
+      value: User Interface
       objectReference: {fileID: 0}
     - target: {fileID: 2583260324855389724, guid: 562a55b759572bb449731ffa9ce1ee8e, type: 3}
       propertyPath: m_AnchorMax.x

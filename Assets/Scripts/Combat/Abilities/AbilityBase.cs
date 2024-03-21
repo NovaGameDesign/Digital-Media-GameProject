@@ -17,12 +17,14 @@ namespace DigitalMedia.Combat.Abilities
         [Header("Allowed Ability Usage States")]
         public List<State> allowedUsageStates = new List<State>() { State.Idle };
 
-        [Header("Ability Details")]
+        [Header("Animation Details")]
         public AnimationClip animToPlay;
 
         [Header("Sounds")]
         public AudioClip sfxBasic;
         public AudioClip sfxHit;
+        
+        public float knockBackAmount;
 
         public AbilityStates currentAbilityState = AbilityStates.ReadyToActivate;
         

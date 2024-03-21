@@ -1,37 +1,23 @@
-using System;
+﻿using System;
 using System.Collections;
 using AYellowpaper.SerializedCollections;
 using DigitalMedia.Combat;
 using DigitalMedia.Combat.Abilities;
-using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
-using TheKiwiCoder;
 using UnityEngine;
-using UnityEngine.AI;
 
-namespace DigitalMedia
+
+namespace DigitalMedia.Core
 {
-    public class EnemyCoreCombat : CoreCharacter
+    public class CoreCombatSystem : CoreCharacter
     {
-        #region Behavior Tree Related Functionality. 
-        
-        [SerializeField] private bool isAnAgent;
-        private NavMeshAgent agent;
-        public BehaviourTreeInstance behaviourTreeInstance;
-        [SerializeField] private Transform player;
-
-        private BlackboardKey<Vector2> keyRef;
-        private BlackboardKey<GameObject> playerKeyRef;
-        
-        #endregion
-        
-        private Collider2D[] overlapping;
+        protected Collider2D[] overlapping;
 
         [SerializeField] protected LayerMask layersToCheck;
 
-        private int currentAttackIndex = 0;
+        [NonSerialized] public int currentAttackIndex = 0;
         public bool parrying;
-        protected bool blocking;
+        [System.NonSerialized] public bool blocking;
         private GameObject targetThatParried;
         
         //Unlike the Player character's animation names, these are intended to be used across the base version of all that inherits from these. In other words, these should work on both the player and enemy. 
@@ -45,8 +31,8 @@ namespace DigitalMedia
         [SerializedDictionary("Attack Name", "Attack Scriptable Object Ref")]
         public SerializedDictionary<string, AbilityBase> abilities;
 
-        private AbilityBase currentAbility;
-        private AbilityBase oldAbility; 
+        protected AbilityBase currentAbility;
+        protected AbilityBase oldAbility; 
         
         #endregion
         
@@ -59,75 +45,23 @@ namespace DigitalMedia
             stats = GetComponent<StatsComponent>();
 
             InitateStateChange(State.Idle);
-            
-            playerKeyRef = behaviourTreeInstance.FindBlackboardKey<GameObject>("Player GameObject");
-            if (isAnAgent)
-            {
-                agent = GetComponent<NavMeshAgent>();
-                agent.updateRotation = false;
-                agent.updateUpAxis = false;
-                keyRef = behaviourTreeInstance.FindBlackboardKey<Vector2>("Player Position");
-                playerKeyRef.value = player.gameObject;
-            }
         }
-
-        private void FixedUpdate()
-        {
-            if(isAnAgent) keyRef.value = player.transform.position;
-        }
-        
         
         public virtual void TryToAttack(string desiredAttack)
         {
-            TriggerAbility(desiredAttack); // In the event we didn't update an old call. 
-           
-            /*if (currentState != State.Idle && currentState != State.Airborne && !canInterruptState) //Check what state the player is in. Generally they'd need to be in one of the aforementioned states.
-            {
-                return;
-            }
-
-            InitateStateChange(State.Attacking);
-
-            switch (desiredAttack)
-            {
-                case "BasicAttackCombo":
-                {
-                    _animator.Play("Attack_One");
-                    currentAttackIndex++;
-                    return;  
-                }
-                case "Two Hit":
-                {
-                    _animator.Play("Attack_Two"); // Update these once we have the other anims.
-                    currentAttackIndex++;
-                    return;
-                }
-                case "Three Hit":
-                {
-                    _animator.Play("Attack_Three");
-                    currentAttackIndex = 0;
-                    return;
-                }
-                case "Attack_Combo":
-                {
-                    _animator.Play("Attack_Combo"); // Update these once we have the other anims.
-                    currentAttackIndex++;
-                    return;
-                }*/
-
-            }
+            TriggerAbility(desiredAttack); 
+        }
         
         /// <summary>
-        /// Conclusion I made before heading to bed:
         /// Abilities themselves should (if possible) only handle additional functionality, ie. moving the player forward, teleporting, etc.
-        /// This mono behavior and others like it should try (as much as possible) to simply interface with and interpret animation events.
+        /// This monobehavior and others like it should try (as much as possible) to simply interface with and interpret animation events.
         /// This may mean canceling an ability or changing states, but it should be things the scriptable object can't do.
         /// What I need to finish writing is how certain events are executed (ie. damage being dealt) while using our new data system from the Ability. Furthermore, in those events we need to actually activate certain things in the Ability such as knockback. 
         ///
         /// Furthermore, some functionality that could be in the ability will stay in this class or its children as it never changes, such as the collider check. The data for such checks will, however, be in the ability.
         /// In the event of damage being dealt, we instead treat the ability like a pure data scriptable object (SO) and only if necessary call additional functions.
         ///
-        /// IF I implement this properly it does a couple things:
+        /// If I implement this properly it does a couple things:
         /// 1. More robust data for different abilities -- self explanatory but now I won't have to have seven billion audio clips on one monobehavior.
         /// 2. Reducing hard-coded functionality -- Instead of having everything hard coded we can simply pass whatever ability reference we want and theoretically it will execute its own desired code and pass data if needed.
         /// 3. Reduce amount of code in this or other scripts -- Because some of our functionality is now directly on the data container (which is more or less what the AbilityBase class is) this script gets much smaller but also more robust as it is far more versatile.
@@ -139,15 +73,29 @@ namespace DigitalMedia
         /// <param name="desiredAbility"></param>
         public void TriggerAbility(string desiredAbility)
         {
-            abilities.TryGetValue(desiredAbility, out currentAbility);
-            //Debug.Log($"The ability we found was {currentAbility}.");
-            //Debug.Log($"Tried to trigger an ability, we found: {currentAbility}");
+            //Store the old ability in case we get in trouble. 
+            oldAbility = currentAbility;
             
-            if (currentAbility.currentAbilityState != AbilityBase.AbilityStates.ReadyToActivate)
-                return;
-            if (!CharacterIsInAllowedState())
-                return;
+            //Find the desired ability 
+            abilities.TryGetValue(desiredAbility, out currentAbility);
+            if (currentAbility == null) return;
+            
+            
+            //Debug.Log($"The ability we found was {currentAbility}. The owning script is {this.gameObject}");
 
+            if (currentAbility.currentAbilityState != AbilityBase.AbilityStates.ReadyToActivate)
+            {
+                currentAbility = oldAbility;
+                return;  
+            }
+            if (!CharacterIsInAllowedState() && !canInterruptState)
+            {
+                //If we can't use the new ability then we need to swap back to the old ability in case it had any additional checks to complete.
+                //Debug.Log($"The player was not in the right state, they were in {currentState}");
+                currentAbility = oldAbility;
+                return;
+            }
+            
             //play animation 
             _animator.Play(currentAbility.animToPlay.name);
             InitateStateChange(State.Attacking);
@@ -171,19 +119,18 @@ namespace DigitalMedia
         }
         public void EndAbilityUsage()
         {
-            //Swap the ability's state to cooldown
-            currentAbility.currentAbilityState = AbilityBase.AbilityStates.OnCooldown;
-            
+            currentAttackIndex = 0;
             InitateStateChange(State.Idle);
             _animator.Play("Idle");
             
             if (currentAbility.hasCooldown)
             {
+                currentAbility.currentAbilityState = AbilityBase.AbilityStates.OnCooldown;
                 StartCoroutine(HandleCooldown_CO());
             }
         }
         
-        private IEnumerator HandleCooldown_CO()
+        public IEnumerator HandleCooldown_CO()
         {
             yield return new WaitForSeconds(currentAbility.cooldown);
 
@@ -206,12 +153,12 @@ namespace DigitalMedia
             {
                 //Holy crap this was a pain to setup. For some reason the transform didn't want to work if it was == 180 even though that is the exact value :( 
                 Vector2 otherSide = new Vector2(weaponOffset.x * -1, weaponOffset.y); 
-                overlapping = Physics2D.OverlapCircleAll(transform.position + (Vector3)otherSide, weaponRange.x, layersToCheck);
+                overlapping = Physics2D.OverlapBoxAll(transform.position + (Vector3)otherSide, weaponRange, layersToCheck);
                 //Debug.Log("Changed the side"+ otherSide);
             }
             else if (transform.rotation.y == 0)
             {
-                overlapping = Physics2D.OverlapCircleAll(transform.position + (Vector3)weaponOffset, weaponRange.x, layersToCheck);
+                overlapping = Physics2D.OverlapBoxAll(transform.position + (Vector3)weaponOffset, weaponRange, layersToCheck);
             }
 
 
@@ -220,13 +167,13 @@ namespace DigitalMedia
                 if (hit.transform.root == transform) continue; //Checks if it hit self. 
                 
                 // If the target is deathblowing we don't want to deal any damage to them. 
-                if (hit.GetComponent<CombatSystem>()?.currentState == State.Deathblowing) //Checks if the target is deathblow -- in other words whether we should deal damage.  
+                if (hit.GetComponent<CoreCombatSystem>()?.currentState == State.Deathblowing) //Checks if the target is deathblow -- in other words whether we should deal damage.  
                 {
                     overlapping = null;
                     return; 
                 }
 
-                if (hit.GetComponent<CombatSystem>() != null && hit.GetComponent<CombatSystem>().parrying) // Checks if the target is parrying. 
+                if (hit.GetComponent<CoreCombatSystem>() != null && hit.GetComponent<CoreCombatSystem>().parrying) // Checks if the target is parrying. 
                 {
                     //In this call we need to be able to specify what KIND of attack was parried, range, melee, strong, etc. 
                     hit.GetComponent<ICombatCommunication>().DidParry(); //Calling on the target
@@ -237,7 +184,9 @@ namespace DigitalMedia
                     {
                         InitateStateChange(State.Staggered);
                         _animator.Play("Staggered");
-                        hit.GetComponent<CombatSystem>().deathblowTarget = this.gameObject;
+                        if (this.gameObject.name == "Player") return;
+                        
+                        hit.GetComponent<PlayerCombatSystem>().deathblowTarget = this.gameObject;
                         targetThatParried = hit.gameObject;
                     }
                     overlapping = null;
@@ -247,15 +196,17 @@ namespace DigitalMedia
                 if (hit.GetComponent<IDamageable>() != null)
                 {
                     var damage = data.CombatData.weaponData.innateWeaponDamage * data.CombatData.attackPower;
-                    hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, true);
+                    hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, currentAbility.knockBackAmount, true);
                     _audioPlayer.PlayOneShot(currentAbility.sfxHit);
-                    
                 }
             }
 
             overlapping = null;
         }
         
+        /// <summary>
+        /// Deprecated code. Some animations may still reference it. 
+        /// </summary>
         public void EndAttackSequence()
         {
             InitateStateChange(State.Idle);
@@ -270,7 +221,7 @@ namespace DigitalMedia
         {
             InitateStateChange(State.Idle);
             _animator.Play("Idle");
-            targetThatParried.GetComponent<CombatSystem>().deathblowTarget = null;
+            targetThatParried.GetComponent<PlayerCombatSystem>().deathblowTarget = null;
             stats.vitality = data.BasicData.maxVitality / 4;
         }
 
@@ -336,4 +287,3 @@ namespace DigitalMedia
         }
     }
 }
-
