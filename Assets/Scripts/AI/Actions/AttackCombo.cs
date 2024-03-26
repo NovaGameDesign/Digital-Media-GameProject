@@ -1,4 +1,5 @@
 using DigitalMedia;
+using DigitalMedia.Combat;
 using DigitalMedia.Core;
 using TheKiwiCoder;
 using UnityEngine;

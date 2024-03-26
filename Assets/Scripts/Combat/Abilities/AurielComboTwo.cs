@@ -1,7 +1,6 @@
-using DigitalMedia.Combat.Abilities;
 using UnityEngine;
 
-namespace DigitalMedia
+namespace DigitalMedia.Combat.Abilities
 {
     [CreateAssetMenu(menuName = "Abilities/Auriel/Second Combo", fileName = "Auriel_Combo-Two")]
     public class AurielComboTwo : AbilityBase

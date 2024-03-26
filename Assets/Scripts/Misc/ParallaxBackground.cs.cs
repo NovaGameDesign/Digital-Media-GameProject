@@ -18,7 +18,7 @@ namespace DigitalMedia.Misc
         }
     
         private void FixedUpdate()
-        {
+        {   
             Vector3 cameraPosition = MainCamera.transform.position;
             float temp = cameraPosition.x * (1 - AmountOfParallax);
             float Distance = cameraPosition.x * AmountOfParallax;

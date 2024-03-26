@@ -119,26 +119,6 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: pod frame 1
-    originalName: 
-    pivot: {x: 0, y: -0.35735294}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1012
-      y: 1292
-      width: 763
-      height: 680
-    spriteID: 1704fb2321f814549b99e84b61e19619
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1012, y: 1292}
   - name: space
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -150,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 1920
       height: 1280
-    spriteID: 2467c173e05ab8f47b956d138513592d
+    spriteID: 066eec226deb8d7418eaec2efb97da13
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -170,7 +150,7 @@ ScriptedImporter:
       y: 1292
       width: 1000
       height: 842
-    spriteID: bc541882fb070b5458012920d1870619
+    spriteID: 11f22a37b006f544fb3cf9433e2681be
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,7 +170,7 @@ ScriptedImporter:
       y: 2833
       width: 762
       height: 681
-    spriteID: 8dbfb8c91a1a6cd4da731465807daa7c
+    spriteID: 2a65ab26b49b94b41878941a49c1a566
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,6 +179,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 2833}
+  - name: pod frame 1
+    originalName: 
+    pivot: {x: 0, y: -0.35735294}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1012
+      y: 1292
+      width: 763
+      height: 680
+    spriteID: 172b71beddded7744b120ba334953da7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1012, y: 1292}
   - name: outside Pod Shading
     originalName: 
     pivot: {x: 0, y: -0.35735294}
@@ -210,7 +210,7 @@ ScriptedImporter:
       y: 1980
       width: 763
       height: 680
-    spriteID: fa5bf8a0c2833f74fbbbb1eb57d8d32c
+    spriteID: 5a4bbd27285766e4490f920601ad2b7e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -230,7 +230,7 @@ ScriptedImporter:
       y: 2142
       width: 764
       height: 683
-    spriteID: 73fc2876cb0f2cb419a1312e69e43dab
+    spriteID: 9892ac8922409f642aebe493ef27abfb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -250,7 +250,7 @@ ScriptedImporter:
       y: 2668
       width: 763
       height: 634
-    spriteID: fa469b469e673a64b8d83b65d9ca6998
+    spriteID: 1d0eae986c8770444a8e1286c2945e6a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,23 +261,6 @@ ScriptedImporter:
     uvTransform: {x: 1012, y: 2668}
   spriteSheetImportData: []
   asepriteLayers:
-  - layerIndex: 3
-    guid: -649205044
-    name: pod frame 1
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: pod frame 1
-      frameIndex: 0
-      cellRect:
-        x: 960
-        y: 243
-        width: 763
-        height: 680
-      spriteId: 1704fb2321f814549b99e84b61e19619
-    linkedCells: []
-    parentIndex: -1
   - layerIndex: 0
     guid: -768801056
     name: space
@@ -292,7 +275,7 @@ ScriptedImporter:
         y: 0
         width: 1920
         height: 1280
-      spriteId: 2467c173e05ab8f47b956d138513592d
+      spriteId: 066eec226deb8d7418eaec2efb97da13
     linkedCells: []
     parentIndex: -1
   - layerIndex: 1
@@ -309,7 +292,7 @@ ScriptedImporter:
         y: 162
         width: 1000
         height: 842
-      spriteId: bc541882fb070b5458012920d1870619
+      spriteId: 11f22a37b006f544fb3cf9433e2681be
     linkedCells: []
     parentIndex: -1
   - layerIndex: 2
@@ -326,7 +309,24 @@ ScriptedImporter:
         y: 243
         width: 762
         height: 681
-      spriteId: 8dbfb8c91a1a6cd4da731465807daa7c
+      spriteId: 2a65ab26b49b94b41878941a49c1a566
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    guid: -649205044
+    name: pod frame 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: pod frame 1
+      frameIndex: 0
+      cellRect:
+        x: 960
+        y: 243
+        width: 763
+        height: 680
+      spriteId: 172b71beddded7744b120ba334953da7
     linkedCells: []
     parentIndex: -1
   - layerIndex: 4
@@ -343,7 +343,7 @@ ScriptedImporter:
         y: 243
         width: 763
         height: 680
-      spriteId: fa5bf8a0c2833f74fbbbb1eb57d8d32c
+      spriteId: 5a4bbd27285766e4490f920601ad2b7e
     linkedCells: []
     parentIndex: -1
   - layerIndex: 5
@@ -360,7 +360,7 @@ ScriptedImporter:
         y: 242
         width: 764
         height: 683
-      spriteId: 73fc2876cb0f2cb419a1312e69e43dab
+      spriteId: 9892ac8922409f642aebe493ef27abfb
     linkedCells: []
     parentIndex: -1
   - layerIndex: 6
@@ -377,58 +377,10 @@ ScriptedImporter:
         y: 267
         width: 763
         height: 634
-      spriteId: fa469b469e673a64b8d83b65d9ca6998
+      spriteId: 1d0eae986c8770444a8e1286c2945e6a
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Server
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 1920, y: 1280}

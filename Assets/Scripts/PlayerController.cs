@@ -1,3 +1,4 @@
+using System.Collections;
 using DigitalMedia.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,6 +27,7 @@ namespace DigitalMedia
         private float wallJumpingCounter;
         private float wallJumpingDuration = 0.4f;
         private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+        private bool shouldCheckForLanding = false;
 
         #endregion
         
@@ -53,12 +55,16 @@ namespace DigitalMedia
         private void FixedUpdate()
         {
             Move();
-            if (currentState == State.Airborne)
+            if (currentState == State.Airborne && shouldCheckForLanding)
+            {
                 if (IsGrounded())
                 {
                     _animator.Play("Player_Jump-End");
                     InitateStateChange(State.Idle);
-                };
+                    shouldCheckForLanding = false;
+                }
+            }
+           
         }
 
         private void Jump(InputAction.CallbackContext context)
@@ -73,6 +79,8 @@ namespace DigitalMedia
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
                // InitateStateChange(State.Airborne);
                 _animator.Play("Player_Jumping");
+                InitateStateChange(State.Airborne);
+                StartCoroutine(JumpCheckDelay());
             }
             else if (canWallJump)
             {
@@ -105,7 +113,13 @@ namespace DigitalMedia
 
             return false;
         }
-        
+
+        private IEnumerator JumpCheckDelay()
+        {
+            yield return new WaitForSeconds(.5f);
+
+            shouldCheckForLanding = true;
+        }
         #region Wall Sliding 
 
         private bool IsWalled()
@@ -166,21 +180,21 @@ namespace DigitalMedia
                 if (playerVelocity.x > 0)
                 {
                     WallSlide();
-                    InitateStateChange(State.Moving);
+                    //InitateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 180, 0, 0);
-                    ChangeAnimationState(PLAYER_WALK);
+                    if(currentState != State.Airborne) _animator.Play(PLAYER_WALK);
                 }
                 else if (playerVelocity.x < 0)
                 {
                     WallSlide();
-                    InitateStateChange(State.Moving);
+                    //InitateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 0, 0, 0);
-                    ChangeAnimationState(PLAYER_WALK);
+                    if(currentState != State.Airborne) _animator.Play(PLAYER_WALK);
                 }
                 else
                 {
                     canWallJump = false; 
-                    ChangeAnimationState(PLAYER_IDLE);
+                    _animator.Play(PLAYER_IDLE);
                 }
             }
         }
