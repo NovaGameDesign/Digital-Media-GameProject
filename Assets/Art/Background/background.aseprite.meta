@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 1920
       height: 1080
-    spriteID: 15aecb04449754b43ba821b5e94b20bb
+    spriteID: 40e9e1e41af32a143b81c856dc4dce94
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 1092
       width: 1920
       height: 992
-    spriteID: 28ca03e7669fcdf428a49074ccc5f5bc
+    spriteID: e752f1f76e0f3b54fbdb75bb451eb0f2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 1092}
   - name: Layer 3
     originalName: 
-    pivot: {x: 0.5, y: -0.22727272}
+    pivot: {x: 0.5, y: -0.24423963}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -169,8 +169,8 @@ ScriptedImporter:
       x: 4
       y: 2092
       width: 1920
-      height: 880
-    spriteID: 0100fe41b80897a4b83f7d003da5cb10
+      height: 868
+    spriteID: dd8d2174d39510d4fb5d30347b79c394
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 2092}
   - name: Layer 4
     originalName: 
-    pivot: {x: 0.4994571, y: -3.8108108}
+    pivot: {x: 0.4994571, y: -4.0285716}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -189,8 +189,8 @@ ScriptedImporter:
       x: 1932
       y: 881
       width: 1842
-      height: 222
-    spriteID: 6ecd60806f6ee5641a60858f0f8e5d10
+      height: 210
+    spriteID: ad4bedf2d29a292479134f76c3d0cbaf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -207,10 +207,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 2980
+      y: 2968
       width: 1920
       height: 620
-    spriteID: 467465b74d8b0514e8434b6450ac2644
+    spriteID: 07887f1807efdca42894215a3c2fab59
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -218,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2980}
+    uvTransform: {x: 4, y: 2968}
   - name: Layer 6
     originalName: 
     pivot: {x: 0.5, y: -0.12543555}
@@ -227,10 +227,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 3608
+      y: 3596
       width: 1920
       height: 287
-    spriteID: a2c345df741a1b64dac8d5640de5b7a3
+    spriteID: d20f9212d2522364b99cbeb9e357c891
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -238,7 +238,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 3608}
+    uvTransform: {x: 4, y: 3596}
   - name: Layer 7
     originalName: 
     pivot: {x: 0.37142855, y: -4.688889}
@@ -247,10 +247,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 3903
+      y: 3891
       width: 1400
       height: 135
-    spriteID: 6cfde60d748d09245811a7164e449270
+    spriteID: 9a43bd1b0a54cd7428141b713db708ee
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -258,7 +258,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 3903}
+    uvTransform: {x: 4, y: 3891}
   - name: Layer 8
     originalName: 
     pivot: {x: 0.5, y: -0.26237622}
@@ -270,7 +270,7 @@ ScriptedImporter:
       y: 4
       width: 1920
       height: 606
-    spriteID: 351043b368e9de94380dd95fcc51a184
+    spriteID: 3ad4806f79ec2954da7750f59e8b4779
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,16 +281,16 @@ ScriptedImporter:
     uvTransform: {x: 1932, y: 4}
   - name: Layer 10
     originalName: 
-    pivot: {x: 3.7882354, y: -1.4868422}
+    pivot: {x: 6.5760875, y: -2.2407408}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 3860
       y: 618
-      width: 170
-      height: 152
-    spriteID: 0dc38f8bda525c049ad90476f9572870
+      width: 92
+      height: 108
+    spriteID: e56edc194308dab48bf1d8a8b72abd2f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -310,7 +310,7 @@ ScriptedImporter:
       y: 384
       width: 194
       height: 213
-    spriteID: 8fdb8261a1747214c86490e2bf131d82
+    spriteID: a495a64291008624387b2a3f1ad79e91
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -330,7 +330,7 @@ ScriptedImporter:
       y: 4
       width: 202
       height: 372
-    spriteID: b4ff8f5d4bbbb0e409cba221e0a56c14
+    spriteID: 6b0c19ae0d3ab5549bc6317674cc6fcc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -347,10 +347,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 1932
-      y: 1111
+      y: 1099
       width: 313
       height: 521
-    spriteID: 61a5d9c551799ad409fb267b5b1e57ec
+    spriteID: 8ac2a124ae0824e429e9948bf6f75a6b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -358,7 +358,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1932, y: 1111}
+    uvTransform: {x: 1932, y: 1099}
   - name: Layer 9 floor
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -370,7 +370,7 @@ ScriptedImporter:
       y: 618
       width: 1920
       height: 255
-    spriteID: 925aa58ee7cc7614fb3a6028d2369877
+    spriteID: 5b1f4edfdc009fa41afbfa2808e6c64d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -382,16 +382,7 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1949975077
-    name: Layer
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells: []
-    linkedCells: []
-    parentIndex: -1
-  - layerIndex: 1
-    guid: 1317222745
+    guid: 1317222744
     name: Layer 1
     layerFlags: 3
     layerType: 0
@@ -404,11 +395,11 @@ ScriptedImporter:
         y: 0
         width: 1920
         height: 1080
-      spriteId: 15aecb04449754b43ba821b5e94b20bb
+      spriteId: 40e9e1e41af32a143b81c856dc4dce94
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 2
-    guid: 1317221555
+  - layerIndex: 1
+    guid: 1317221552
     name: Layer 2
     layerFlags: 3
     layerType: 0
@@ -421,11 +412,11 @@ ScriptedImporter:
         y: 0
         width: 1920
         height: 992
-      spriteId: 28ca03e7669fcdf428a49074ccc5f5bc
+      spriteId: e752f1f76e0f3b54fbdb75bb451eb0f2
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 3
-    guid: 1317221949
+  - layerIndex: 2
+    guid: 1317221948
     name: Layer 3
     layerFlags: 3
     layerType: 0
@@ -435,14 +426,14 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 0
-        y: 200
+        y: 212
         width: 1920
-        height: 880
-      spriteId: 0100fe41b80897a4b83f7d003da5cb10
+        height: 868
+      spriteId: dd8d2174d39510d4fb5d30347b79c394
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 4
-    guid: 1317223931
+  - layerIndex: 3
+    guid: 1317223932
     name: Layer 4
     layerFlags: 3
     layerType: 0
@@ -454,12 +445,12 @@ ScriptedImporter:
         x: 40
         y: 846
         width: 1842
-        height: 222
-      spriteId: 6ecd60806f6ee5641a60858f0f8e5d10
+        height: 210
+      spriteId: ad4bedf2d29a292479134f76c3d0cbaf
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 5
-    guid: 1317224329
+  - layerIndex: 4
+    guid: 1317224328
     name: Layer 5
     layerFlags: 3
     layerType: 0
@@ -472,11 +463,11 @@ ScriptedImporter:
         y: 128
         width: 1920
         height: 620
-      spriteId: 467465b74d8b0514e8434b6450ac2644
+      spriteId: 07887f1807efdca42894215a3c2fab59
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 6
-    guid: 1317223139
+  - layerIndex: 5
+    guid: 1317223136
     name: Layer 6
     layerFlags: 3
     layerType: 0
@@ -489,11 +480,11 @@ ScriptedImporter:
         y: 36
         width: 1920
         height: 287
-      spriteId: a2c345df741a1b64dac8d5640de5b7a3
+      spriteId: d20f9212d2522364b99cbeb9e357c891
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 7
-    guid: 1317223541
+  - layerIndex: 6
+    guid: 1317223540
     name: Layer 7
     layerFlags: 3
     layerType: 0
@@ -506,11 +497,11 @@ ScriptedImporter:
         y: 633
         width: 1400
         height: 135
-      spriteId: 6cfde60d748d09245811a7164e449270
+      spriteId: 9a43bd1b0a54cd7428141b713db708ee
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 8
-    guid: 1317225531
+  - layerIndex: 7
+    guid: 1317225524
     name: Layer 8
     layerFlags: 3
     layerType: 0
@@ -523,11 +514,11 @@ ScriptedImporter:
         y: 159
         width: 1920
         height: 606
-      spriteId: 351043b368e9de94380dd95fcc51a184
+      spriteId: 3ad4806f79ec2954da7750f59e8b4779
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 9
-    guid: 1999284129
+  - layerIndex: 8
+    guid: 1999284128
     name: Layer 10
     layerFlags: 3
     layerType: 0
@@ -536,15 +527,15 @@ ScriptedImporter:
     - name: Layer 10
       frameIndex: 0
       cellRect:
-        x: 316
-        y: 226
-        width: 170
-        height: 152
-      spriteId: 0dc38f8bda525c049ad90476f9572870
+        x: 355
+        y: 242
+        width: 92
+        height: 108
+      spriteId: e56edc194308dab48bf1d8a8b72abd2f
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 10
-    guid: 1571823716
+  - layerIndex: 9
+    guid: 1571823719
     name: platform small
     layerFlags: 3
     layerType: 0
@@ -557,11 +548,11 @@ ScriptedImporter:
         y: 178
         width: 194
         height: 213
-      spriteId: 8fdb8261a1747214c86490e2bf131d82
+      spriteId: a495a64291008624387b2a3f1ad79e91
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 11
-    guid: -389477605
+  - layerIndex: 10
+    guid: -389477606
     name: Platform medium
     layerFlags: 3
     layerType: 0
@@ -574,11 +565,11 @@ ScriptedImporter:
         y: 133
         width: 202
         height: 372
-      spriteId: b4ff8f5d4bbbb0e409cba221e0a56c14
+      spriteId: 6b0c19ae0d3ab5549bc6317674cc6fcc
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 12
-    guid: -563357860
+  - layerIndex: 11
+    guid: -563357861
     name: platform Tall
     layerFlags: 3
     layerType: 0
@@ -591,11 +582,11 @@ ScriptedImporter:
         y: 124
         width: 313
         height: 521
-      spriteId: 61a5d9c551799ad409fb267b5b1e57ec
+      spriteId: 8ac2a124ae0824e429e9948bf6f75a6b
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 13
-    guid: -803313297
+  - layerIndex: 12
+    guid: -803313298
     name: Layer 9 floor
     layerFlags: 3
     layerType: 0
@@ -608,11 +599,11 @@ ScriptedImporter:
         y: 0
         width: 1920
         height: 255
-      spriteId: 925aa58ee7cc7614fb3a6028d2369877
+      spriteId: 5b1f4edfdc009fa41afbfa2808e6c64d
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 14
-    guid: 962429080
+  - layerIndex: 13
+    guid: 962429083
     name: layer 11 buildings
     layerFlags: 3
     layerType: 0
