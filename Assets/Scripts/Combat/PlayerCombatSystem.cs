@@ -53,6 +53,7 @@ namespace DigitalMedia.Combat
             
             if (currentState == State.Airborne)
             {
+                Debug.Log(("tried to air attack"));
                 TriggerAbility("Attack_Airborne");
                 return;
             }

@@ -126,8 +126,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
+      x: 973
+      y: 1292
       width: 1000
       height: 842
     spriteID: 62e5a43b5a0858d498c5066476cd788a
@@ -138,39 +138,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  - name: pod frame 1
+    uvTransform: {x: 973, y: 1292}
+  - name: space
     originalName: 
-    pivot: {x: 0, y: -0.35630497}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 854
-      width: 763
-      height: 682
-    spriteID: 1704fb2321f814549b99e84b61e19619
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 854}
-  - name: pod frame 2
-    originalName: 
-    pivot: {x: 0, y: -0.3643068}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1012
       y: 4
-      width: 764
-      height: 678
-    spriteID: 463019c75c9fcfd44aa909da19c4495c
+      width: 1920
+      height: 1280
+    spriteID: 786974f5445c0e04fa5ed42150aaf97a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,19 +158,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1012, y: 4}
-  - name: pod frame 3 (over)
+    uvTransform: {x: 4, y: 4}
+  - name: window
     originalName: 
-    pivot: {x: 0, y: -0.42429018}
+    pivot: {x: 0.9989594, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1012
-      y: 690
-      width: 763
-      height: 634
-    spriteID: 786a484338505774dbd93c052a434d16
+      x: 4
+      y: 1292
+      width: 961
+      height: 1109
+    spriteID: 1cac484343b797b4daa51a0b40af5247
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,7 +178,87 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1012, y: 690}
+    uvTransform: {x: 4, y: 1292}
+  - name: escape pod door
+    originalName: 
+    pivot: {x: 0.9687495, y: -0.8181818}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3086
+      width: 32
+      height: 297
+    spriteID: 460fdf02da748394481bdd9db10723f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3086}
+  - name: control panel
+    originalName: 
+    pivot: {x: -2.5370371, y: -0.94186044}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2660
+      width: 216
+      height: 258
+    spriteID: dff965310bb264e4fb3127edd7bcadfa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2660}
+  - name: player
+    originalName: 
+    pivot: {x: -1.7117649, y: -1.5986842}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2926
+      width: 170
+      height: 152
+    spriteID: 7cb5be48f7621d8468451816b344bae6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2926}
+  - name: floor
+    originalName: 
+    pivot: {x: 1.0333692, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2409
+      width: 929
+      height: 243
+    spriteID: 0e6ad9b5a40216d4f933e9f35040c60e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2409}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 2
@@ -218,55 +278,115 @@ ScriptedImporter:
       spriteId: 62e5a43b5a0858d498c5066476cd788a
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 3
-    guid: -649205044
-    name: pod frame 1
+  - layerIndex: 0
+    guid: 1317222744
+    name: Layer 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 1
+    guid: -768801055
+    name: space
     layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: pod frame 1
+    - name: space
       frameIndex: 0
       cellRect:
-        x: 960
+        x: 0
+        y: 0
+        width: 1920
+        height: 1280
+      spriteId: 786974f5445c0e04fa5ed42150aaf97a
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 6
+    guid: 941153200
+    name: window
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: window
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 961
+        height: 1109
+      spriteId: 1cac484343b797b4daa51a0b40af5247
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 7
+    guid: -1855863043
+    name: escape pod door
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: escape pod door
+      frameIndex: 0
+      cellRect:
+        x: 929
         y: 243
-        width: 763
-        height: 682
-      spriteId: 1704fb2321f814549b99e84b61e19619
+        width: 32
+        height: 297
+      spriteId: 460fdf02da748394481bdd9db10723f7
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 4
-    guid: -649205434
-    name: pod frame 2
+  - layerIndex: 8
+    guid: -1080821887
+    name: control panel
     layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: pod frame 2
+    - name: control panel
       frameIndex: 0
       cellRect:
-        x: 960
-        y: 247
-        width: 764
-        height: 678
-      spriteId: 463019c75c9fcfd44aa909da19c4495c
+        x: 1508
+        y: 243
+        width: 216
+        height: 258
+      spriteId: dff965310bb264e4fb3127edd7bcadfa
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 5
-    guid: 1852608631
-    name: pod frame 3 (over)
+  - layerIndex: 9
+    guid: 1671627734
+    name: player
     layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: pod frame 3 (over)
+    - name: player
       frameIndex: 0
       cellRect:
-        x: 960
-        y: 269
-        width: 763
-        height: 634
-      spriteId: 786a484338505774dbd93c052a434d16
+        x: 1251
+        y: 243
+        width: 170
+        height: 152
+      spriteId: 7cb5be48f7621d8468451816b344bae6
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 10
+    guid: 878736870
+    name: floor
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: floor
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 929
+        height: 243
+      spriteId: 0e6ad9b5a40216d4f933e9f35040c60e
     linkedCells: []
     parentIndex: -1
   platformSettings:

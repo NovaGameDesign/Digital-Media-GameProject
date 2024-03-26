@@ -126,7 +126,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 1932
       y: 4
       width: 1920
       height: 606
@@ -138,7 +138,247 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    uvTransform: {x: 1932, y: 4}
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1920
+      height: 1080
+    spriteID: 216c25b891bfdac498f8136e0b4ad5b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Layer 2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1092
+      width: 1920
+      height: 992
+    spriteID: 19e46ed375723cc478bd4a272565197e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1092}
+  - name: Layer 3
+    originalName: 
+    pivot: {x: 0.5, y: -0.22727272}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2092
+      width: 1920
+      height: 880
+    spriteID: edf1b0383a84d6f49b3a71d02cb01ad9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2092}
+  - name: Layer 4
+    originalName: 
+    pivot: {x: 0.4994571, y: -3.8108108}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 881
+      width: 1842
+      height: 222
+    spriteID: e1b0fba4a12e9244bbd3072e167feee3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 881}
+  - name: Layer 5
+    originalName: 
+    pivot: {x: 0.5, y: -0.20645161}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2980
+      width: 1920
+      height: 620
+    spriteID: bbb0d9a852de0ec4081231ed8f29fad7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2980}
+  - name: Layer 6
+    originalName: 
+    pivot: {x: 0.5, y: -0.12543555}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3608
+      width: 1920
+      height: 287
+    spriteID: 83fc4c48fc0ff394ca07de4e645622ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3608}
+  - name: Layer 7
+    originalName: 
+    pivot: {x: 0.37142855, y: -4.688889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3903
+      width: 1400
+      height: 135
+    spriteID: 7c154b9ea00a4574b9530c01bac066d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3903}
+  - name: Layer 10
+    originalName: 
+    pivot: {x: 3.7882354, y: -1.4868422}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3860
+      y: 618
+      width: 170
+      height: 152
+    spriteID: db9c3c1ea604c1d4f9d7481515351cc1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3860, y: 618}
+  - name: platform small
+    originalName: 
+    pivot: {x: -0.19587624, y: -0.8356808}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3860
+      y: 384
+      width: 194
+      height: 213
+    spriteID: 239d04b70fb85d64fb199ccbfbe018a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3860, y: 384}
+  - name: Platform medium
+    originalName: 
+    pivot: {x: -1.2821785, y: -0.3575269}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3860
+      y: 4
+      width: 202
+      height: 372
+    spriteID: d11c67a6d6f63e14898ba77035544665
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3860, y: 4}
+  - name: platform Tall
+    originalName: 
+    pivot: {x: 0.94568694, y: -0.23800386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 1111
+      width: 313
+      height: 521
+    spriteID: 4f116a3d347faaf4e8fc97022a50663e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 1111}
+  - name: Layer 9 floor
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 618
+      width: 1920
+      height: 255
+    spriteID: 13cc78b5742f5df4680fcde972e355e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 618}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 8
@@ -156,6 +396,228 @@ ScriptedImporter:
         width: 1920
         height: 606
       spriteId: bfbd463fe2ed06c4c9e29fa4ba82d5ba
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 0
+    guid: -1949975077
+    name: Layer
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 1
+    guid: 1317222745
+    name: Layer 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
+      spriteId: 216c25b891bfdac498f8136e0b4ad5b2
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 2
+    guid: 1317221555
+    name: Layer 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 2
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 992
+      spriteId: 19e46ed375723cc478bd4a272565197e
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    guid: 1317221949
+    name: Layer 3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 3
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 200
+        width: 1920
+        height: 880
+      spriteId: edf1b0383a84d6f49b3a71d02cb01ad9
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 4
+    guid: 1317223931
+    name: Layer 4
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 4
+      frameIndex: 0
+      cellRect:
+        x: 40
+        y: 846
+        width: 1842
+        height: 222
+      spriteId: e1b0fba4a12e9244bbd3072e167feee3
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 5
+    guid: 1317224329
+    name: Layer 5
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 128
+        width: 1920
+        height: 620
+      spriteId: bbb0d9a852de0ec4081231ed8f29fad7
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 6
+    guid: 1317223139
+    name: Layer 6
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 6
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 36
+        width: 1920
+        height: 287
+      spriteId: 83fc4c48fc0ff394ca07de4e645622ce
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 7
+    guid: 1317223541
+    name: Layer 7
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 7
+      frameIndex: 0
+      cellRect:
+        x: 440
+        y: 633
+        width: 1400
+        height: 135
+      spriteId: 7c154b9ea00a4574b9530c01bac066d3
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 9
+    guid: 1999284129
+    name: Layer 10
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 10
+      frameIndex: 0
+      cellRect:
+        x: 316
+        y: 226
+        width: 170
+        height: 152
+      spriteId: db9c3c1ea604c1d4f9d7481515351cc1
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 10
+    guid: 1571823716
+    name: platform small
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: platform small
+      frameIndex: 0
+      cellRect:
+        x: 998
+        y: 178
+        width: 194
+        height: 213
+      spriteId: 239d04b70fb85d64fb199ccbfbe018a3
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 11
+    guid: -389477605
+    name: Platform medium
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Platform medium
+      frameIndex: 0
+      cellRect:
+        x: 1219
+        y: 133
+        width: 202
+        height: 372
+      spriteId: d11c67a6d6f63e14898ba77035544665
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 12
+    guid: -563357860
+    name: platform Tall
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: platform Tall
+      frameIndex: 0
+      cellRect:
+        x: 664
+        y: 124
+        width: 313
+        height: 521
+      spriteId: 4f116a3d347faaf4e8fc97022a50663e
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 13
+    guid: -803313297
+    name: Layer 9 floor
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 9 floor
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 255
+      spriteId: 13cc78b5742f5df4680fcde972e355e8
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 14
+    guid: 962429080
+    name: layer 11 buildings
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
     linkedCells: []
     parentIndex: -1
   platformSettings:

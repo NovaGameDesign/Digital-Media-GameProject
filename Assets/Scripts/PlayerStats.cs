@@ -43,8 +43,8 @@ namespace DigitalMedia
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
 
-           
-            vitalityRegenerationSpeed = health / data.BasicData.maxHealth / 1.25f;
+
+            vitalityRegenerationSpeed = health / data.BasicData.maxHealth;
             if (vitalityRegenerationSpeed <= 0.25f)
             {
                 Color newColor = new Color(1, .5f, 0f, 1);

@@ -1,15 +1,9 @@
-using System;
-using System.Collections;
-using AYellowpaper.SerializedCollections;
-using DigitalMedia.Combat;
-using DigitalMedia.Combat.Abilities;
 using DigitalMedia.Core;
-using DigitalMedia.Interfaces;
 using TheKiwiCoder;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace DigitalMedia
+namespace DigitalMedia.Combat
 {
     public class EnemyCoreCombat : CoreCombatSystem
     {
