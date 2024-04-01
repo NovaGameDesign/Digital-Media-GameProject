@@ -18,7 +18,9 @@ namespace DigitalMedia.Combat
         private BlackboardKey<GameObject> playerKeyRef;
         
         #endregion
-   
+
+        private GameObject airSlash;
+        
         void Start()
         {
             _animator = GetComponent<Animator>();
@@ -40,6 +42,11 @@ namespace DigitalMedia.Combat
         private void FixedUpdate()
         {
             if(isAnAgent) keyRef.value = player.transform.position;
+        }
+
+        public void SpawnAirSlash()
+        {
+            
         }
         
     }

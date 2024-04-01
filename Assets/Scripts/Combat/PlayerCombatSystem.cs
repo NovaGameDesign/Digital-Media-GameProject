@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
-using AYellowpaper.SerializedCollections;
-using DigitalMedia.Combat.Abilities;
+using UnityEngine;
 using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace DigitalMedia.Combat
 {
@@ -24,6 +21,7 @@ namespace DigitalMedia.Combat
 
         private const string ANIM_BLOCK = "Player_Block_Start";
 
+        private int soundLastPlayed;
         private void Start()
         {
             InitateStateChange(State.Idle);
@@ -53,7 +51,7 @@ namespace DigitalMedia.Combat
             
             if (currentState == State.Airborne)
             {
-                Debug.Log(("tried to air attack"));
+//                Debug.Log(("tried to air attack"));
                 TriggerAbility("Attack_Airborne");
                 return;
             }
@@ -121,7 +119,15 @@ namespace DigitalMedia.Combat
         public void DidParry()
         {
             _animator.Play("Player_Parry");
-            parrying = false; 
+            parrying = false;
+            
+            int randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length);
+            while (soundLastPlayed == randomSound)
+            {
+                randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length);
+            }
+            soundLastPlayed = randomSound;
+            _audioPlayer.PlayOneShot(data.CombatData.parrySoundsNormal[randomSound]);
             
             GameObject sparks = ObjectPool.SharedInstance.GetPooledObject(); 
             if (sparks != null)
@@ -130,6 +136,7 @@ namespace DigitalMedia.Combat
                 sparks.transform.position = sparksSpawnLocation.position;
                 sparks.transform.rotation = sparksSpawnLocation.rotation;
                 sparks.SetActive(true);
+                sparks.GetComponent<ParticleSystem>()?.Play();
             }
         }
 

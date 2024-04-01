@@ -278,7 +278,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   layersToCheck:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 128
   parrying: 0
   abilities:
     _serializedList:

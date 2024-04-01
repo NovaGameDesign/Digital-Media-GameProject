@@ -166,7 +166,7 @@ namespace DigitalMedia
         private void Move()
         {
             //Check if the player was moving and if so set their velocity (x) back to 0 and return. 
-            if(currentState == State.Attacking)
+            if(currentState == State.Attacking )
             {
                 /*rb.velocity = new Vector2(0, rb.velocity.y);*/
                 return;
@@ -193,7 +193,8 @@ namespace DigitalMedia
                 }
                 else
                 {
-                    canWallJump = false; 
+                    canWallJump = false;
+                    if (currentState == State.Blocking || currentState == State.Deathblowing || currentState == State.Staggered) return;
                     _animator.Play(PLAYER_IDLE);
                 }
             }

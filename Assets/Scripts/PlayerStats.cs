@@ -97,6 +97,7 @@ namespace DigitalMedia
                  PlayerRespawn();
             }
             
+            
             health = data.BasicData.maxHealth;
             vitality = data.BasicData.maxVitality;
             vitalityBar.value = 1;
@@ -116,7 +117,7 @@ namespace DigitalMedia
         public void PlayerRespawn()
         {
             Time.timeScale = 0f;
-            deathUI.SetActive(true);
+            //Handle respawning 
         }
     }
 }

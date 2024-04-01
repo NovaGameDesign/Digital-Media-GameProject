@@ -164,7 +164,7 @@ namespace DigitalMedia.Core
 
             foreach (var hit in overlapping)
             {
-                if (hit.transform.root == transform) continue; //Checks if it hit self. 
+                if (hit.transform.root == transform || hit.transform == transform) continue; //Checks if it hit self. 
                 
                 // If the target is deathblowing we don't want to deal any damage to them. 
                 if (hit.GetComponent<CoreCombatSystem>()?.currentState == State.Deathblowing) //Checks if the target is deathblow -- in other words whether we should deal damage.  

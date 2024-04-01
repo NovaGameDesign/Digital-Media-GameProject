@@ -24,13 +24,13 @@ AnimationClip:
       value: {fileID: -626129425, guid: 145f8de55ea3e6749a4f5b70c7f72e63, type: 3}
     - time: 0.083333336
       value: {fileID: 1705725318, guid: 145f8de55ea3e6749a4f5b70c7f72e63, type: 3}
-    - time: 0.16666667
+    - time: 0.18333334
       value: {fileID: 1253456220, guid: 145f8de55ea3e6749a4f5b70c7f72e63, type: 3}
-    - time: 0.25
+    - time: 0.3
       value: {fileID: -223262859, guid: 145f8de55ea3e6749a4f5b70c7f72e63, type: 3}
-    - time: 0.33333334
+    - time: 0.4
       value: {fileID: 1781873012, guid: 145f8de55ea3e6749a4f5b70c7f72e63, type: 3}
-    - time: 0.41666666
+    - time: 0.5
       value: {fileID: -626129425, guid: 145f8de55ea3e6749a4f5b70c7f72e63, type: 3}
     attribute: m_Sprite
     path: 
@@ -65,7 +65,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,16 +85,30 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.23333333
+  - time: 0.28333333
     functionName: ActivateAbilityEffects
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
+  - time: 0.3
     functionName: HandleAbilityUsage
     data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: InitateStateChange
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 3
+    messageOptions: 0
+  - time: 0.51666665
+    functionName: ChangeAnimationState
+    data: Player_Jump-Loop
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

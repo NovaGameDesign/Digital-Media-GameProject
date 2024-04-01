@@ -7,8 +7,9 @@ namespace DigitalMedia.Misc
         private float _startingPos; //This is starting position of the sprites.
         private float _lengthOfSprite;    //This is the length of the sprites.
         public float AmountOfParallax;  //This is amount of parallax scroll. 
+        public float AmountOfParallaxY;
         public UnityEngine.Camera MainCamera;   //Reference of the camera.
-    
+        public bool followY; 
         private void Start()
         {
             //Getting the starting X position of sprite.
@@ -23,7 +24,9 @@ namespace DigitalMedia.Misc
             float temp = cameraPosition.x * (1 - AmountOfParallax);
             float Distance = cameraPosition.x * AmountOfParallax;
 
-            transform.position = new Vector3(_startingPos + Distance, transform.position.y, 0);
+            var tempY = cameraPosition.y - 8;
+            float yPos = followY ? tempY * AmountOfParallaxY : transform.position.y;
+            transform.position = new Vector3(_startingPos + Distance, yPos, 0);
 
             if (temp > _startingPos + _lengthOfSprite) _startingPos += _lengthOfSprite;
             else if (temp < _startingPos - _lengthOfSprite) _startingPos -= _lengthOfSprite;

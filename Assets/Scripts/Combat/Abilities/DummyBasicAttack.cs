@@ -6,8 +6,9 @@ namespace DigitalMedia.Combat.Abilities
     public class DummyBasicAttack : AbilityBase
     {
         [Header("Attack Range")]
-        [SerializeField] private Vector2 weaponOffset; 
         [SerializeField] private Vector2 weaponRange; 
+
+        [SerializeField] private Vector2 weaponOffset; 
 
         public override void Activate(GameObject holder)
         {
