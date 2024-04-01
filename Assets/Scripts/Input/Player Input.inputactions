@@ -871,6 +871,65 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Dying",
+            "id": "5ae4aeb6-56be-4c0d-97e4-2e42ed019a8d",
+            "actions": [
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "ba4e3aff-ee95-4195-9a6a-96d53b85d148",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Die",
+                    "type": "Button",
+                    "id": "7909759c-285b-4b35-89fd-b9ad382a0d9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8f88c305-20ee-496c-8588-c245d142f039",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f464a48b-466d-4fa8-936f-53d4093da112",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Die",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce51ae0b-0afb-42d4-9e48-5a34108446c0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Die",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
