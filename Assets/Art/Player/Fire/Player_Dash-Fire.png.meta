@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e7f290cfbed96b4793967ed0a0dc6d3
+guid: 8a1c115cf7d94ec4e8a577bfc6e57467
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 48
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 793, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -121,18 +121,84 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player_Dash-Fire_0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 260
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28bdcd11ebe2fcf4ebcb81474a8b2193
+      internalID: 819327430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Dash-Fire_1
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 0
+        width: 310
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8dd3d0f7dbd4a40a08d933956dd55c
+      internalID: -667930414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Dash-Fire_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 340
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e73e7695fc92724c96ed3f25800e134
+      internalID: -907534501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Player_Dash-Fire_0: 819327430
+      Player_Dash-Fire_1: -667930414
+      Player_Dash-Fire_2: -907534501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

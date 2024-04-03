@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8021ee13347740b499daa2fa4fae3f41
+guid: 951d25114e1b4044ea785d0045443298
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,20 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -119,9 +106,316 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: deathblow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 1140
+        height: 367
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757415ad155c0194aacc39910c6d5512
+      internalID: -2044973000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_1
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1800
+        width: 1140
+        height: 367
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a682a6b1ed5bc76469e57ca174f6116b
+      internalID: -191952619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_2
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 1800
+        width: 1140
+        height: 369
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6827b2b322770da4581d71a90fcaab8e
+      internalID: 2102020437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1350
+        width: 1140
+        height: 379
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd56a39c854a86458b716ce9709d891
+      internalID: -1649468995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_4
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1350
+        width: 1140
+        height: 342
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6aae37836994d745975ef4746994719
+      internalID: 1157815663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_5
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 1350
+        width: 1140
+        height: 340
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b3e260f5c56244f973b516608f8983
+      internalID: 1290498409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 902
+        width: 1140
+        height: 338
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32914abb0867b248919c0cfe46c432e
+      internalID: -867522556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_7
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 900
+        width: 1140
+        height: 332
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe153cb72618aef41b23f6c4a93672fa
+      internalID: 8871510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_8
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 902
+        width: 1140
+        height: 318
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d8be885aa09d364ca39e26e2eb2a692
+      internalID: -1962803021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 1140
+        height: 400
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49069d2e54603c4896a82652f0a22f8
+      internalID: -1219562893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_10
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 450
+        width: 521
+        height: 393
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9660f8a9c38b9364296df535fdc97c97
+      internalID: -2146872508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_11
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 450
+        width: 331
+        height: 450
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e044b74ccd97d348ac803ca669c2caf
+      internalID: -1000203126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_12
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 292
+        height: 383
+      alignment: 9
+      pivot: {x: 0.42998976, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8a22935bf81a241baee3227de98f1a
+      internalID: -1384382128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathblow_13
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 1140
+        height: 369
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef717b15976344944aaae4b0b064af2f
+      internalID: -2135654080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +426,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      deathblow_0: -2044973000
+      deathblow_1: -191952619
+      deathblow_10: -2146872508
+      deathblow_11: -1000203126
+      deathblow_12: -1384382128
+      deathblow_13: -2135654080
+      deathblow_2: 2102020437
+      deathblow_3: -1649468995
+      deathblow_4: 1157815663
+      deathblow_5: 1290498409
+      deathblow_6: -867522556
+      deathblow_7: 8871510
+      deathblow_8: -1962803021
+      deathblow_9: -1219562893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
