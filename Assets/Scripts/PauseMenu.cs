@@ -14,9 +14,8 @@ namespace DigitalMedia
         [SerializeField] private Slider masterSlider;
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider sfxSlider;
-        
+        [SerializeField] private Dropdown videoSettings;
         private InputAction menu;
-        
         //Pause Info
         public static bool GameIsPaused = false;
         public GameObject pauseMenuUI;
@@ -26,8 +25,18 @@ namespace DigitalMedia
         {
             menu = _playerInput.actions["Menu"];
             menu.performed += Menu;
+            if (PlayerPrefs.HasKey("masterVolume"))
+            {
+                LoadSettings();
+            }
+            else
+            {
+                MasterVolumeSlider();
+                MusicVolumeSlider();
+                SFXVolumeSlider();
+            }
         }
-       
+
         // Update is called once per frame
         void Menu (InputAction.CallbackContext context)
         {
@@ -44,17 +53,20 @@ namespace DigitalMedia
         public void MasterVolumeSlider()
         {
             float volume = masterSlider.value;
-            audioMixer.SetFloat("master", Mathf.Log10(volume)*20);
+            audioMixer.SetFloat("master", Mathf.Log10(volume) * 20);
+            PlayerPrefs.SetFloat("masterVolume", volume);
         }
         public void MusicVolumeSlider()
         {
             float volume = musicSlider.value;
             audioMixer.SetFloat("music", Mathf.Log10(volume) * 20);
+            PlayerPrefs.SetFloat("musicVolume", volume);
         }
         public void SFXVolumeSlider()
         {
             float volume = sfxSlider.value;
             audioMixer.SetFloat("sfx", Mathf.Log10(volume) * 20);
+            PlayerPrefs.SetFloat("sfxVolume", volume);
         }
         public void Resume()
         {
@@ -86,6 +98,16 @@ namespace DigitalMedia
         public void SetQuality(int qualityIndex)
         {
             QualitySettings.SetQualityLevel(qualityIndex);
+
+        }
+        private void LoadSettings()
+        {
+            masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
+            musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+            sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+            MasterVolumeSlider();
+            MusicVolumeSlider();
+            SFXVolumeSlider();
         }
     }
 }
