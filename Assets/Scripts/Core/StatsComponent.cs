@@ -38,7 +38,7 @@ namespace DigitalMedia.Core
             {
                 if (_inCombat != value)
                 {
-                    Debug.Log("A new value was set for inCombat, the new value is "+value);
+                    //Debug.Log("A new value was set for inCombat, the new value is "+value);
                     _inCombat = value;
                     statsUI.SetActive(_inCombat);
                 }
@@ -68,6 +68,8 @@ namespace DigitalMedia.Core
         {
             //write a more complex damage function to account for defense, damage type, etc. 
             /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
+            if (currentState == State.Dying) return;
+            
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
 
@@ -121,6 +123,8 @@ namespace DigitalMedia.Core
                 Destroy(this.gameObject);
             }
             
+            InitiateStateChange(State.Dying);
+            
             health = data.BasicData.maxHealth;
             vitality = data.BasicData.maxVitality;
             vitalityBar.value = 1;
@@ -131,7 +135,7 @@ namespace DigitalMedia.Core
             livesUI.ElementAt(currentLives).SetActive(false);
             
             //3. Re-enabling enemy states if they were attacking -- or just turn their BTs back on. 
-            InitateStateChange(State.Idle);
+            InitiateStateChange(State.Idle);
             
             //4. Check if there are any lives remaining and destroy the object if needed. Theoretically we may need to do it first.
            

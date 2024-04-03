@@ -13,15 +13,13 @@ namespace DigitalMedia
     public class PlayerStats : StatsComponent
     {
 
-        [SerializeField] private GameObject dyingUi;
+        [SerializeField] private GameObject dyingUI;
         [SerializeField] private GameObject deadUI;
         private PlayerCombatSystem _combatSystem;
-
-
+        
         private PlayerInput _playerInput;
         private InputAction reload;
         private InputAction die;
-        private int respawn = -1;
         
         private void Start()
         {
@@ -38,25 +36,12 @@ namespace DigitalMedia
             _combatSystem = GetComponent<PlayerCombatSystem>();
 
             rb = this.gameObject.GetComponent<Rigidbody2D>();
-            
+
             _playerInput = GetComponent<PlayerInput>();
-            reload = _playerInput.actions["Reload"];
+            reload = _playerInput.actions["Revive"];
             die = _playerInput.actions["Die"];
-            reload.performed += PlayerWantsTolive;
-            die.performed += PlayerWantsToDie;
-        }
-
-        
-        private void OnEnable()
-        {
-            reload.Enable();
-            die.Enable();
-        }
-
-        private void OnDisable()
-        {
-            reload.Dispose();
-            die.Dispose();
+            reload.started += PlayerWantsToLive;
+            die.started += PlayerWantsToDie;
         }
 
         // Update is called once per frame
@@ -89,19 +74,19 @@ namespace DigitalMedia
 
             Instantiate(blood, gameObject.transform);
             
-            if (attackOrigin.transform.position.x > gameObject.transform.position.x && gameObject.GetComponent<Rigidbody2D>() != null)
+            if (attackOrigin.transform.position.x > gameObject.transform.position.x && rb != null)
             {
-                Vector2 direction = new Vector2(-knockbackForce, GetComponent<Rigidbody2D>().velocity.y); 
-                GetComponent<Rigidbody2D>().velocity = direction;
-                StartCoroutine(BasicKBDelay(.1f));
-                Debug.Log($"We tried to knock the player towards the left, the enemy was on the right. The desired knockback amount was {direction}");
+                Vector2 direction = new Vector2(-knockbackForce, rb.velocity.y); 
+                rb.velocity = direction;
+                StartCoroutine(BasicKBDelay(.1f)); 
+                //Debug.Log($"We tried to knock the player towards the left, the enemy was on the right. The desired knockback amount was {direction}");
             }
-            else if (gameObject.GetComponent<Rigidbody2D>() != null)
+            else if (rb != null)
             {
-                Vector2 direction = new Vector2(knockbackForce, GetComponent<Rigidbody2D>().velocity.y); 
-                GetComponent<Rigidbody2D>().velocity = direction;
+                Vector2 direction = new Vector2(knockbackForce, rb.velocity.y); 
+                rb.velocity = direction;
                 StartCoroutine(BasicKBDelay(.1f));
-                Debug.Log($"We tried to knock the player towards the right, the enemy was on the left. The desired knockback amount was {direction}");
+                //Debug.Log($"We tried to knock the player towards the right, the enemy was on the left. The desired knockback amount was {direction}");
             }
             else
             {
@@ -120,6 +105,7 @@ namespace DigitalMedia
         {
             //1. Correct the values to match the new lives remaining and change health to max.
             currentLives -= 1;
+            //2. Check if we now have too few lives to revive, if so start the death process. 
             if (currentLives <= 0)
             { 
                 Debug.Log("The player has died.");
@@ -127,69 +113,54 @@ namespace DigitalMedia
                 deadUI.GetComponent<Animator>()?.Play("Default");
                 PlayerRespawn();
             }
+            
+            //3. Change the state to dying so that we not longer take damage. 
+            InitiateStateChange(State.Dying);
+            
+            //4. change the input type to dying so we no longer accept any input but the two we consider "valid". Additionally we show the UI and reset the respawn value for later usage. 
+            _playerInput.SwitchCurrentActionMap("Dying");
+            dyingUI.SetActive(true);
+
+            //StartCoroutine(SelectDeathOption());
 
             Time.timeScale = 0;
-            PlayerReboot();
         }
 
-        private void PlayerReboot()
+        public void PlayerWantsToDie(InputAction.CallbackContext context)
         {
-            _playerInput.SwitchCurrentActionMap("Dying");
-            respawn = -1;
-            
-            dyingUi.SetActive(true);
+            Time.timeScale = 1;
+            Debug.Log("The player has lost a life and chose to die.");
 
-            StartCoroutine(WaitForDecision());
-            
-            dyingUi.SetActive(false);
-            
-            //Player wants to die
-            if (respawn == 0)
-            {
-                Debug.Log("The player has lost a life and chose to die.");
-
-                deadUI.SetActive(true);
-                deadUI.GetComponent<Animator>()?.Play("Default");
-                PlayerRespawn();
-            }
-            else if (respawn == 1) //Player Wants to live
-            {
-                Debug.Log("The player has lost a life and chose to revive.");
-
-                health = data.BasicData.maxHealth;
-                vitality = data.BasicData.maxVitality;
-                vitalityBar.value = 1;
-                healthbar.value = 1;
-                vitalityBar.GetComponent<Slider>().fillRect.GetComponent<Image>().color = new Color(0, 1, 0.5437737f, 1);
-            
-                //2. Update UI to match lives remaining.
-                livesUI.ElementAt(currentLives).SetActive(false);
-            
-                //3. Re-enabling enemy states if they were attacking -- or just turn their BTs back on. 
-                InitateStateChange(State.Idle);
-                _playerInput.SwitchCurrentActionMap("Player");
-            }
+            deadUI.SetActive(false);
+            deadUI.GetComponent<Animator>()?.Play("Default");
+            PlayerRespawn();
         }
-
-        private void PlayerWantsToDie(InputAction.CallbackContext context)
+        
+        public void PlayerWantsToLive(InputAction.CallbackContext context)
         {
-            respawn = 0;
-        }
-        private void PlayerWantsTolive(InputAction.CallbackContext context)
-        {
-            respawn = 1;
-        }
-        private IEnumerator WaitForDecision()
-        {
-            respawn = -1;
-            while (respawn == -1)
-            {
-                
-            }
+            Time.timeScale = 1;
+            dyingUI.SetActive(false);
+
+            Debug.Log("The player has lost a life and chose to revive.");
+
+            health = data.BasicData.maxHealth;
+            vitality = data.BasicData.maxVitality;
+            vitalityBar.value = 1;
+            healthbar.value = 1;
+            vitalityBar.GetComponent<Slider>().fillRect.GetComponent<Image>().color = new Color(0, 1, 0.5437737f, 1);
+
+            //2. Update UI to match lives remaining.
+            livesUI.ElementAt(currentLives).SetActive(false);
+
+            //3. Re-enabling enemy states if they were attacking -- or just turn their BTs back on.
+            InitiateStateChange(State.Idle);
             
-            yield return null;
-            
+            _playerInput.SwitchCurrentActionMap("Player");
+            dyingUI.SetActive(false);
+
+         
         }
+        
         public void PlayerRespawn()
         {
             //Handle respawning 

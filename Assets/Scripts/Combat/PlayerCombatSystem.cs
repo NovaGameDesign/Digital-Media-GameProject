@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
@@ -22,9 +23,10 @@ namespace DigitalMedia.Combat
         private const string ANIM_BLOCK = "Player_Block_Start";
 
         private int soundLastPlayed;
+        
         private void Start()
         {
-            InitateStateChange(State.Idle);
+            InitiateStateChange(State.Idle);
             //Input
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
@@ -74,13 +76,14 @@ namespace DigitalMedia.Combat
             
         }
 
-
+        /*
         public void EndAttackSequence()
         {
-            InitateStateChange(State.Idle);
+            InitiateStateChange(State.Idle);
             currentAttackIndex = 0;
             _animator.Play("Idle");
         }
+        */
 
         #endregion
 
@@ -91,7 +94,7 @@ namespace DigitalMedia.Combat
         {
             if (context.canceled)
             {
-                InitateStateChange(State.Idle);
+                InitiateStateChange(State.Idle);
                 _animator.Play("Player_Block_End");
                 blocking = false;
             }
@@ -99,7 +102,7 @@ namespace DigitalMedia.Combat
             {
                 if (currentState != State.Idle && !canInterruptState) return;
 
-                InitateStateChange(State.Blocking);
+                InitiateStateChange(State.Blocking);
 
                 _animator.Play(ANIM_BLOCK);
                 blocking = true;
@@ -146,31 +149,38 @@ namespace DigitalMedia.Combat
         
         public void Deathblow()
         {
-            InitateStateChange(State.Deathblowing);
+            InitiateStateChange(State.Deathblowing);
             /*transform.GetComponent<Rigidbody2D>().simulated = false; The idea here is to maybe let the player "teleport" to their destination and do some sort of flash step quick attack deathblow. Idrk I'll probably do it when I have a bit more time to do afterimages for the player teleporting and stuff.
             transform.position = deathblowTarget.transform.Find("Deathblow Position").position;*/
            
-            _animator.Play("Deathblow");
+            _animator.Play("Player_Deathblow");
         }
 
         public void EndDeathblowSequence()
         {
-            InitateStateChange(State.Idle);
-            transform.GetComponent<Rigidbody2D>().simulated = true;
+            InitiateStateChange(State.Idle);
+            _animator.Play("Idle");
+            /*transform.GetComponent<Rigidbody2D>().simulated = true;*/
             //Other stuff
         }
         
         public void SpawnDeathblowSlash()
         {
             //Play animations if we end up having one, otherwise just destroy the target and spawn the slash
-            Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
+            //Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
             
             deathblowTarget.GetComponent<StatsComponent>()?.HandleLives();
+            
             deathblowTarget = null;
         }
         
         #endregion
-        
+
+        public void TransformForwardDeathblow()
+        {
+            transform.position = transform.Find("Deathblow Pos").position;
+            Debug.LogWarning("Moved the player forward during the deathblow.");
+        }
     }
 
 }

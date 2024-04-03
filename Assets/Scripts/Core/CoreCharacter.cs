@@ -7,12 +7,12 @@ namespace DigitalMedia.Core
     {
         None,
         Idle,
-        Moving,
         Airborne,
         Attacking,
         Deathblowing,
         Blocking,
         Staggered,
+        Dying
     }
 
     public class CoreCharacter : MonoBehaviour, IStateController
@@ -63,7 +63,7 @@ namespace DigitalMedia.Core
             currentState = changeToState;
         }
 
-        public void InitateStateChange(State changeStateTo)
+        public void InitiateStateChange(State changeStateTo)
         {
             var childrenWithInterface = gameObject.GetComponents<IStateController>();
             foreach (var item in childrenWithInterface)
