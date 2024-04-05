@@ -6,15 +6,17 @@ namespace DigitalMedia
     {
         //The above menu creates an object to apply the below values onto, along with a sprite for the inventory.
         public int id;
-        public string name;
+        public string itemName;
         public int value;
         public Sprite icon;
+        public ItemType itemType;
         
         public enum ItemType
         {
             //add item types here
-            Throwable, 
-            Consumable
+            Etank,
+            Consumable,
+            Throwable
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; 
 using UnityEngine.UI;
 
 namespace DigitalMedia
@@ -38,10 +39,9 @@ namespace DigitalMedia
             foreach (var item in Items)
             {
                 GameObject obj = Instantiate(InventoryItem, ItemContent);
-                var itemName = obj.transform.Find("itemName").GetComponent<Text>();
                 var itemIcon = obj.transform.Find("itemIcon").GetComponent<Image>();
                 var itemRemove = obj.transform.Find("itemRemove").GetComponent<Button>();
-                itemName.text = itemName.itemName;
+                
                 itemIcon.sprite = item.icon;
                 if (EnableRemove.isOn)
                 {

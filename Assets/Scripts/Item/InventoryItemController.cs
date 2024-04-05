@@ -20,7 +20,7 @@ namespace DigitalMedia
         }
         public void UseItem()
         {
-            switch (item.ItemType)
+            switch (Item.itemType)
             {
                 //case format example, add similar methods to the player
                 /*
@@ -30,6 +30,8 @@ namespace DigitalMedia
                 
 
                 */
+                default:
+                    break;
             }
         }
     }
