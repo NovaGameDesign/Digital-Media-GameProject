@@ -1,11 +1,10 @@
-using System;
-using System.Collections;
-using AYellowpaper.SerializedCollections;
 using DigitalMedia.Combat.Abilities;
+using UnityEngine;
 using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
-using UnityEngine;
+using DigitalMedia.Misc;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace DigitalMedia.Combat
 {
@@ -16,31 +15,36 @@ namespace DigitalMedia.Combat
         private PlayerInput _playerInput;
         private InputAction attack;
         private InputAction block;
+        private InputAction dash;
         
         #endregion
         
         public GameObject deathblowTarget = null;
         [SerializeField] protected GameObject deathblowAirSlash;
+        
+        private int soundLastPlayed;
 
-        private const string ANIM_BLOCK = "Player_Block_Start";
-
+        public PlayerDash dashInfo;
+        
         private void Start()
         {
-            InitateStateChange(State.Idle);
+            InitiateStateChange(State.Idle);
             //Input
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
             block = _playerInput.actions["Block"];
+            dash = _playerInput.actions["Dash"];
             //Assigning Functionality
             attack.performed += TryToAttack;
             block.performed += TryToBlock;
             block.canceled += TryToBlock;
+            dash.performed += TryToDash;
 
             _animator = GetComponent<Animator>();
             _audioPlayer = GetComponent<AudioSource>();
         }
 
-        #region Attack Related Functionality
+        #region Input Activation 
 
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
@@ -53,6 +57,7 @@ namespace DigitalMedia.Combat
             
             if (currentState == State.Airborne)
             {
+//                Debug.Log(("tried to air attack"));
                 TriggerAbility("Attack_Airborne");
                 return;
             }
@@ -74,25 +79,12 @@ namespace DigitalMedia.Combat
             }
             
         }
-
-
-        public void EndAttackSequence()
-        {
-            InitateStateChange(State.Idle);
-            currentAttackIndex = 0;
-            _animator.Play("Idle");
-        }
-
-        #endregion
-
-
-        #region Parry Related Functionality
-
+        
         private void TryToBlock(InputAction.CallbackContext context)
         {
             if (context.canceled)
             {
-                InitateStateChange(State.Idle);
+                InitiateStateChange(State.Idle);
                 _animator.Play("Player_Block_End");
                 blocking = false;
             }
@@ -100,12 +92,62 @@ namespace DigitalMedia.Combat
             {
                 if (currentState != State.Idle && !canInterruptState) return;
 
-                InitateStateChange(State.Blocking);
+                InitiateStateChange(State.Blocking);
 
-                _animator.Play(ANIM_BLOCK);
+                _animator.Play("Player_Block_Start");
                 blocking = true;
             }
         }
+
+        private void TryToDash(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                TriggerAbility("Player_Dash");
+            }
+        }
+
+        #endregion
+
+        #region Dashing
+
+        private void Update()
+        {
+            CheckDash();
+        }
+
+        private void CheckDash()
+        {
+            if (currentState == State.Dashing)
+            {
+                if (dashInfo.dashTimeLeft > 0)
+                {
+                    var rb = this.gameObject.GetComponent<Rigidbody2D>();
+                    
+                    rb.velocity = new Vector2(dashInfo.dashSpeed, rb.velocity.y);
+                    Debug.Log($"We are currently dashing at a speed of {rb.velocity}");
+                    dashInfo.dashTimeLeft = Time.deltaTime;
+
+                    if (Mathf.Abs(transform.position.x - dashInfo.lastImageXpos) > dashInfo.distanceBetweenTwoImages)
+                    {
+                        PlayerAfterImagePool.Instance.GetFromPool();
+                        dashInfo.lastImageXpos = transform.position.x;
+                    }
+                }
+                if (dashInfo.dashTimeLeft <= 0)
+                {
+                    InitiateStateChange(State.Idle);
+                }
+            }
+
+           
+        }
+
+        #endregion
+
+
+        #region Parry Related Functionality
+        
 
         public void StartStopParrying(string shouldParry)
         {
@@ -120,7 +162,15 @@ namespace DigitalMedia.Combat
         public void DidParry()
         {
             _animator.Play("Player_Parry");
-            parrying = false; 
+            parrying = false;
+            
+            int randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length - 1);
+            while (soundLastPlayed == randomSound)
+            {
+                randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length - 1);
+            }
+            soundLastPlayed = randomSound;
+            _audioPlayer.PlayOneShot(data.CombatData.parrySoundsNormal[randomSound]);
             
             GameObject sparks = ObjectPool.SharedInstance.GetPooledObject(); 
             if (sparks != null)
@@ -129,6 +179,7 @@ namespace DigitalMedia.Combat
                 sparks.transform.position = sparksSpawnLocation.position;
                 sparks.transform.rotation = sparksSpawnLocation.rotation;
                 sparks.SetActive(true);
+                sparks.GetComponent<ParticleSystem>()?.Play();
             }
         }
 
@@ -138,31 +189,38 @@ namespace DigitalMedia.Combat
         
         public void Deathblow()
         {
-            InitateStateChange(State.Deathblowing);
+            InitiateStateChange(State.Deathblowing);
             /*transform.GetComponent<Rigidbody2D>().simulated = false; The idea here is to maybe let the player "teleport" to their destination and do some sort of flash step quick attack deathblow. Idrk I'll probably do it when I have a bit more time to do afterimages for the player teleporting and stuff.
             transform.position = deathblowTarget.transform.Find("Deathblow Position").position;*/
            
-            _animator.Play("Deathblow");
+            _animator.Play("Player_Deathblow");
         }
 
         public void EndDeathblowSequence()
         {
-            InitateStateChange(State.Idle);
-            transform.GetComponent<Rigidbody2D>().simulated = true;
+            InitiateStateChange(State.Idle);
+            _animator.Play("Idle");
+            /*transform.GetComponent<Rigidbody2D>().simulated = true;*/
             //Other stuff
         }
         
         public void SpawnDeathblowSlash()
         {
             //Play animations if we end up having one, otherwise just destroy the target and spawn the slash
-            Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
+            //Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
             
             deathblowTarget.GetComponent<StatsComponent>()?.HandleLives();
+            
             deathblowTarget = null;
         }
         
         #endregion
-        
+
+        public void TransformForwardDeathblow()
+        {
+            transform.position = transform.Find("Deathblow Pos").position;
+            Debug.LogWarning("Moved the player forward during the deathblow.");
+        }
     }
 
 }

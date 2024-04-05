@@ -8,23 +8,27 @@ namespace DigitalMedia
     public class InventoryManager : MonoBehaviour
     {
         public static InventoryManager Instance;
-        public List<Item> Items=new List<Item> ();
+        public List<Item> Items = new List<Item>();
         public InventoryItemController[] InventoryItems;
         public Transform ItemContent;
         public GameObject InventoryItem;
         public Toggle EnableRemove;
+        
         private void Awake()
         {
             Instance = this;
         }
+        
         public void Add(Item item)
         {
             Items.Add(item);
         }
+        
         public void Remove(Item item)
         {
             Items.Remove(item);
         }
+        
         public void ListItems()
         {
             foreach (Transform item in ItemContent)
@@ -47,6 +51,7 @@ namespace DigitalMedia
             SetInventoryItems();
 
         }
+        
         public void EnableItemsRemove()
         {
             if (EnableRemove.isOn)

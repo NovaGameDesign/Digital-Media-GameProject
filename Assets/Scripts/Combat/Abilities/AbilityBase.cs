@@ -10,12 +10,14 @@ namespace DigitalMedia.Combat.Abilities
         public string abilityName;
         
         [Header("Cooldown and Cast Time")] 
-        public bool hasCooldown = true;
+        public bool hasCooldown = false;
         public float cooldown = 1f;
         public float castTime = 0f;
 
         [Header("Allowed Ability Usage States")]
         public List<State> allowedUsageStates = new List<State>() { State.Idle };
+
+        public State stateToChangeTo = State.Attacking;
 
         [Header("Animation Details")]
         public AnimationClip animToPlay;

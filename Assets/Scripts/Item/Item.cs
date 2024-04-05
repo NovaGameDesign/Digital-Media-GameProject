@@ -9,9 +9,12 @@ namespace DigitalMedia
         public string name;
         public int value;
         public Sprite icon;
-        public enum itemType
+        
+        public enum ItemType
         {
             //add item types here
+            Throwable, 
+            Consumable
         }
     }
 }

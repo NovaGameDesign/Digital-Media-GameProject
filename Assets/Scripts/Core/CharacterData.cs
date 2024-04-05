@@ -69,7 +69,11 @@ namespace DigitalMedia.Core
         public bool ShowParryDebug;
         public Vector2 parryRange;
         public Vector2 parryOffset;
-        
+
+        [Header("Audio")]
+        public AudioClip[] parrySoundsNormal;
+        public AudioClip[] parrySoundsHeavy;
+        public AudioClip[] damageSounds;
     }
 
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CharacterStats", order = 1)]

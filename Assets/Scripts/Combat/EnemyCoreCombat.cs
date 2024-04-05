@@ -1,15 +1,9 @@
-using System;
-using System.Collections;
-using AYellowpaper.SerializedCollections;
-using DigitalMedia.Combat;
-using DigitalMedia.Combat.Abilities;
 using DigitalMedia.Core;
-using DigitalMedia.Interfaces;
 using TheKiwiCoder;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace DigitalMedia
+namespace DigitalMedia.Combat
 {
     public class EnemyCoreCombat : CoreCombatSystem
     {
@@ -24,7 +18,9 @@ namespace DigitalMedia
         private BlackboardKey<GameObject> playerKeyRef;
         
         #endregion
-   
+
+        private GameObject airSlash;
+        
         void Start()
         {
             _animator = GetComponent<Animator>();
@@ -46,6 +42,11 @@ namespace DigitalMedia
         private void FixedUpdate()
         {
             if(isAnAgent) keyRef.value = player.transform.position;
+        }
+
+        public void SpawnAirSlash()
+        {
+            
         }
         
     }

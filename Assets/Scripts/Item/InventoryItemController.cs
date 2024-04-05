@@ -6,7 +6,7 @@ namespace DigitalMedia
 {
     public class InventoryItemController : MonoBehaviour
     {
-        Item item;
+        private Item item; 
         public Button itemRemove;
         public void RemoveItem()
         {
@@ -15,12 +15,12 @@ namespace DigitalMedia
         }
         public void AddItem(Item newItem)
         {
-            item= newItem;
+            item = newItem;
 
         }
         public void UseItem()
         {
-            switch (item.itemType)
+            switch (item.ItemType)
             {
                 //case format example, add similar methods to the player
                 /*
