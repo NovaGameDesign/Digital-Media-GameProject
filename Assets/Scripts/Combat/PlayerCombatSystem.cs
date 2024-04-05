@@ -1,7 +1,8 @@
-using System.Runtime.CompilerServices;
+using DigitalMedia.Combat.Abilities;
 using UnityEngine;
 using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
+using DigitalMedia.Misc;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
@@ -14,15 +15,16 @@ namespace DigitalMedia.Combat
         private PlayerInput _playerInput;
         private InputAction attack;
         private InputAction block;
+        private InputAction dash;
         
         #endregion
         
         public GameObject deathblowTarget = null;
         [SerializeField] protected GameObject deathblowAirSlash;
-
-        private const string ANIM_BLOCK = "Player_Block_Start";
-
+        
         private int soundLastPlayed;
+
+        public PlayerDash dashInfo;
         
         private void Start()
         {
@@ -31,16 +33,18 @@ namespace DigitalMedia.Combat
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
             block = _playerInput.actions["Block"];
+            dash = _playerInput.actions["Dash"];
             //Assigning Functionality
             attack.performed += TryToAttack;
             block.performed += TryToBlock;
             block.canceled += TryToBlock;
+            dash.performed += TryToDash;
 
             _animator = GetComponent<Animator>();
             _audioPlayer = GetComponent<AudioSource>();
         }
 
-        #region Attack Related Functionality
+        #region Input Activation 
 
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
@@ -75,21 +79,7 @@ namespace DigitalMedia.Combat
             }
             
         }
-
-        /*
-        public void EndAttackSequence()
-        {
-            InitiateStateChange(State.Idle);
-            currentAttackIndex = 0;
-            _animator.Play("Idle");
-        }
-        */
-
-        #endregion
-
-
-        #region Parry Related Functionality
-
+        
         private void TryToBlock(InputAction.CallbackContext context)
         {
             if (context.canceled)
@@ -104,10 +94,60 @@ namespace DigitalMedia.Combat
 
                 InitiateStateChange(State.Blocking);
 
-                _animator.Play(ANIM_BLOCK);
+                _animator.Play("Player_Block_Start");
                 blocking = true;
             }
         }
+
+        private void TryToDash(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                TriggerAbility("Player_Dash");
+            }
+        }
+
+        #endregion
+
+        #region Dashing
+
+        private void Update()
+        {
+            CheckDash();
+        }
+
+        private void CheckDash()
+        {
+            if (currentState == State.Dashing)
+            {
+                if (dashInfo.dashTimeLeft > 0)
+                {
+                    var rb = this.gameObject.GetComponent<Rigidbody2D>();
+                    
+                    rb.velocity = new Vector2(dashInfo.dashSpeed, rb.velocity.y);
+                    Debug.Log($"We are currently dashing at a speed of {rb.velocity}");
+                    dashInfo.dashTimeLeft = Time.deltaTime;
+
+                    if (Mathf.Abs(transform.position.x - dashInfo.lastImageXpos) > dashInfo.distanceBetweenTwoImages)
+                    {
+                        PlayerAfterImagePool.Instance.GetFromPool();
+                        dashInfo.lastImageXpos = transform.position.x;
+                    }
+                }
+                if (dashInfo.dashTimeLeft <= 0)
+                {
+                    InitiateStateChange(State.Idle);
+                }
+            }
+
+           
+        }
+
+        #endregion
+
+
+        #region Parry Related Functionality
+        
 
         public void StartStopParrying(string shouldParry)
         {
@@ -124,10 +164,10 @@ namespace DigitalMedia.Combat
             _animator.Play("Player_Parry");
             parrying = false;
             
-            int randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length);
+            int randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length - 1);
             while (soundLastPlayed == randomSound)
             {
-                randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length);
+                randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length - 1);
             }
             soundLastPlayed = randomSound;
             _audioPlayer.PlayOneShot(data.CombatData.parrySoundsNormal[randomSound]);

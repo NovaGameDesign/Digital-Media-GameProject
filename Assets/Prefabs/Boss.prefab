@@ -354,7 +354,7 @@ RectTransform:
   m_Father: {fileID: 4255071467632050052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20.3992, y: -15.8594055}
   m_SizeDelta: {x: 237.5323, y: 15.8085}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -657,8 +657,8 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: aa1e6602a2fb62544ba8601b4d976042, type: 2}
     - Key: Attack_Combo-Two
       Value: {fileID: 11400000, guid: c1a31b099a31b294087be96ac5bbcb29, type: 2}
-    - Key: Attack_Stab
-      Value: {fileID: 0}
+    - Key: Attack_AirSlash
+      Value: {fileID: 11400000, guid: 97a97f1d4bbd6b54594d4f828e184699, type: 2}
   isAnAgent: 1
   behaviourTreeInstance: {fileID: 5418642651894759646}
   player: {fileID: 0}
@@ -678,8 +678,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  overrideHealthMax: 1
-  health: 120
+  overrideHealthMax: 0
+  health: 20
   currentLives: 2
   maxLives: 2
   vitality: 0
@@ -1038,7 +1038,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106d37f1668d5ca44875c7fcd7ba0c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
   _playerInput: {fileID: 0}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
   pauseMenuUI: {fileID: 0}
 --- !u!1 &6775470271333324993
 GameObject:
@@ -1165,7 +1169,7 @@ RectTransform:
   m_Father: {fileID: 4255071467632050052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 16.602112, y: 9.872711}
   m_SizeDelta: {x: 249.97107, y: 92.76849}
   m_Pivot: {x: 0.5, y: 0.5}

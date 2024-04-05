@@ -53,6 +53,7 @@ namespace DigitalMedia.Core
             TriggerAbility(desiredAttack); 
         }
         
+        
         public void TriggerAbility(string desiredAbility)
         {
             //Store the old ability in case we get in trouble. 
@@ -80,13 +81,13 @@ namespace DigitalMedia.Core
             
             //play animation 
             _animator.Play(currentAbility.animToPlay.name);
-            InitiateStateChange(State.Attacking);
+            InitiateStateChange(currentAbility.stateToChangeTo);
         }
 
         /// <summary>
-        /// 
+        /// Ability Usage is handled from animation events 99% of the time. Usage is primarily targeted towards functionality like attacking, though theoretically it can do more. 
         /// </summary>
-        private void HandleAbilityUsage()
+        public void HandleAbilityUsage()
         {
             //currentAbility.currentAbilityState = AbilityBase.AbilityStates.Using;
             
@@ -95,6 +96,9 @@ namespace DigitalMedia.Core
             currentAbility.Activate(this.gameObject);
         }
 
+        /// <summary>
+        /// Ability effect are like Ability usages in that they are usually called from the animation that is currently being played via an event. These effects are usually just things like sounds or VFX intended to be a bonus to actual functionality. 
+        /// </summary>
         public void ActivateAbilityEffects()
         {
             currentAbility.ActivateAbilityEffects(this.gameObject);
@@ -182,7 +186,7 @@ namespace DigitalMedia.Core
                 {
                     var damage = data.CombatData.weaponData.innateWeaponDamage * data.CombatData.attackPower;
                     hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, currentAbility.knockBackAmount, true);
-                    int soundToPlay = Random.Range(0, hit.GetComponent<CoreCharacter>().data.CombatData.damageSounds.Length);
+                    int soundToPlay = Random.Range(0, hit.GetComponent<CoreCharacter>().data.CombatData.damageSounds.Length - 1);
                     _audioPlayer.PlayOneShot(hit.GetComponent<CoreCharacter>().data.CombatData.damageSounds[soundToPlay]);
                     
                 }

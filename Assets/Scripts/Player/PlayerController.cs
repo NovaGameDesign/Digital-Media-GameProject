@@ -29,10 +29,8 @@ namespace DigitalMedia
         #endregion
         
         //Animation States 
-        private const string PLAYER_IDLE = "Idle";
-        private const string PLAYER_WALK = "Walk_Start";
-        private const string PLAYER_RUN = "Player_Run";
-        private const string PLAYER_JUMP = "Player_Jump";
+        private const string PLAYER_WALK = "Player_Walk_Start";
+        
         //Add above values as needed. 
         
         // Start is called before the first frame update
@@ -161,7 +159,7 @@ namespace DigitalMedia
         private void Move()
         {
             //Check if the player was moving and if so set their velocity (x) back to 0 and return. 
-            if(currentState is State.Attacking or State.Deathblowing or State.Staggered)
+            if(currentState is State.Attacking or State.Deathblowing or State.Staggered or State.Dashing)
             {
                 return;
             }
@@ -176,20 +174,20 @@ namespace DigitalMedia
                     WallSlide();
                     //InitiateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 180, 0, 0);
-                    if(currentState is State.Airborne) _animator.Play(PLAYER_WALK);
+                    if(currentState is not State.Airborne) _animator.Play(PLAYER_WALK);
                 }
                 else if (playerVelocity.x < 0)
                 {
                     WallSlide();
                     //InitiateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 0, 0, 0);
-                    if(currentState is State.Airborne) _animator.Play(PLAYER_WALK);
+                    if(currentState is not State.Airborne) _animator.Play(PLAYER_WALK);
                 }
                 else
                 {
                     canWallJump = false;
                     if (currentState is State.Blocking or State.Deathblowing or State.Staggered) return;
-                    _animator.Play(PLAYER_IDLE);
+                    _animator.Play("Idle");
                 }
             }
         }

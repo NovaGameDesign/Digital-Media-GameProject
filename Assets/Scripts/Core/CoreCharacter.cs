@@ -12,7 +12,8 @@ namespace DigitalMedia.Core
         Deathblowing,
         Blocking,
         Staggered,
-        Dying
+        Dying,
+        Dashing
     }
 
     public class CoreCharacter : MonoBehaviour, IStateController

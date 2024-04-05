@@ -17,6 +17,8 @@ namespace DigitalMedia.Combat.Abilities
         [Header("Allowed Ability Usage States")]
         public List<State> allowedUsageStates = new List<State>() { State.Idle };
 
+        public State stateToChangeTo = State.Attacking;
+
         [Header("Animation Details")]
         public AnimationClip animToPlay;
 

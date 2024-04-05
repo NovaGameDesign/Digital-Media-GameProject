@@ -50,7 +50,7 @@ namespace DigitalMedia
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             var hit = other;
             
             if (hit.transform.root == transform || hit.transform == transform) return;
