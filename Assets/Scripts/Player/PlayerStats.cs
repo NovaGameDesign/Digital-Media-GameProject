@@ -160,7 +160,11 @@ namespace DigitalMedia
 
          
         }
-        
+        public void AddHealth(float val)
+        {
+            health += val;
+            healthbar.value = health / data.BasicData.maxHealth;
+        }
         public void PlayerRespawn()
         {
             //Handle respawning 

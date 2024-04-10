@@ -15,9 +15,8 @@ namespace DigitalMedia
         private InputAction placeholder; // Use this as needed and add more. 
 
         private Rigidbody2D rb;
-
         #region Wall Jumping and Sliding
-        
+
         private bool canWallJump = true;
         private bool isWallSliding;
         private bool jumpLeft, jumpRight; 
@@ -61,7 +60,7 @@ namespace DigitalMedia
             }
            
         }
-
+        
         private void Jump(InputAction.CallbackContext context)
         {
             //Debug.Log("try to jump");
