@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DigitalMedia.Core;
+using UnityEngine;
 
 namespace DigitalMedia.Interfaces
 {
@@ -11,7 +12,7 @@ namespace DigitalMedia.Interfaces
         /// <param name="attackOrigin"></param>
         /// <param name="knockbackForce"></param>
         /// <param name="interruptAction"></param>
-        public void DealDamage(float incomingDamage, GameObject attackOrigin, float knockbackForce = .5f, bool interruptAction = true);
+        public void DealDamage(float incomingDamage, GameObject attackOrigin, Elements damageType, float knockbackForce = .5f, bool interruptAction = true);
 
         /// <summary>
         /// 

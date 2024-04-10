@@ -105,7 +105,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 74d6902b9ad13a846941e11ad5365c4c, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 238ab8f30cd828e40ad10e9dc3854a98, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 7280e9712b0387644bc7a8032019ddbb, type: 2}
   validate: 0
   blackboardOverrides:
   - key:
@@ -278,12 +278,15 @@ MonoBehaviour:
     m_Bits: 4294967295
   layersToCheck:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   parrying: 0
   abilities:
     _serializedList:
     - Key: Attack_Combo
       Value: {fileID: 11400000, guid: bbc09e00adc47f24bb5ce77fc8eb9450, type: 2}
+  currentElement: 0
+  elementSprites:
+  - {fileID: 7108339969198208228, guid: c269f708828911d4ca83fbb055a6782b, type: 3}
   isAnAgent: 0
   behaviourTreeInstance: {fileID: 6631169985997930655}
   player: {fileID: 0}

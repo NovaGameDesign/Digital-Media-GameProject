@@ -354,7 +354,7 @@ RectTransform:
   m_Father: {fileID: 4255071467632050052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -20.3992, y: -15.8594055}
   m_SizeDelta: {x: 237.5323, y: 15.8085}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -659,6 +659,10 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: c1a31b099a31b294087be96ac5bbcb29, type: 2}
     - Key: Attack_AirSlash
       Value: {fileID: 11400000, guid: 97a97f1d4bbd6b54594d4f828e184699, type: 2}
+  currentElement: 0
+  elementSprites:
+  - {fileID: 7108339969198208228, guid: 09fdc47007b305a4e986e2159a7469ec, type: 3}
+  - {fileID: 7108339969198208228, guid: 6812903415c4a334bb34c8207d6b6f7e, type: 3}
   isAnAgent: 1
   behaviourTreeInstance: {fileID: 5418642651894759646}
   player: {fileID: 0}
@@ -1169,7 +1173,7 @@ RectTransform:
   m_Father: {fileID: 4255071467632050052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 16.602112, y: 9.872711}
   m_SizeDelta: {x: 249.97107, y: 92.76849}
   m_Pivot: {x: 0.5, y: 0.5}

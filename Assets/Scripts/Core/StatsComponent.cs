@@ -28,6 +28,8 @@ namespace DigitalMedia.Core
 
         [SerializeField]
         private GameObject statsUI;
+
+        private float damageOverTimeTimer;
         
         //[System.NonSerialized]
         private bool _inCombat;
@@ -64,11 +66,23 @@ namespace DigitalMedia.Core
             rb = this.gameObject.GetComponent<Rigidbody2D>();
         }
 
-        public virtual void DealDamage(float incomingDamage, GameObject attackOrigin, float knockbackForce = .5f, bool interruptAction = true)
+        public virtual void DealDamage(float incomingDamage, GameObject attackOrigin, Elements damageType, float knockbackForce = .5f, bool interruptAction = true)
         {
             //write a more complex damage function to account for defense, damage type, etc. 
             /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
             if (currentState == State.Dying) return;
+            
+            if (damageType is Elements.Fire)
+            {
+                //Start coroutine to deal DOT 
+                damageOverTimeTimer = Time.time;
+                StartCoroutine(DamageOverTime(1, 3));
+            }
+            else if (damageType is Elements.Ice)
+            {
+                DealVitalityDamage(incomingDamage/4);
+                knockbackForce *= 2;
+            }
             
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
@@ -107,6 +121,21 @@ namespace DigitalMedia.Core
             if (health <= 0)
             {
                 HandleLives();
+            }
+        }
+
+        IEnumerator DamageOverTime(float damage, float duration)
+        {
+            
+            yield return new WaitForSeconds(.1f);
+            
+            health -= damage;
+            healthbar.value = health / data.BasicData.maxHealth;
+            
+            // Continue to check if the correct time has passed. 
+            if (Time.time < damageOverTimeTimer + duration)
+            {
+                StartCoroutine(DamageOverTime(damage, duration));
             }
         }
         

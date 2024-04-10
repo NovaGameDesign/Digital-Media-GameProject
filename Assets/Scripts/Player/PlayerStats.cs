@@ -12,16 +12,23 @@ namespace DigitalMedia
 {
     public class PlayerStats : StatsComponent
     {
-
+        [Header("Dying UI")]
         [SerializeField] private GameObject dyingUI;
         [SerializeField] private GameObject deadUI;
         private PlayerCombatSystem _combatSystem;
-        
+
         private PlayerInput _playerInput;
         private InputAction reload;
         private InputAction die;
-        
-        private void Start()
+
+        [Header("Healthbars")]
+        [SerializeField] private Image healthBorder;
+        [SerializeField] private Image healthFill;
+
+        [SerializeField] private Sprite [] healthBorders;
+        [SerializeField] private Sprite [] healthFills;
+
+    private void Start()
         {
             if (!overrideHealthMax)
             {
@@ -44,18 +51,33 @@ namespace DigitalMedia
             die.started += PlayerWantsToDie;
         }
 
+        public void SwapHealthbarUI(int element)
+        {
+            healthBorder.sprite = healthBorders[element];
+            healthFill.sprite = healthFills[element];
+        }
+        
         // Update is called once per frame
-        public override void DealDamage(float incomingDamage, GameObject attackOrigin, float knockbackForce = .5f, bool interruptAction = true)
+        public override void DealDamage(float incomingDamage, GameObject attackOrigin, Elements damageType, float knockbackForce = .5f, bool interruptAction = true)
         {
             //write a more complex damage function to account for defense, damage type, etc. 
             /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
-            if (_combatSystem.blocking)
+            if (_combatSystem.blocking && damageType is not Elements.Holy)
             {
                 incomingDamage -= (incomingDamage * data.CombatData.weaponData.innateWeaponBlock);
             }
+            else if (damageType is Elements.Fire)
+            {
+                //Start coroutine to deal DOT 
+            }
+            else if (damageType is Elements.Ice)
+            {
+                DealVitalityDamage(incomingDamage/2);
+            }
+            
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
-
+            
 
             vitalityRegenerationSpeed = health / data.BasicData.maxHealth;
             if (vitalityRegenerationSpeed <= 0.25f)

@@ -4,6 +4,7 @@ using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
 using DigitalMedia.Misc;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D.Animation;
 using Random = UnityEngine.Random;
 
 namespace DigitalMedia.Combat
@@ -16,36 +17,83 @@ namespace DigitalMedia.Combat
         private InputAction attack;
         private InputAction block;
         private InputAction dash;
+        private InputAction swapElement;
         
         #endregion
         
         public GameObject deathblowTarget = null;
-        [SerializeField] protected GameObject deathblowAirSlash;
         
         private int soundLastPlayed;
 
         public PlayerDash dashInfo;
+
+        private float ElementPrecentage;
+
+        private new PlayerStats stats;
         
         private void Start()
         {
             InitiateStateChange(State.Idle);
-            //Input
+            
+            //Get Input
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
             block = _playerInput.actions["Block"];
             dash = _playerInput.actions["Dash"];
+            swapElement = _playerInput.actions["Swap Element"];
+            
             //Assigning Functionality
             attack.performed += TryToAttack;
             block.performed += TryToBlock;
             block.canceled += TryToBlock;
             dash.performed += TryToDash;
+            swapElement.performed += SwapElements;
 
             _animator = GetComponent<Animator>();
             _audioPlayer = GetComponent<AudioSource>();
+
+            spriteLibrary = GetComponent<SpriteLibrary>();
+
+            stats = GetComponent<PlayerStats>();
         }
 
-        #region Input Activation 
+        #region Input Activation
 
+        private void SwapElements(InputAction.CallbackContext context)
+        {
+            currentElementIndex++;
+            switch (currentElementIndex)
+            {
+                case 1:
+                {
+                    currentElement = Elements.Fire;
+                    stats.SwapHealthbarUI(1);
+                    break;
+                }
+                case 2:
+                {
+                    currentElement = Elements.Ice;
+                    stats.SwapHealthbarUI(2);
+                    break;
+                }
+                case 3:
+                {
+                    currentElement = Elements.Lightning;
+                    stats.SwapHealthbarUI(3);
+                    break;
+                }
+                default:
+                {
+                    currentElementIndex = 0;
+                    currentElement = Elements.Default;
+                    stats.SwapHealthbarUI(0);
+                    break;
+                }
+            }
+            
+            spriteLibrary.spriteLibraryAsset = elementSprites[currentElementIndex];
+        }
+        
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
             //Convert this to ability and have functionality for the different deathblow types (ie. boss vs basic enemy). 
@@ -113,7 +161,12 @@ namespace DigitalMedia.Combat
 
         private void Update()
         {
-            CheckDash();
+            //CheckDash();
+        }
+
+        public void Dash(Transform point)
+        {
+            transform.position = Vector2.Lerp(transform.position, transform.position, Time.deltaTime);
         }
 
         private void CheckDash()
@@ -144,7 +197,6 @@ namespace DigitalMedia.Combat
         }
 
         #endregion
-
 
         #region Parry Related Functionality
         

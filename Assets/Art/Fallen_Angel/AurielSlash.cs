@@ -74,7 +74,7 @@ namespace DigitalMedia
             if (hit.GetComponent<IDamageable>() != null)
             {
                 
-                hit.GetComponent<IDamageable>().DealDamage(abilityRef.slashDamage, this.gameObject, abilityRef.knockBackAmount, true);
+                hit.GetComponent<IDamageable>().DealDamage(abilityRef.slashDamage, this.gameObject, Elements.Holy, abilityRef.knockBackAmount, true);
                 _audioPlayer.PlayOneShot(abilityRef.sfxHit);
             }
         }

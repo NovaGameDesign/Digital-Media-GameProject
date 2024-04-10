@@ -383,6 +383,42 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: -240217682, guid: 145f8de55ea3e6749a4f5b70c7f72e63, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 11
+  - m_Name: Damage
+    m_Hash: 375673178
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Player_Damage_0
+      m_Hash: 134864494
+      m_Sprite: {fileID: -1709932095, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1709932095, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+    - m_Name: Player_Damage_1
+      m_Hash: 1057943288
+      m_Sprite: {fileID: 1326285309, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1326285309, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+    - m_Name: Player_Damage_2
+      m_Hash: 638041922
+      m_Sprite: {fileID: 481733604, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 481733604, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+    - m_Name: Player_Damage_3
+      m_Hash: 285249492
+      m_Sprite: {fileID: 72632310, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 72632310, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+    - m_Name: Player_Damage_4
+      m_Hash: 258218615
+      m_Sprite: {fileID: -980512174, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -980512174, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+    - m_Name: Player_Damage_5
+      m_Hash: 946023137
+      m_Sprite: {fileID: 1868130657, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1868130657, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 6
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638478489170801388
+  m_ModificationHash: 638483538485290410
   m_Version: 1

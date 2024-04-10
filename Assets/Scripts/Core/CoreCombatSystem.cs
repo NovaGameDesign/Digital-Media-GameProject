@@ -5,11 +5,21 @@ using DigitalMedia.Combat;
 using DigitalMedia.Combat.Abilities;
 using DigitalMedia.Interfaces;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 using Random = UnityEngine.Random;
 
 
 namespace DigitalMedia.Core
 {
+    public enum Elements
+    {
+        Default,
+        Fire,
+        Ice,
+        Lightning,
+        Holy
+    }
+    
     public class CoreCombatSystem : CoreCharacter
     {
         protected Collider2D[] overlapping;
@@ -36,6 +46,12 @@ namespace DigitalMedia.Core
         protected AbilityBase oldAbility; 
         
         #endregion
+        
+        public Elements currentElement = default;
+        protected int currentElementIndex;
+        protected SpriteLibrary spriteLibrary;
+        public SpriteLibraryAsset[] elementSprites;
+
         
       
         void Start()
@@ -185,10 +201,9 @@ namespace DigitalMedia.Core
                 if (hit.GetComponent<IDamageable>() != null)
                 {
                     var damage = data.CombatData.weaponData.innateWeaponDamage * data.CombatData.attackPower;
-                    hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, currentAbility.knockBackAmount, true);
+                    hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, currentElement, currentAbility.knockBackAmount, true);
                     int soundToPlay = Random.Range(0, hit.GetComponent<CoreCharacter>().data.CombatData.damageSounds.Length - 1);
                     _audioPlayer.PlayOneShot(hit.GetComponent<CoreCharacter>().data.CombatData.damageSounds[soundToPlay]);
-                    
                 }
             }
 
