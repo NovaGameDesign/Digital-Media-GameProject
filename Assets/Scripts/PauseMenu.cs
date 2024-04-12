@@ -1,9 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-
+using TMPro;
 namespace DigitalMedia
 {
     public class PauseMenu : MonoBehaviour
@@ -14,7 +16,13 @@ namespace DigitalMedia
         [SerializeField] private Slider masterSlider;
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider sfxSlider;
-        [SerializeField] private Dropdown videoSettings;
+        [SerializeField] public TMP_Dropdown ResDropDown;
+        [SerializeField] public Toggle FullscreenToggle;
+        Resolution[] AllResolutions;
+        Resolution CurrentResolution;
+        List<Resolution> SelectedResolutionList = new List<Resolution>();
+        bool isFullscreen;
+        int SelectedResolution;
         private InputAction menu;
         //Pause Info
         public static bool GameIsPaused = false;
@@ -25,6 +33,19 @@ namespace DigitalMedia
         {
             menu = _playerInput.actions["Menu"];
             menu.performed += Menu;
+            isFullscreen=true;
+            AllResolutions=Screen.resolutions;
+            List<string> ResolutionStringList = new List<string>();
+            string newRes;
+            foreach(Resolution res in AllResolutions)
+            {
+                newRes = res.width.ToString() + "x" + res.height.ToString();
+                if (!ResolutionStringList.Contains(newRes)){
+                    ResolutionStringList.Add(newRes);
+                    SelectedResolutionList.Add(res);
+                }
+            }
+            ResDropDown.AddOptions(ResolutionStringList);
             if (PlayerPrefs.HasKey("masterVolume"))
             {
                 LoadSettings();
@@ -49,6 +70,22 @@ namespace DigitalMedia
             {
                 Pause();
             }
+        }
+        public void ChangeResolution()
+        {
+            SelectedResolution =ResDropDown.value;
+            CurrentResolution = SelectedResolutionList[SelectedResolution];
+            Screen.SetResolution(SelectedResolutionList[SelectedResolution].width, SelectedResolutionList[SelectedResolution].height, isFullscreen);
+            PlayerPrefs.SetInt("ResW", CurrentResolution.width);
+            PlayerPrefs.SetInt("ResH", CurrentResolution.height);
+            
+        }
+        public void SetFullscreen()
+        {
+            isFullscreen = FullscreenToggle.isOn;
+
+            Screen.SetResolution(SelectedResolutionList[SelectedResolution].width, SelectedResolutionList[SelectedResolution].height, isFullscreen);
+            PlayerPrefs.SetInt("Fullscreen", (isFullscreen ? 1 : 0));
         }
         public void MasterVolumeSlider()
         {
@@ -95,16 +132,22 @@ namespace DigitalMedia
             Time.timeScale = 1f;
             SceneManager.LoadScene("Main");
         }
-        public void SetQuality(int qualityIndex)
-        {
-            QualitySettings.SetQualityLevel(qualityIndex);
-
-        }
+       
         private void LoadSettings()
         {
+            CurrentResolution = new Resolution();
+            CurrentResolution.width= PlayerPrefs.GetInt("ResW", Screen.currentResolution.width);
+            CurrentResolution.height= PlayerPrefs.GetInt("ResH", Screen.currentResolution.height);
+            FullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", Screen.fullScreen ? 1 : 0) > 0;
             masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
             musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
             sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+            Screen.SetResolution(
+            CurrentResolution.width,
+            CurrentResolution.height,
+            FullscreenToggle.isOn
+        );
+
             MasterVolumeSlider();
             MusicVolumeSlider();
             SFXVolumeSlider();
