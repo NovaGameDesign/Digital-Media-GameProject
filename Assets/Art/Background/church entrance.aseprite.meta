@@ -73,7 +73,7 @@ ScriptedImporter:
   previousAsepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -85,7 +85,7 @@ ScriptedImporter:
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638487823583493979
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: church entrance
+  - name: Ceiling
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.47086346, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 2488
-      height: 1458
-    spriteID: 5197f34ccb076374bbf24cf458cea47b
+      width: 2351
+      height: 1404
+    spriteID: 260b00b8f46a28e4bb122706885e261f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,26 +139,432 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: back tiles
+    originalName: 
+    pivot: {x: 0.46217033, y: -0.3190709}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5249
+      width: 2313
+      height: 818
+    spriteID: 48667554b266cbd4b8b531917da59293
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5249}
+  - name: shading tiles
+    originalName: 
+    pivot: {x: 0.46217033, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1416
+      width: 2313
+      height: 1377
+    spriteID: 8de7585b58a45354db366f8433673f04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1416}
+  - name: back floor
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6800
+      width: 2488
+      height: 384
+    spriteID: dc28a054783e52340b9c70b26e9096ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6800}
+  - name: column shading
+    originalName: 
+    pivot: {x: 0.36762592, y: -0.52156055}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2369
+      y: 6075
+      width: 1390
+      height: 487
+    spriteID: ea93667b113c5d340b4dc61b1abb7938
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2369, y: 6075}
+  - name: back floor shading
+    originalName: 
+    pivot: {x: 0.47355056, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7192
+      width: 2363
+      height: 369
+    spriteID: 76bd5b8cb77e56c40b55747a5a3e4f3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 7192}
+  - name: front floor
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7569
+      width: 2488
+      height: 222
+    spriteID: ef6029df68e403745bd656edfbc5a6a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 7569}
+  - name: BACK columns
+    originalName: 
+    pivot: {x: 0.47221047, y: -0.5341702}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6075
+      width: 2357
+      height: 717
+    spriteID: 76fc9fc213a4a7643a6980b8ae685d6c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6075}
+  - name: 'FRONT columns '
+    originalName: 
+    pivot: {x: 0.47131318, y: -0.21070234}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4045
+      width: 2353
+      height: 1196
+    spriteID: 4264b83f38850214cb23ebd0724688a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4045}
+  - name: entrance
+    originalName: 
+    pivot: {x: 2.2138612, y: -0.26714802}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2451
+      y: 2801
+      width: 505
+      height: 831
+    spriteID: 3a77fedb9ede936409ec216c5898f1b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2451, y: 2801}
+  - name: Front Door FRAME
+    originalName: 
+    pivot: {x: 0.48995492, y: -0.17961167}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2801
+      width: 2439
+      height: 1236
+    spriteID: f9a3e4741fa1f6a47b6b7a50ec5c43d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2801}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1111832031
-    name: church entrance
-    layerFlags: 0
+    guid: 271859823
+    name: Ceiling
+    layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: church entrance
+    - name: Ceiling
+      frameIndex: 0
+      cellRect:
+        x: 137
+        y: 0
+        width: 2351
+        height: 1404
+      spriteId: 260b00b8f46a28e4bb122706885e261f
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 1
+    guid: 925738509
+    name: back tiles
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back tiles
+      frameIndex: 0
+      cellRect:
+        x: 175
+        y: 261
+        width: 2313
+        height: 818
+      spriteId: 48667554b266cbd4b8b531917da59293
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 2
+    guid: -1493931081
+    name: shading tiles
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: shading tiles
+      frameIndex: 0
+      cellRect:
+        x: 175
+        y: 0
+        width: 2313
+        height: 1377
+      spriteId: 8de7585b58a45354db366f8433673f04
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    guid: 1206950284
+    name: back floor
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back floor
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 2488
-        height: 1458
-      spriteId: 5197f34ccb076374bbf24cf458cea47b
+        height: 384
+      spriteId: dc28a054783e52340b9c70b26e9096ac
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  - layerIndex: 4
+    guid: -340163318
+    name: column shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: column shading
+      frameIndex: 0
+      cellRect:
+        x: 733
+        y: 254
+        width: 1390
+        height: 487
+      spriteId: ea93667b113c5d340b4dc61b1abb7938
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 5
+    guid: -1831920212
+    name: back floor shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back floor shading
+      frameIndex: 0
+      cellRect:
+        x: 125
+        y: 0
+        width: 2363
+        height: 369
+      spriteId: 76bd5b8cb77e56c40b55747a5a3e4f3c
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 6
+    guid: 1824013863
+    name: front floor
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: front floor
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 2488
+        height: 222
+      spriteId: ef6029df68e403745bd656edfbc5a6a3
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 7
+    guid: 1649374057
+    name: BACK columns
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: BACK columns
+      frameIndex: 0
+      cellRect:
+        x: 131
+        y: 383
+        width: 2357
+        height: 717
+      spriteId: 76fc9fc213a4a7643a6980b8ae685d6c
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 8
+    guid: -850103030
+    name: 'FRONT columns '
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: 'FRONT columns '
+      frameIndex: 0
+      cellRect:
+        x: 135
+        y: 252
+        width: 2353
+        height: 1196
+      spriteId: 4264b83f38850214cb23ebd0724688a0
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 9
+    guid: 150912121
+    name: entrance
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: entrance
+      frameIndex: 0
+      cellRect:
+        x: 126
+        y: 222
+        width: 505
+        height: 831
+      spriteId: 3a77fedb9ede936409ec216c5898f1b5
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 10
+    guid: 24541896
+    name: Front Door FRAME
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Front Door FRAME
+      frameIndex: 0
+      cellRect:
+        x: 49
+        y: 222
+        width: 2439
+        height: 1236
+      spriteId: f9a3e4741fa1f6a47b6b7a50ec5c43d6
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 2488, y: 1480}

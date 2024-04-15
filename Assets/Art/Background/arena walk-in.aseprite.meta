@@ -73,7 +73,7 @@ ScriptedImporter:
   previousAsepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -85,7 +85,7 @@ ScriptedImporter:
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638487823501155887
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: arena walk-in
+  - name: Background 1
     originalName: 
-    pivot: {x: 0.43956044, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 2184
+      width: 1920
       height: 1080
-    spriteID: d57836551ee4f7b4c88b4f41325fa6cf
+    spriteID: 42630e05b583aa744a3d0c61a101ef63
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,26 +139,395 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: backgroudn 2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3591
+      width: 1920
+      height: 383
+    spriteID: 6389b98c16f396d47bb48f7fea55ea3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3591}
+  - name: background textures
+    originalName: 
+    pivot: {x: 0.5, y: -0.54949784}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2157
+      width: 1920
+      height: 697
+    spriteID: 692f08db5eb04164498856696ebd9d3f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2157}
+  - name: floor details
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 548
+      width: 1920
+      height: 383
+    spriteID: 6b147188ff926fb4e96adfba788d2bae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 548}
+  - name: Layer 11
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 939
+      width: 1920
+      height: 383
+    spriteID: f48aaadf71789534c83ca7bd07155e30
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 939}
+  - name: Layer 12
+    originalName: 
+    pivot: {x: 0.59261614, y: -2.2869563}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 1564
+      width: 1571
+      height: 115
+    spriteID: fce409fd5136bcc4db4925c2e1db0941
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 1564}
+  - name: back Pillars
+    originalName: 
+    pivot: {x: 0.2364317, y: -0.49791956}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2862
+      width: 1603
+      height: 721
+    spriteID: 2f35aeaa90b2fac498ca91cda00b3853
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2862}
+  - name: background shading
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1092
+      width: 1920
+      height: 1057
+    spriteID: 5a3d05bd19d9c8543bac6a2a446ecff9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1092}
+  - name: front pillars
+    originalName: 
+    pivot: {x: 0.5333333, y: -0.49067166}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 4
+      width: 1470
+      height: 536
+    spriteID: 7323b40324259ec4ca64af595a8b6f33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 4}
+  - name: Layer 10
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 1330
+      width: 1920
+      height: 226
+    spriteID: 5e4f3267bb5c4b74c8e99ce01dc95ee8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 1330}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 2092876882
-    name: arena walk-in
-    layerFlags: 0
+    guid: 1471887159
+    name: Background 1
+    layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: arena walk-in
+    - name: Background 1
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 2184
+        width: 1920
         height: 1080
-      spriteId: d57836551ee4f7b4c88b4f41325fa6cf
+      spriteId: 42630e05b583aa744a3d0c61a101ef63
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  - layerIndex: 1
+    guid: -738777475
+    name: backgroudn 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: backgroudn 2
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 383
+      spriteId: 6389b98c16f396d47bb48f7fea55ea3e
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 2
+    guid: 1653719000
+    name: background textures
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: background textures
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 383
+        width: 1920
+        height: 697
+      spriteId: 692f08db5eb04164498856696ebd9d3f
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    guid: -2493647
+    name: floor details
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: floor details
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 383
+      spriteId: 6b147188ff926fb4e96adfba788d2bae
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 4
+    guid: -1260749821
+    name: Layer 11
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 11
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 383
+      spriteId: f48aaadf71789534c83ca7bd07155e30
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 5
+    guid: -70582545
+    name: Layer 12
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 12
+      frameIndex: 0
+      cellRect:
+        x: 29
+        y: 263
+        width: 1571
+        height: 115
+      spriteId: fce409fd5136bcc4db4925c2e1db0941
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 6
+    guid: -1078701186
+    name: back Pillars
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back Pillars
+      frameIndex: 0
+      cellRect:
+        x: 581
+        y: 359
+        width: 1603
+        height: 721
+      spriteId: 2f35aeaa90b2fac498ca91cda00b3853
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 7
+    guid: -1666559273
+    name: background shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: background shading
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 1057
+      spriteId: 5a3d05bd19d9c8543bac6a2a446ecff9
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 8
+    guid: -401868956
+    name: front pillars
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: front pillars
+      frameIndex: 0
+      cellRect:
+        x: 176
+        y: 263
+        width: 1470
+        height: 536
+      spriteId: 7323b40324259ec4ca64af595a8b6f33
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 9
+    guid: 1999284129
+    name: Layer 10
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 10
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 226
+      spriteId: 5e4f3267bb5c4b74c8e99ce01dc95ee8
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 1920, y: 1080}
