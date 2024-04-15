@@ -16,7 +16,7 @@ namespace DigitalMedia.Combat
         private PlayerInput _playerInput;
         private InputAction attack;
         private InputAction block;
-        private InputAction dash;
+       
         private InputAction swapElement;
         
         #endregion
@@ -24,9 +24,7 @@ namespace DigitalMedia.Combat
         public GameObject deathblowTarget = null;
         
         private int soundLastPlayed;
-
-        public PlayerDash dashInfo;
-
+        
         private float ElementPrecentage;
 
         private new PlayerStats stats;
@@ -39,14 +37,14 @@ namespace DigitalMedia.Combat
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
             block = _playerInput.actions["Block"];
-            dash = _playerInput.actions["Dash"];
+            
             swapElement = _playerInput.actions["Swap Element"];
             
             //Assigning Functionality
             attack.performed += TryToAttack;
             block.performed += TryToBlock;
             block.canceled += TryToBlock;
-            dash.performed += TryToDash;
+            
             swapElement.performed += SwapElements;
 
             _animator = GetComponent<Animator>();
@@ -145,55 +143,6 @@ namespace DigitalMedia.Combat
                 _animator.Play("Player_Block_Start");
                 blocking = true;
             }
-        }
-
-        private void TryToDash(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                TriggerAbility("Player_Dash");
-            }
-        }
-
-        #endregion
-
-        #region Dashing
-
-        private void Update()
-        {
-            //CheckDash();
-        }
-
-        public void Dash(Transform point)
-        {
-            transform.position = Vector2.Lerp(transform.position, transform.position, Time.deltaTime);
-        }
-
-        private void CheckDash()
-        {
-            if (currentState == State.Dashing)
-            {
-                if (dashInfo.dashTimeLeft > 0)
-                {
-                    var rb = this.gameObject.GetComponent<Rigidbody2D>();
-                    
-                    rb.velocity = new Vector2(dashInfo.dashSpeed, rb.velocity.y);
-                    Debug.Log($"We are currently dashing at a speed of {rb.velocity}");
-                    dashInfo.dashTimeLeft = Time.deltaTime;
-
-                    if (Mathf.Abs(transform.position.x - dashInfo.lastImageXpos) > dashInfo.distanceBetweenTwoImages)
-                    {
-                        PlayerAfterImagePool.Instance.GetFromPool();
-                        dashInfo.lastImageXpos = transform.position.x;
-                    }
-                }
-                if (dashInfo.dashTimeLeft <= 0)
-                {
-                    InitiateStateChange(State.Idle);
-                }
-            }
-
-           
         }
 
         #endregion

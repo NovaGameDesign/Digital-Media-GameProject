@@ -29,6 +29,8 @@ namespace DigitalMedia.Combat.Abilities
            //Set dashing to true, check for cooldown, etc. 
            //dashTimeLeft = dashTime;
            holder.GetComponent<PlayerCombatSystem>().InitiateStateChange(State.Dashing);
+           
+           
             
            hit = Physics2D.Raycast(holder.transform.position, holder.transform.right, dashDistance, layersToCheck);
            if (hit.collider != null)
@@ -45,5 +47,6 @@ namespace DigitalMedia.Combat.Abilities
            /*PlayerAfterImagePool.Instance.GetFromPool();
            lastImageXpos = holder.transform.position.x;*/
         }
+       
     }
 }
