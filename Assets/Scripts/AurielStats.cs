@@ -10,9 +10,12 @@ namespace DigitalMedia
 {
     public class AurielStats : StatsComponent
     {
+        [Header("State Change Data")]
         private int currentLibraryAsset = 0;
-        private SpriteLibraryAsset[] _spriteLibraryAssets;
+        public SpriteLibraryAsset[] _spriteLibraryAssets;
         private SpriteLibrary _library;
+
+        public GameObject transitionCocoon;
         
         private void Start()
         {
@@ -29,6 +32,8 @@ namespace DigitalMedia
             rb = this.gameObject.GetComponent<Rigidbody2D>();
 
             _library = GetComponent<SpriteLibrary>();
+
+            _animator = GetComponent<Animator>();
         }
         
         public override void HandleLives()
@@ -43,8 +48,10 @@ namespace DigitalMedia
                 Destroy(this.gameObject);
             }
 
-            currentLibraryAsset++;
-            _library.spriteLibraryAsset = _spriteLibraryAssets[currentLibraryAsset];
+            InitiateStateChange(State.None);
+            _animator.Play("Auriel_Transition-Start");
+            /*currentLibraryAsset++;
+            _library.spriteLibraryAsset = _spriteLibraryAssets[currentLibraryAsset];*/
             
             health = data.BasicData.maxHealth;
             vitality = data.BasicData.maxVitality;
@@ -57,6 +64,11 @@ namespace DigitalMedia
             
             //3. Re-enabling enemy states if they were attacking -- or just turn their BTs back on. 
            
+        }
+
+        public void SetCocoonActive()
+        {
+            transitionCocoon.SetActive(true);
         }
     }
 }

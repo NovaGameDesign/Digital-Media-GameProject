@@ -53,6 +53,7 @@ namespace DigitalMedia
         private RaycastHit2D dashHitPosition;
         private Vector2 dashTarget;
         private Vector2 dashStartPosition;
+        private float distanceToTarget;
 
         
         
@@ -202,10 +203,18 @@ namespace DigitalMedia
             _animator.Play("Player_Dash-Default");
             InitiateStateChange(Dashing);
 
-            float leftRight = transform.rotation.y > 0 ? 1 : -1;
+            
             dashStartPosition = transform.position;
-            dashHitPosition  = Physics2D.Raycast(transform.position, leftRight * transform.right, dashDistance, groundLayer); // Checking if we have an object or obstacles to the right of the player.
-
+            if (transform.rotation.y > 0)
+            {
+                dashHitPosition  = Physics2D.Raycast(transform.position, transform.right, dashDistance, groundLayer);
+            }
+            else if (transform.rotation.y <= 0)
+            {
+                dashHitPosition  = Physics2D.Raycast(transform.position, -transform.right, dashDistance, groundLayer);
+            }
+            
+            distanceToTarget = dashHitPosition.distance;
             if (dashHitPosition.collider != null) //If we did hit something.
             {
                 dashTarget = dashHitPosition.point;
@@ -213,9 +222,14 @@ namespace DigitalMedia
             }
             else
             {
+                float leftRight = transform.rotation.y > 0 ? 1 : -1;
                 dashTarget = new Vector2(transform.position.x + leftRight * dashDistance, transform.position.y);
                 Debug.Log($"We did not hit anything when trying to dash, the current targeted end point is: {dashTarget}");
             }
+
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            gameObject.GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Boss");
+            
 
             dashHitPosition = new RaycastHit2D();
         }
@@ -224,12 +238,31 @@ namespace DigitalMedia
         {
             float leftRight = transform.rotation.y > 0 ? 1 : -1;
             rb.velocity = new Vector2(dashSpeed * leftRight, 0);
-            
-            if (MathF.Abs(dashStartPosition.x) - MathF.Abs(transform.position.x)  > dashDistance) 
+
+            if (Vector2.Distance(transform.position, dashTarget) <= 1)
             {
+                Debug.Log($"Canceled dash execution at {transform.position} position");
+                rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                gameObject.GetComponent<BoxCollider2D>().excludeLayers = 0; 
                 InitiateStateChange(Idle);
-                ChangeAnimationState("Idle");
+                _animator.Play("Idle");
+                return;
             }
+            
+            /*if (transform.position.x + distanceToTarget >= dashTarget.x - 0.25f && leftRight == 1)
+            {
+                rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                gameObject.GetComponent<BoxCollider2D>().excludeLayers = 0; 
+                InitiateStateChange(Idle);
+                _animator.Play("Idle");
+            }
+            else if (transform.position.x - distanceToTarget >= dashTarget.x + 0.25f && leftRight == -1)
+            {
+                rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                gameObject.GetComponent<BoxCollider2D>().excludeLayers = 0; 
+                InitiateStateChange(Idle);
+                _animator.Play("Idle");
+            }*/
           
             if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenTwoImages)
             {

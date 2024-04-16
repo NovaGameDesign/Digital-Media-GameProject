@@ -2,6 +2,7 @@ using DigitalMedia.Core;
 using TheKiwiCoder;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.U2D.Animation;
 
 namespace DigitalMedia.Combat
 {
@@ -26,7 +27,7 @@ namespace DigitalMedia.Combat
             _animator = GetComponent<Animator>();
             _audioPlayer = GetComponent<AudioSource>();
             stats = GetComponent<StatsComponent>();
-            
+            spriteLibrary = GetComponent<SpriteLibrary>();
             
             playerKeyRef = behaviourTreeInstance.FindBlackboardKey<GameObject>("Player GameObject");
             if (isAnAgent)
@@ -44,9 +45,12 @@ namespace DigitalMedia.Combat
             if(isAnAgent) keyRef.value = player.transform.position;
         }
 
-        public void SpawnAirSlash()
+        public void ForceElementChange()
         {
-            
+            currentElement = Elements.Holy;
+            currentElementIndex++;
+            spriteLibrary.spriteLibraryAsset = elementSprites[currentElementIndex];
+          
         }
         
     }

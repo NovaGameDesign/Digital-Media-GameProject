@@ -412,6 +412,42 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: -1884338509, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 18
+  - m_Name: Transition-1
+    m_Hash: 553314130
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Boss_Transformation_1st_Layer_0
+      m_Hash: 278622652
+      m_Sprite: {fileID: -331879401, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -331879401, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+    - m_Name: Boss_Transformation_1st_Layer_1
+      m_Hash: 664551722
+      m_Sprite: {fileID: -1698151721, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1698151721, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+    - m_Name: Boss_Transformation_1st_Layer_2
+      m_Hash: 1049956496
+      m_Sprite: {fileID: -1934227548, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1934227548, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+    - m_Name: Boss_Transformation_1st_Layer_3
+      m_Hash: 160571398
+      m_Sprite: {fileID: -97551447, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -97551447, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+    - m_Name: Boss_Transformation_1st_Layer_4
+      m_Hash: 402044325
+      m_Sprite: {fileID: -826190692, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -826190692, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+    - m_Name: Boss_Transformation_1st_Layer_5
+      m_Hash: 552699187
+      m_Sprite: {fileID: 307208858, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 307208858, guid: 6306a07dd1815f840a5d20aaf8af696e, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 6
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638487930170179639
+  m_ModificationHash: 638488230022013201
   m_Version: 1

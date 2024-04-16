@@ -16,14 +16,33 @@ public class TargetStateCheck : DecoratorNode
     public NodeProperty<GameObject> TargetRef  = new NodeProperty<GameObject> { defaultValue = null};
 
 
+    public bool checkSelf;
     protected override void OnStart() {
     }
 
     protected override void OnStop() {
     }
 
-    protected override State OnUpdate() {
-
+    protected override State OnUpdate() 
+    {
+        if (checkSelf)
+        {
+            if (!statesToCancelExecution.Contains(context.gameObject.GetComponent<EnemyCoreCombat>().currentState))
+            {
+                switch (child.Update())
+                {
+                    case State.Running:
+                        return State.Running;
+                        break;
+                    case State.Failure:
+                        return State.Failure;
+                        break;
+                    case State.Success:
+                        return State.Success;
+                        break;
+                }
+            }
+        }
 
         if (!statesToCancelExecution.Contains(TargetRef.Value.GetComponent<CoreCombatSystem>().currentState))
         {

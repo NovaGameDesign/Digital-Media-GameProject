@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Transition
+    m_Hash: 944284810
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_0
+      m_Hash: 842836902
+      m_Sprite: {fileID: -1352757093, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1352757093, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_1
+      m_Hash: 87792432
+      m_Sprite: {fileID: -2124009312, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2124009312, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_2
+      m_Hash: 473090698
+      m_Sprite: {fileID: -861156598, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -861156598, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_3
+      m_Hash: 724957724
+      m_Sprite: {fileID: 1389078145, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1389078145, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_4
+      m_Hash: 894529471
+      m_Sprite: {fileID: 241752265, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 241752265, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_5
+      m_Hash: 39214889
+      m_Sprite: {fileID: -1852904092, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1852904092, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_6
+      m_Hash: 459214483
+      m_Sprite: {fileID: -150621516, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -150621516, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_7
+      m_Hash: 743980549
+      m_Sprite: {fileID: -1522266249, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1522266249, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_8
+      m_Hash: 1021780884
+      m_Sprite: {fileID: 1969589074, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1969589074, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_9
+      m_Hash: 199234306
+      m_Sprite: {fileID: -1127399780, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1127399780, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_10
+      m_Hash: 306697238
+      m_Sprite: {fileID: -676914147, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -676914147, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_11
+      m_Hash: 625009792
+      m_Sprite: {fileID: -386418896, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -386418896, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_12
+      m_Hash: 1011463482
+      m_Sprite: {fileID: -560254293, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -560254293, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_13
+      m_Hash: 189695404
+      m_Sprite: {fileID: -785305212, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -785305212, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    - m_Name: Boss_Transformation_2nd_Layer_With_Cocoon_14
+      m_Hash: 355078159
+      m_Sprite: {fileID: 1794070302, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1794070302, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 15
+  - m_Name: Cocoon_Loop
+    m_Hash: 1032780153
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Cocoon_Loop_0
+      m_Hash: 549410369
+      m_Sprite: {fileID: -842153976, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -842153976, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+    - m_Name: Cocoon_Loop_1
+      m_Hash: 397960919
+      m_Sprite: {fileID: -167114338, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -167114338, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+    - m_Name: Cocoon_Loop_2
+      m_Hash: 246495085
+      m_Sprite: {fileID: -982358938, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -982358938, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+    - m_Name: Cocoon_Loop_3
+      m_Hash: 968230907
+      m_Sprite: {fileID: 289862169, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 289862169, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+    - m_Name: Cocoon_Loop_4
+      m_Hash: 668111448
+      m_Sprite: {fileID: 1569269030, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1569269030, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+    - m_Name: Cocoon_Loop_5
+      m_Hash: 282436302
+      m_Sprite: {fileID: -849112848, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -849112848, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+    - m_Name: Cocoon_Loop_6
+      m_Hash: 165475188
+      m_Sprite: {fileID: -390365079, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -390365079, guid: e76f7bb956df91b4880e51dea27dc0c2, type: 3}
+    - m_Name: Blank
+      m_Hash: 1038805857
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638488297660785558
+  m_Version: 1
