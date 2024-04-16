@@ -419,8 +419,8 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: 1868130657, guid: 95466a2b4cccf034d98804bdd75c80e5, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 6
-  - m_Name: Player_Death
-    m_Hash: 29710996
+  - m_Name: Death
+    m_Hash: 646380074
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: Player_Death_0
@@ -478,8 +478,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 177944465, guid: 0df3a8203364374439e5270ca7a158e1, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 177944465, guid: 0df3a8203364374439e5270ca7a158e1, type: 3}
+    - m_Name: Blank
+      m_Hash: 1038805857
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 11
+    m_EntryOverrideCount: 12
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638483579241696911
+  m_ModificationHash: 638483712541180347
   m_Version: 1

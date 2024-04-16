@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using DigitalMedia.Core;
+using DigitalMedia.Misc;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static DigitalMedia.Core.State;
 
 namespace DigitalMedia
 {
@@ -12,10 +16,12 @@ namespace DigitalMedia
         private InputAction move;
         private InputAction jump;
         private InputAction dodge;
-        private InputAction placeholder; // Use this as needed and add more. 
-
+        private InputAction dash;
+        
         private Rigidbody2D rb;
 
+        private bool moving;
+        
         #region Wall Jumping and Sliding
         
         private bool canWallJump = true;
@@ -31,7 +37,24 @@ namespace DigitalMedia
         //Animation States 
         private const string PLAYER_WALK = "Player_Walk_Start";
         
-        //Add above values as needed. 
+        //Dashing
+        [SerializeField] private float dashDistance;
+        [SerializeField] private float dashSpeed;
+
+        private float dashCooldownTimeLeft;
+        [SerializeField] private float dashCooldown;
+        private float dashCooldownStartTime;
+        private bool dashOnCooldown = false;
+
+        public float lastImageXpos;
+
+        public float distanceBetweenTwoImages;
+
+        private RaycastHit2D dashHitPosition;
+        private Vector2 dashTarget;
+        private Vector2 dashStartPosition;
+
+        
         
         // Start is called before the first frame update
         void Start()
@@ -40,7 +63,11 @@ namespace DigitalMedia
             _playerInput = GetComponent<PlayerInput>();
             move = _playerInput.actions["Move"];
             jump = _playerInput.actions["Jump"];
+            dash = _playerInput.actions["Dash"];
             jump.performed += Jump;
+            dash.performed += StartDash;
+            move.performed += IsMoving;
+            move.canceled += IsMoving;
             
             // dodge = _playerInput.actions["Dodge"];   
             
@@ -49,32 +76,38 @@ namespace DigitalMedia
        
         private void FixedUpdate()
         {
-            Move();
-            if (currentState == State.Airborne && shouldCheckForLanding)
+            if(moving) Move();
+            if (currentState == Dashing)
+            {
+                CheckDash();
+            }
+            if (currentState == Airborne && shouldCheckForLanding)
             {
                 if (IsGrounded())
                 {
                     _animator.Play("Player_Jump-End");
-                    InitiateStateChange(State.Idle);
+                    InitiateStateChange(Idle);
                     shouldCheckForLanding = false;
                 }
             }
            
         }
 
+        #region Jumping
+        
         private void Jump(InputAction.CallbackContext context)
         {
             //Debug.Log("try to jump");
             //Make your jump here. 
-            if(currentState == State.Attacking)
+            if(currentState == Attacking)
                 return;
             
             if (IsGrounded())
             {
+                InitiateStateChange(Airborne);
                 rb.velocity = new Vector2(rb.velocity.x, data.BasicData.jumpingStrength);
-               // InitiateStateChange(State.Airborne);
+                // InitiateStateChange(State.Airborne);
                 _animator.Play("Player_Jumping");
-                InitiateStateChange(State.Airborne);
                 StartCoroutine(JumpCheckDelay());
             }
             else if (canWallJump)
@@ -116,6 +149,9 @@ namespace DigitalMedia
             shouldCheckForLanding = true;
         }
         
+        #endregion
+       
+        
         #region Wall Sliding 
 
         private bool IsWalled()
@@ -152,21 +188,86 @@ namespace DigitalMedia
         }
 
         #endregion
+        
+        
+        #region Dashing
+        
+        private void StartDash(InputAction.CallbackContext context)
+        {
 
+            dashOnCooldown = true;
+            dashCooldownStartTime = Time.time;
+            
+            //Play an animation and begin moving forward. 
+            _animator.Play("Player_Dash-Default");
+            InitiateStateChange(Dashing);
+
+            float leftRight = transform.rotation.y > 0 ? 1 : -1;
+            dashStartPosition = transform.position;
+            dashHitPosition  = Physics2D.Raycast(transform.position, leftRight * transform.right, dashDistance, groundLayer); // Checking if we have an object or obstacles to the right of the player.
+
+            if (dashHitPosition.collider != null) //If we did hit something.
+            {
+                dashTarget = dashHitPosition.point;
+                Debug.Log($"We hit a wall or object, the hit location was {dashHitPosition.point}");
+            }
+            else
+            {
+                dashTarget = new Vector2(transform.position.x + leftRight * dashDistance, transform.position.y);
+                Debug.Log($"We did not hit anything when trying to dash, the current targeted end point is: {dashTarget}");
+            }
+
+            dashHitPosition = new RaycastHit2D();
+        }
+
+        private void CheckDash()
+        {
+            float leftRight = transform.rotation.y > 0 ? 1 : -1;
+            rb.velocity = new Vector2(dashSpeed * leftRight, 0);
+            
+            if (MathF.Abs(dashStartPosition.x) - MathF.Abs(transform.position.x)  > dashDistance) 
+            {
+                InitiateStateChange(Idle);
+                ChangeAnimationState("Idle");
+            }
+          
+            if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenTwoImages)
+            {
+                PlayerAfterImagePool.Instance.GetFromPool();
+                lastImageXpos = transform.position.x;
+            }
+        }
+
+   
+
+        #endregion
+
+        private void IsMoving(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                moving = true;
+            }
+            else if (context.canceled)
+            {
+                moving = false;
+                canWallJump = false;
+                if (currentState is Blocking or Deathblowing or Staggered or Attacking) return;
+                _animator.Play("Idle");
+            }
+        }
         /// <summary>
         /// I may update this later to only trigger when the player presses a key, as right now it is quite an expensive operation. 
         /// </summary>
         private void Move()
         {
-            //Check if the player was moving and if so set their velocity (x) back to 0 and return. 
-            if(currentState is State.Attacking or State.Deathblowing or State.Staggered or State.Dashing)
-            {
-                return;
-            }
-            else
+            //Check if the player was moving and if so set their velocity (x) back to 0 and return. \
+    
+            if(currentState is Idle or Airborne)
             {
                 Vector2 moveDirection = move.ReadValue<Vector2>();
                 Vector2 playerVelocity = new Vector2(moveDirection.x * data.BasicData.speed, rb.velocity.y);
+                
                 rb.velocity = playerVelocity;
             
                 if (playerVelocity.x > 0)
@@ -174,21 +275,25 @@ namespace DigitalMedia
                     WallSlide();
                     //InitiateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 180, 0, 0);
-                    if(currentState is not State.Airborne) _animator.Play(PLAYER_WALK);
+                    if(currentState is not Airborne) _animator.Play(PLAYER_WALK);
                 }
                 else if (playerVelocity.x < 0)
                 {
                     WallSlide();
                     //InitiateStateChange(State.Moving);
                     transform.rotation = new Quaternion(0, 0, 0, 0);
-                    if(currentState is not State.Airborne) _animator.Play(PLAYER_WALK);
+                    if(currentState is not Airborne) _animator.Play(PLAYER_WALK);
                 }
                 else
                 {
                     canWallJump = false;
-                    if (currentState is State.Blocking or State.Deathblowing or State.Staggered) return;
+                    if (currentState is Blocking or Deathblowing or Staggered) return;
                     _animator.Play("Idle");
                 }
+            }
+            else
+            {
+              return;
             }
         }
     }

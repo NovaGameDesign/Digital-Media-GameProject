@@ -415,12 +415,12 @@ GameObject:
   - component: {fileID: 4819974143326034049}
   - component: {fileID: 4121636004800924499}
   m_Layer: 10
-  m_Name: Boss
+  m_Name: Auriel
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6268569701883027873
 Transform:
   m_ObjectHideFlags: 0
@@ -476,9 +476,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -263281285
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1149567146, guid: 003c2980d75b5bd489f925b009c78f1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -487,7 +487,7 @@ SpriteRenderer:
   m_Size: {x: 4.6875, y: 4.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &3647309149289900291
@@ -607,27 +607,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 83b765d147237e746a4a57f20900153b, type: 2}
+  behaviourTree: {fileID: 11400000, guid: be44f26a7199a0145bc2d05d7146d7c7, type: 2}
   validate: 1
   blackboardOverrides:
   - key:
-      rid: 3939234741473509403
+      rid: 7763909064989343773
     value:
       rid: 3939234741473509404
   references:
     version: 2
     RefIds:
-    - rid: 3939234741473509403
-      type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
-      data:
-        name: Player GameObject
-        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        value: {fileID: 0}
     - rid: 3939234741473509404
       type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
       data:
         name: 
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 7763909064989343773
+      type: {class: GameObjectKey, ns: TheKiwiCoder, asm: thekiwicoder.behaviourtreeeditor}
+      data:
+        name: Player GameObject
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
@@ -647,6 +647,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4294967295
+  currentState: 1
   layersToCheck:
     serializedVersion: 2
     m_Bits: 136
@@ -682,6 +683,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  currentState: 1
   overrideHealthMax: 0
   health: 20
   currentLives: 2
@@ -694,6 +696,8 @@ MonoBehaviour:
   vitalityBar: {fileID: 9118126068686193817}
   statsUI: {fileID: 6775470271333324993}
   blood: {fileID: 7150051775368357156, guid: 27a2ed7675c61e340b7babf009115e3c, type: 3}
+  iceParticlesPrefab: {fileID: 0}
+  iceParticlesSpawnPoint: {fileID: 0}
 --- !u!82 &4121636004800924499
 AudioSource:
   m_ObjectHideFlags: 0
@@ -715,7 +719,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 4
-  MaxDistance: 12
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0

@@ -22,6 +22,11 @@ public class MoveToPos2D : ActionNode {
     [Tooltip("Target Position")]
     public NodeProperty<Vector2> targetPosition = new NodeProperty<Vector2> { defaultValue = Vector2.zero };
 
+    public bool defaultFacingRight = false;
+
+    [Tooltip("Returns success when the remaining distance is less than this amount")]
+    public NodeProperty<float> yOffset = new NodeProperty<float> { defaultValue = -2.0f };
+
     protected override void OnStart() {
         if (context.agent != null) {
             context.agent.stoppingDistance = stoppingDistance.Value;
@@ -54,21 +59,23 @@ public class MoveToPos2D : ActionNode {
         }
 
         //Theoretically we should do a raycast down to get the actual surface but whatever, we can get an arbitrary point by just setting the value to lower than the player. 
-        Vector3 correctedPosition = new Vector3(targetPosition.Value.x, targetPosition.Value.y - 2, 0);
+        Vector3 correctedPosition = new Vector3(targetPosition.Value.x, targetPosition.Value.y + yOffset.Value, 0);
         context.agent.SetDestination(correctedPosition);
         
         //Update the rotation to match the movement direction. 
         if (context.agent.velocity.x > 0)
         {
-            var rotation = context.transform.rotation;
-            rotation = new Quaternion(rotation.x, 180, rotation.z, rotation.w);
-            context.transform.rotation = rotation;
+            /*var rotation = context.transform.rotation;*/
+            float yRotation = defaultFacingRight ? 0 : 180;
+           // rotation = new Quaternion(0, yRotation, 0, 0);
+            context.transform.rotation = new Quaternion(0, yRotation, 0, 0);
         }
         else
         {
-            var rotation = context.transform.rotation;
-            rotation = new Quaternion(rotation.x, 0, rotation.z, rotation.w);
-            context.transform.rotation = rotation;
+            /*var rotation = context.transform.rotation;*/
+            float yRotation = defaultFacingRight ? 180 : 0;
+            //rotation = new Quaternion(0, yRotation, 0, 0);
+            context.transform.rotation = new Quaternion(0, yRotation, 0, 0);
         }
         
         

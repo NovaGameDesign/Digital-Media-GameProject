@@ -22,11 +22,7 @@ namespace DigitalMedia
            
             rb = GetComponent<Rigidbody2D>();
             _audioPlayer = GetComponent<AudioSource>();
-        }
-
-        private void OnEnable()
-        {
-            StartCoroutine(veryShortDelay());
+            startingPosition = transform.parent.transform;
         }
 
         private IEnumerator veryShortDelay()

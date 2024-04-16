@@ -30,6 +30,7 @@ namespace DigitalMedia.Core
         private GameObject statsUI;
 
         private float damageOverTimeTimer;
+
         
         //[System.NonSerialized]
         private bool _inCombat;
@@ -48,9 +49,13 @@ namespace DigitalMedia.Core
         }
 
         [SerializeField] protected GameObject blood;
+        [SerializeField] private GameObject iceParticlesPrefab;
+        [SerializeField] private Transform iceParticlesSpawnPoint;
+
 
         protected Rigidbody2D rb;
- 
+
+        private GameObject currentIce;
         private void Start()
         {
             if (!overrideHealthMax)
@@ -80,7 +85,19 @@ namespace DigitalMedia.Core
             }
             else if (damageType is Elements.Ice)
             {
-                DealVitalityDamage(incomingDamage/4);
+                if (currentIce != null)
+                {
+                    currentIce.GetComponent<IcicleSpawner>().spawnDuration += 5; //Increase the spawn duration by five. 
+                }
+                else
+                {
+                    currentIce = Instantiate(iceParticlesPrefab, iceParticlesSpawnPoint);
+                    
+                    currentIce.transform.position = iceParticlesSpawnPoint.position;
+                }
+                
+                
+                DealVitalityDamage(incomingDamage/2);
                 knockbackForce *= 2;
             }
             
@@ -165,9 +182,6 @@ namespace DigitalMedia.Core
             
             //3. Re-enabling enemy states if they were attacking -- or just turn their BTs back on. 
             InitiateStateChange(State.Idle);
-            
-            //4. Check if there are any lives remaining and destroy the object if needed. Theoretically we may need to do it first.
-           
         }
 
         public void DealVitalityDamage(float incomingVitalityDamage)

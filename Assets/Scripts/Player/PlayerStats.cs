@@ -29,7 +29,8 @@ namespace DigitalMedia
         [SerializeField] private Sprite [] healthFills;
 
     private void Start()
-        {
+    {
+        _animator = GetComponent<Animator>();
             if (!overrideHealthMax)
             {
                 health = data.BasicData.maxHealth;
@@ -75,6 +76,8 @@ namespace DigitalMedia
                 DealVitalityDamage(incomingDamage/2);
             }
             
+            _animator.Play("Player_Damaged");
+            
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
             
@@ -118,44 +121,45 @@ namespace DigitalMedia
             if (health <= 0)
             {
                 HandleLives();
-                /*Time.timeScale = 0f;
-                dyingUi.SetActive(true);*/
             }
         }
 
         public override void HandleLives()
         {
             //1. Correct the values to match the new lives remaining and change health to max.
-            currentLives -= 1;
+            currentLives--;
+            InitiateStateChange(State.Dying);
+            
             //2. Check if we now have too few lives to revive, if so start the death process. 
             if (currentLives <= 0)
             { 
+                _animator.Play("Player_Death");
+                
                 Debug.Log("The player has died.");
+                
+                dyingUI.SetActive(false);
                 deadUI.SetActive(true);
-                deadUI.GetComponent<Animator>()?.Play("Default");
-                PlayerRespawn();
             }
-            
-            //3. Change the state to dying so that we not longer take damage. 
-            InitiateStateChange(State.Dying);
-            
-            //4. change the input type to dying so we no longer accept any input but the two we consider "valid". Additionally we show the UI and reset the respawn value for later usage. 
-            _playerInput.SwitchCurrentActionMap("Dying");
-            dyingUI.SetActive(true);
+            else
+            {
+                //Show the Dying UI to allow players the option to choose whether they want to live or die with left vs right click.
+                dyingUI.SetActive(true);
+                //change the input type to dying so we no longer accept any input but the two we consider "valid". Additionally we show the UI and reset the respawn value for later usage. 
+                _playerInput.SwitchCurrentActionMap("Dying");
+                //StartCoroutine(SelectDeathOption()); 
 
-            //StartCoroutine(SelectDeathOption());
-
-            Time.timeScale = 0;
+                //Set the time scale to 0 so no effects continue and attacks pause. 
+                Time.timeScale = 0;
+            }
         }
 
         public void PlayerWantsToDie(InputAction.CallbackContext context)
         {
             Time.timeScale = 1;
+            _animator.Play("Player_Death");
             Debug.Log("The player has lost a life and chose to die.");
-
-            deadUI.SetActive(false);
-            deadUI.GetComponent<Animator>()?.Play("Default");
-            PlayerRespawn();
+            dyingUI.SetActive(false);
+            deadUI.SetActive(true);
         }
         
         public void PlayerWantsToLive(InputAction.CallbackContext context)
@@ -178,9 +182,6 @@ namespace DigitalMedia
             InitiateStateChange(State.Idle);
             
             _playerInput.SwitchCurrentActionMap("Player");
-            dyingUI.SetActive(false);
-
-         
         }
         
         public void PlayerRespawn()
@@ -188,6 +189,7 @@ namespace DigitalMedia
             //Handle respawning 
             //Player needs to return to the checkpoint and start with full health and stats. 
             //For now we can just load the main scene again. 
+            _playerInput.SwitchCurrentActionMap("Player");
             SceneManager.LoadScene("Main");
         }
     }

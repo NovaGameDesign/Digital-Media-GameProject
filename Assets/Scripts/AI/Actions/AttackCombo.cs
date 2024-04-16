@@ -24,7 +24,7 @@ public class AttackCombo : ActionNode
     {
         if (playerReference.Value.GetComponent<StatsComponent>() != null)
         {
-            if(playerReference.Value.GetComponent<StatsComponent>().currentLives <= 0) return State.Success;
+            if(playerReference.Value.GetComponent<StatsComponent>().currentLives <= 0) return State.Failure;
         }
         //Maybe check the current animation state's name and see if it matches our attack to try. There may be a situation where the attackCombo tries a new attack but it indicates it already is attacking if that makes sense.
         if (combatReference.currentState == DigitalMedia.Core.State.Attacking) 
@@ -44,7 +44,9 @@ public class AttackCombo : ActionNode
             justAttacked = true; 
             //context.animator.GetCurrentAnimatorStateInfo()
         }
-        return State.Success;
+        
+        
+        return State.Failure;
     }
 }
 

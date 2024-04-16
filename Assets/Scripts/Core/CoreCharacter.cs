@@ -30,7 +30,7 @@ namespace DigitalMedia.Core
         [SerializeField] protected LayerMask groundLayer;
 
         protected string currentAnimState;
-        [System.NonSerialized] public State currentState = State.Idle;
+         public State currentState = State.Idle;
         
         private void Start()
         {

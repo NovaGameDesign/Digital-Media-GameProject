@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 215a75595729c8e4d9046faa551a50f1
+guid: c8c81a6f21cc9064a815a122de5d2b2d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,385 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78367f330cd083749a40da56972fc4d0
-      internalID: -485618681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_1
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f73d59b342098a498b8d5cd2eeef762
-      internalID: -2063983419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_2
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d684c2ab1e3f21a40a36cf400fd1da53
-      internalID: -1470208328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_3
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ed2e842c428dbd4ab97c490c068cce7
-      internalID: -1638839641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_4
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 319971614f0cd8342984c872a18e6c56
-      internalID: 314796459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_5
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b91dce9bcd37e874f8ce6a30da41fdb2
-      internalID: -1122260699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_6
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f169d58369c5434bbd681a724ad916b
-      internalID: 1500263960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_7
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 552e11d56b13f664b9a0019ee120acb6
-      internalID: -1198527298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_8
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed00b73b1a4f6c349a2a63da1e288548
-      internalID: 1830543499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_9
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f869529046dfc6446825d9af91edf7e8
-      internalID: 1231979968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_10
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c61e367cbaaad7645ae66a122bd58603
-      internalID: -1857657404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_11
-      rect:
-        serializedVersion: 2
-        x: 2200
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00b7a9ceb962d834ea13d42732f1ad30
-      internalID: -1586252130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_12
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 314d61dc24730b74b99d04765b6bbf15
-      internalID: -1254626793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_13
-      rect:
-        serializedVersion: 2
-        x: 2600
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 145410a5cfebab64482ebcc12b928d8a
-      internalID: 1524828695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_14
-      rect:
-        serializedVersion: 2
-        x: 2800
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1accc57b45de8be44b4e6700004ae2eb
-      internalID: 1717871325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_15
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 059c69c08a37bb64f8202ab55f0fd620
-      internalID: -1760735586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_16
-      rect:
-        serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16f19b3b583c7dc40af6365e5dfd1c2d
-      internalID: -860893027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Air_Slash_Temp_17
-      rect:
-        serializedVersion: 2
-        x: 3400
-        y: 0
-        width: 200
-        height: 200
-      alignment: 9
-      pivot: {x: 0.375, y: 0.225}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc61d6ae6bada124fabca34913350520
-      internalID: -1884338509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -510,25 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Boss_Air_Slash_Temp_0: -485618681
-      Boss_Air_Slash_Temp_1: -2063983419
-      Boss_Air_Slash_Temp_10: -1857657404
-      Boss_Air_Slash_Temp_11: -1586252130
-      Boss_Air_Slash_Temp_12: -1254626793
-      Boss_Air_Slash_Temp_13: 1524828695
-      Boss_Air_Slash_Temp_14: 1717871325
-      Boss_Air_Slash_Temp_15: -1760735586
-      Boss_Air_Slash_Temp_16: -860893027
-      Boss_Air_Slash_Temp_17: -1884338509
-      Boss_Air_Slash_Temp_2: -1470208328
-      Boss_Air_Slash_Temp_3: -1638839641
-      Boss_Air_Slash_Temp_4: 314796459
-      Boss_Air_Slash_Temp_5: -1122260699
-      Boss_Air_Slash_Temp_6: 1500263960
-      Boss_Air_Slash_Temp_7: -1198527298
-      Boss_Air_Slash_Temp_8: 1830543499
-      Boss_Air_Slash_Temp_9: 1231979968
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
