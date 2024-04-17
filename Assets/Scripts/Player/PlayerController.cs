@@ -13,7 +13,7 @@ namespace DigitalMedia
     {
         //Movement 
         private PlayerInput _playerInput;
-        private InputAction move;
+        public InputAction move;
         private InputAction jump;
         private InputAction dodge;
         private InputAction dash;
@@ -24,7 +24,7 @@ namespace DigitalMedia
         
         #region Wall Jumping and Sliding
         
-        private bool canWallJump = true;
+        [System.NonSerialized] public bool canWallJump = true;
         private bool isWallSliding;
         private bool jumpLeft, jumpRight; 
         private float wallSlidingSpeed = 2f;
@@ -132,7 +132,7 @@ namespace DigitalMedia
             }*/
             
         }
-        private bool IsGrounded()
+        public bool IsGrounded()
         {
             if (Physics2D.Raycast(transform.position, Vector2.down, data.BasicData.jumpDistanceCheck, groundLayer))
             {

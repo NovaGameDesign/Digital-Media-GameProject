@@ -37,14 +37,12 @@ namespace DigitalMedia.Combat
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
             block = _playerInput.actions["Block"];
-            
             swapElement = _playerInput.actions["Swap Element"];
             
             //Assigning Functionality
             attack.performed += TryToAttack;
             block.performed += TryToBlock;
             block.canceled += TryToBlock;
-            
             swapElement.performed += SwapElements;
 
             _animator = GetComponent<Animator>();
@@ -130,6 +128,7 @@ namespace DigitalMedia.Combat
         {
             if (context.canceled)
             {
+                if(currentState != State.Blocking) return;
                 InitiateStateChange(State.Idle);
                 _animator.Play("Player_Block_End");
                 blocking = false;

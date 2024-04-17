@@ -9,6 +9,7 @@ namespace DigitalMedia
 {
     public class TransitionController : MonoBehaviour
     {
+        public AudioClip phaseTwoMusic;
         // Start is called before the first frame update
         private void OnEnable()
         {
@@ -22,8 +23,19 @@ namespace DigitalMedia
             this.gameObject.SetActive(false);
         }
 
+        public void PlayPhaseTwoSong()
+        {
+            GameObject.Find("Music").GetComponent<MusicManager>().PlayMusic(phaseTwoMusic);
+        }
+
+        public void StopSong()
+        {
+            GameObject.Find("Music").GetComponent<AudioSource>().Pause();
+        }
+
         public void SwapToWings()
         {
+            gameObject.GetComponent<AudioSource>().Stop();
             transform.parent.GetComponent<EnemyCoreCombat>().ForceElementChange();
             
         }

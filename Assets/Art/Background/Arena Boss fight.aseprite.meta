@@ -147,7 +147,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 3260
+      y: 3044
       width: 3190
       height: 1269
     spriteID: 20596091de3d69a4b9edd29f1f7d1366
@@ -158,7 +158,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 3260}
+    uvTransform: {x: 4, y: 3044}
   - name: background structures 1
     originalName: 
     pivot: {x: 0.30367652, y: -0.9851752}
@@ -167,7 +167,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 3202
-      y: 3260
+      y: 3044
       width: 2720
       height: 742
     spriteID: 70a440228235aa543b878047bcbc3d4d
@@ -178,10 +178,10 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3202, y: 3260}
+    uvTransform: {x: 3202, y: 3044}
   - name: background
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.15384616}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -189,7 +189,7 @@ ScriptedImporter:
       x: 4
       y: 1632
       width: 5760
-      height: 1620
+      height: 1404
     spriteID: 285c5656c8bcffb4b9b693aaa472c2ea
     spriteBone: []
     spriteOutline: []
@@ -199,6 +199,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 1632}
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4321
+      width: 5760
+      height: 216
+    spriteID: b1be722449d246b4086db188881d1940
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4321}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -263,10 +283,27 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 0
+        y: 216
+        width: 5760
+        height: 1404
+      spriteId: 285c5656c8bcffb4b9b693aaa472c2ea
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 4
+    guid: 1317222748
+    name: Layer 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1
+      frameIndex: 0
+      cellRect:
+        x: 0
         y: 0
         width: 5760
-        height: 1620
-      spriteId: 285c5656c8bcffb4b9b693aaa472c2ea
+        height: 216
+      spriteId: b1be722449d246b4086db188881d1940
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 668930020345041866}
   - component: {fileID: 3682978454540166620}
   - component: {fileID: 7816599483583100271}
+  - component: {fileID: 7412830544091398621}
   m_Layer: 0
   m_Name: Auriel-Transition
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3057668, y: 1.3057668, z: 1.3057668}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6268569701883027873}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -263281285
   m_SortingLayer: 3
   m_SortingOrder: 39
-  m_Sprite: {fileID: -1352757093, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
+  m_Sprite: {fileID: -1852904092, guid: 2203affb34f6a3941876169c3e03e3b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,6 +152,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b84a8e196159e94ca7b2ffb44fbf0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phaseTwoMusic: {fileID: 8300000, guid: 6e571f8777a5d8c40a3a92360129840f, type: 3}
+--- !u!82 &7412830544091398621
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736204707684259131}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 850310750931199010, guid: 4826cda8ad5e3f444a134728c458a828, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2d32103496ea7454d920caca27cd5819, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1867957191367629834
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,8 +663,8 @@ GameObject:
   - component: {fileID: 942170879709691037}
   - component: {fileID: 5418642651894759646}
   - component: {fileID: 5289724392564529451}
-  - component: {fileID: 4121636004800924499}
   - component: {fileID: 7128134261980915022}
+  - component: {fileID: 4121636004800924499}
   m_Layer: 10
   m_Name: Auriel
   m_TagString: Boss
@@ -634,7 +732,7 @@ SpriteRenderer:
   m_SortingLayerID: -263281285
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 891722190, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+  m_Sprite: {fileID: -702727221, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -658,7 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 6812903415c4a334bb34c8207d6b6f7e, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 09fdc47007b305a4e986e2159a7469ec, type: 3}
 --- !u!114 &8622294176306529376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,10 +944,45 @@ MonoBehaviour:
     - Key: Attack_AirSlash
       Value: {fileID: 11400000, guid: 97a97f1d4bbd6b54594d4f828e184699, type: 2}
   currentElement: 0
-  elementSprites: []
+  elementSprites:
+  - {fileID: 7108339969198208228, guid: 09fdc47007b305a4e986e2159a7469ec, type: 3}
+  - {fileID: 7108339969198208228, guid: 6812903415c4a334bb34c8207d6b6f7e, type: 3}
   isAnAgent: 1
   behaviourTreeInstance: {fileID: 5418642651894759646}
   player: {fileID: 0}
+--- !u!114 &7128134261980915022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767863345217715289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6e65ea7e2cf6040876141fdf309141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: ae22c354baf8c76449aaf2ab43f8a9af, type: 2}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currentState: 1
+  overrideHealthMax: 0
+  health: 0
+  currentLives: 2
+  maxLives: 2
+  vitality: 0
+  vitalityRegenerationSpeed: 1
+  livesUI:
+  - {fileID: 8681917107613667287}
+  - {fileID: 1867957191367629834}
+  vitalityBar: {fileID: 9118126068686193817}
+  statsUI: {fileID: 6775470271333324993}
+  blood: {fileID: 7150051775368357156, guid: 27a2ed7675c61e340b7babf009115e3c, type: 3}
+  iceParticlesPrefab: {fileID: 7480924690556159637, guid: b5a5f05ed1ab79f40993e6e71b01bdaf, type: 3}
+  iceParticlesSpawnPoint: {fileID: 5117476045035060059}
+  _spriteLibraryAssets: []
+  transitionCocoon: {fileID: 736204707684259131}
 --- !u!82 &4121636004800924499
 AudioSource:
   m_ObjectHideFlags: 0
@@ -955,41 +1088,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7128134261980915022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767863345217715289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f6e65ea7e2cf6040876141fdf309141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: ae22c354baf8c76449aaf2ab43f8a9af, type: 2}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  currentState: 1
-  overrideHealthMax: 0
-  health: 0
-  currentLives: 2
-  maxLives: 2
-  vitality: 0
-  vitalityRegenerationSpeed: 1
-  livesUI:
-  - {fileID: 8681917107613667287}
-  - {fileID: 1867957191367629834}
-  vitalityBar: {fileID: 9118126068686193817}
-  statsUI: {fileID: 6775470271333324993}
-  blood: {fileID: 7150051775368357156, guid: 27a2ed7675c61e340b7babf009115e3c, type: 3}
-  iceParticlesPrefab: {fileID: 7480924690556159637, guid: b5a5f05ed1ab79f40993e6e71b01bdaf, type: 3}
-  iceParticlesSpawnPoint: {fileID: 5117476045035060059}
-  _spriteLibraryAssets:
-  - {fileID: 7108339969198208228, guid: 09fdc47007b305a4e986e2159a7469ec, type: 3}
-  - {fileID: 7108339969198208228, guid: 6812903415c4a334bb34c8207d6b6f7e, type: 3}
-  transitionCocoon: {fileID: 736204707684259131}
 --- !u!1 &5383671724712514978
 GameObject:
   m_ObjectHideFlags: 0

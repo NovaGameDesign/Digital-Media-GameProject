@@ -17,6 +17,7 @@ namespace DigitalMedia
 
         public GameObject transitionCocoon;
         
+        
         private void Start()
         {
             if (!overrideHealthMax)
@@ -50,6 +51,7 @@ namespace DigitalMedia
 
             InitiateStateChange(State.None);
             _animator.Play("Auriel_Transition-Start");
+            
             /*currentLibraryAsset++;
             _library.spriteLibraryAsset = _spriteLibraryAssets[currentLibraryAsset];*/
             
