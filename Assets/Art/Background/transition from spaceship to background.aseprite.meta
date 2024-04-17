@@ -166,8 +166,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 2833
+      x: 1784
+      y: 1292
       width: 762
       height: 681
     spriteID: 2a65ab26b49b94b41878941a49c1a566
@@ -178,7 +178,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2833}
+    uvTransform: {x: 1784, y: 1292}
   - name: pod frame 1
     originalName: 
     pivot: {x: 0, y: -0.35735294}
@@ -186,7 +186,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1012
+      x: 2554
       y: 1292
       width: 763
       height: 680
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1012, y: 1292}
+    uvTransform: {x: 2554, y: 1292}
   - name: outside Pod Shading
     originalName: 
     pivot: {x: 0, y: -0.35735294}
@@ -206,8 +206,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1012
-      y: 1980
+      x: 3325
+      y: 1292
       width: 763
       height: 680
     spriteID: 5a4bbd27285766e4490f920601ad2b7e
@@ -218,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1012, y: 1980}
+    uvTransform: {x: 3325, y: 1292}
   - name: pod frame 2
     originalName: 
     pivot: {x: 0, y: -0.35431919}
@@ -226,8 +226,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 2142
+      x: 1012
+      y: 1292
       width: 764
       height: 683
     spriteID: 9892ac8922409f642aebe493ef27abfb
@@ -238,7 +238,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2142}
+    uvTransform: {x: 1012, y: 1292}
   - name: pod frame 3 (over)
     originalName: 
     pivot: {x: 0, y: -0.42113563}
@@ -246,8 +246,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1012
-      y: 2668
+      x: 4
+      y: 2142
       width: 763
       height: 634
     spriteID: 1d0eae986c8770444a8e1286c2945e6a
@@ -258,7 +258,147 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1012, y: 2668}
+    uvTransform: {x: 4, y: 2142}
+  - name: window
+    originalName: 
+    pivot: {x: 0.9989594, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2954
+      y: 4
+      width: 961
+      height: 1109
+    spriteID: c14813d8f1c2ddb4eb3e82b867b2320a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2954, y: 4}
+  - name: background shading for main ship
+    originalName: 
+    pivot: {x: 0.9467456, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 4
+      width: 1014
+      height: 1064
+    spriteID: 1983e635766e1564bb54b253e0195790
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 4}
+  - name: escape pod door
+    originalName: 
+    pivot: {x: 0.9687495, y: -0.8181818}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3923
+      y: 4
+      width: 32
+      height: 297
+    spriteID: 56cf68e6d73adfb42b1a1660020e2a63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3923, y: 4}
+  - name: control panel
+    originalName: 
+    pivot: {x: -2.5370371, y: -0.94186044}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 775
+      y: 2393
+      width: 216
+      height: 258
+    spriteID: 55036e80e572264449cd4e1c81b7fbe9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 775, y: 2393}
+  - name: player
+    originalName: 
+    pivot: {x: -3.5760872, y: -2.2499998}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1784
+      y: 1981
+      width: 92
+      height: 108
+    spriteID: 667211419d7fa4a41baca6f8a2221210
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1784, y: 1981}
+  - name: floor
+    originalName: 
+    pivot: {x: 1.0333692, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 775
+      y: 2142
+      width: 929
+      height: 243
+    spriteID: a252dba190ab4274fabe124941ddee1c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 775, y: 2142}
+  - name: Floor shading
+    originalName: 
+    pivot: {x: 1.03452, y: -3.9791667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 1076
+      width: 927
+      height: 48
+    spriteID: 198ad84c5b690ff41b67abd950280283
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 1076}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -378,6 +518,125 @@ ScriptedImporter:
         width: 763
         height: 634
       spriteId: 1d0eae986c8770444a8e1286c2945e6a
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 7
+    guid: 941153201
+    name: window
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: window
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 961
+        height: 1109
+      spriteId: c14813d8f1c2ddb4eb3e82b867b2320a
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 8
+    guid: -2025671198
+    name: background shading for main ship
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: background shading for main ship
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1014
+        height: 1064
+      spriteId: 1983e635766e1564bb54b253e0195790
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 9
+    guid: -1855863053
+    name: escape pod door
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: escape pod door
+      frameIndex: 0
+      cellRect:
+        x: 929
+        y: 243
+        width: 32
+        height: 297
+      spriteId: 56cf68e6d73adfb42b1a1660020e2a63
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 10
+    guid: -1080821885
+    name: control panel
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: control panel
+      frameIndex: 0
+      cellRect:
+        x: 1508
+        y: 243
+        width: 216
+        height: 258
+      spriteId: 55036e80e572264449cd4e1c81b7fbe9
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 11
+    guid: 1671627732
+    name: player
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: player
+      frameIndex: 0
+      cellRect:
+        x: 1289
+        y: 243
+        width: 92
+        height: 108
+      spriteId: 667211419d7fa4a41baca6f8a2221210
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 12
+    guid: 878736864
+    name: floor
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: floor
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 929
+        height: 243
+      spriteId: a252dba190ab4274fabe124941ddee1c
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 13
+    guid: 1305508371
+    name: Floor shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Floor shading
+      frameIndex: 0
+      cellRect:
+        x: 1
+        y: 191
+        width: 927
+        height: 48
+      spriteId: 198ad84c5b690ff41b67abd950280283
     linkedCells: []
     parentIndex: -1
   platformSettings: []

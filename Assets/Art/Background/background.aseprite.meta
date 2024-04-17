@@ -187,7 +187,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 1932
-      y: 881
+      y: 4
       width: 1842
       height: 210
     spriteID: ad4bedf2d29a292479134f76c3d0cbaf
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1932, y: 881}
+    uvTransform: {x: 1932, y: 4}
   - name: Layer 5
     originalName: 
     pivot: {x: 0.5, y: -0.20645161}
@@ -227,7 +227,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 3596
+      y: 7573
       width: 1920
       height: 287
     spriteID: d20f9212d2522364b99cbeb9e357c891
@@ -238,7 +238,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 3596}
+    uvTransform: {x: 4, y: 7573}
   - name: Layer 7
     originalName: 
     pivot: {x: 0.37142855, y: -4.688889}
@@ -246,8 +246,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 3891
+      x: 1932
+      y: 222
       width: 1400
       height: 135
     spriteID: 9a43bd1b0a54cd7428141b713db708ee
@@ -258,7 +258,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 3891}
+    uvTransform: {x: 1932, y: 222}
   - name: Layer 8
     originalName: 
     pivot: {x: 0.5, y: -0.26237622}
@@ -266,8 +266,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1932
-      y: 4
+      x: 4
+      y: 3596
       width: 1920
       height: 606
     spriteID: 3ad4806f79ec2954da7750f59e8b4779
@@ -278,7 +278,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1932, y: 4}
+    uvTransform: {x: 4, y: 3596}
   - name: Layer 10
     originalName: 
     pivot: {x: 6.5760875, y: -2.2407408}
@@ -286,8 +286,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3860
-      y: 618
+      x: 1799
+      y: 4739
       width: 92
       height: 108
     spriteID: e56edc194308dab48bf1d8a8b72abd2f
@@ -298,7 +298,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3860, y: 618}
+    uvTransform: {x: 1799, y: 4739}
   - name: platform small
     originalName: 
     pivot: {x: -0.19587624, y: -0.8356808}
@@ -306,8 +306,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3860
-      y: 384
+      x: 1597
+      y: 4739
       width: 194
       height: 213
     spriteID: a495a64291008624387b2a3f1ad79e91
@@ -318,7 +318,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3860, y: 384}
+    uvTransform: {x: 1597, y: 4739}
   - name: Platform medium
     originalName: 
     pivot: {x: -1.2821785, y: -0.3575269}
@@ -326,8 +326,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3860
-      y: 4
+      x: 1016
+      y: 5638
       width: 202
       height: 372
     spriteID: 6b0c19ae0d3ab5549bc6317674cc6fcc
@@ -338,7 +338,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3860, y: 4}
+    uvTransform: {x: 1016, y: 5638}
   - name: platform Tall
     originalName: 
     pivot: {x: 0.94568694, y: -0.23800386}
@@ -346,8 +346,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1932
-      y: 1099
+      x: 1597
+      y: 4210
       width: 313
       height: 521
     spriteID: 8ac2a124ae0824e429e9948bf6f75a6b
@@ -358,7 +358,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1932, y: 1099}
+    uvTransform: {x: 1597, y: 4210}
   - name: Layer 9 floor
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -366,8 +366,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1932
-      y: 618
+      x: 4
+      y: 7868
       width: 1920
       height: 255
     spriteID: 5b1f4edfdc009fa41afbfa2808e6c64d
@@ -378,7 +378,207 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1932, y: 618}
+    uvTransform: {x: 4, y: 7868}
+  - name: escape pod
+    originalName: 
+    pivot: {x: 0.85983825, y: -0.310253}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4210
+      width: 1113
+      height: 751
+    spriteID: fec950f2dba9d774ca1a253dd9bba525
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4210}
+  - name: INSIDEescape pod shading
+    originalName: 
+    pivot: {x: 0.86254984, y: -0.3530303}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5638
+      width: 1004
+      height: 660
+    spriteID: d5f8a2d24506d6b4caacb501f68ccae7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5638}
+  - name: pod frame 1
+    originalName: 
+    pivot: {x: 0.85956174, y: -0.35410336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6306
+      width: 1004
+      height: 658
+    spriteID: 64875321200f6e34686408935436de78
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6306}
+  - name: outside Pod Shading
+    originalName: 
+    pivot: {x: 0.8606965, y: -0.3524962}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4969
+      width: 1005
+      height: 661
+    spriteID: 0e32cb8ee02fc4a449199d7098f5db17
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4969}
+  - name: pod frame 2
+    originalName: 
+    pivot: {x: 0.9740407, y: -0.35356602}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1017
+      y: 4969
+      width: 886
+      height: 659
+    spriteID: 8655eb91e4115bd41926d79cb3bd46a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1017, y: 4969}
+  - name: 'pod frame 3 '
+    originalName: 
+    pivot: {x: 0.8522484, y: -0.39291736}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6972
+      width: 934
+      height: 593
+    spriteID: 076694f9ab9f4d44e9dee10e156d9c7b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6972}
+  - name: ground debree from crash
+    originalName: 
+    pivot: {x: 0.7876777, y: -2.2745097}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 365
+      width: 1055
+      height: 102
+    spriteID: f05ded114d9f5ba4099d1888087be1da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 365}
+  - name: hatch
+    originalName: 
+    pivot: {x: 0.82974136, y: -0.762931}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1125
+      y: 4210
+      width: 464
+      height: 464
+    spriteID: 0bacf1caec9d8be4fbc43b630211389a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1125, y: 4210}
+  - name: hatch detaling before shading
+    originalName: 
+    pivot: {x: 0.8484848, y: -0.89622647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1451
+      y: 6306
+      width: 429
+      height: 424
+    spriteID: a1e2faff6050a9146973928f6f5516ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1451, y: 6306}
+  - name: hatch shading
+    originalName: 
+    pivot: {x: 0.86651057, y: -0.86013985}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1016
+      y: 6306
+      width: 427
+      height: 429
+    spriteID: 38c5aa759237e7c4da0c3b27987cef68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1016, y: 6306}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -611,6 +811,185 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 14
+    guid: 468202498
+    name: Crashed escape pod
+    layerFlags: 3
+    layerType: 1
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 15
+    guid: -1018052739
+    name: escape pod
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: escape pod
+      frameIndex: 0
+      cellRect:
+        x: 3
+        y: 233
+        width: 1113
+        height: 751
+      spriteId: fec950f2dba9d774ca1a253dd9bba525
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 16
+    guid: -1741982008
+    name: INSIDEescape pod shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: INSIDEescape pod shading
+      frameIndex: 0
+      cellRect:
+        x: 94
+        y: 233
+        width: 1004
+        height: 660
+      spriteId: d5f8a2d24506d6b4caacb501f68ccae7
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 17
+    guid: -649205026
+    name: pod frame 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: pod frame 1
+      frameIndex: 0
+      cellRect:
+        x: 97
+        y: 233
+        width: 1004
+        height: 658
+      spriteId: 64875321200f6e34686408935436de78
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 18
+    guid: -429683794
+    name: outside Pod Shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: outside Pod Shading
+      frameIndex: 0
+      cellRect:
+        x: 95
+        y: 233
+        width: 1005
+        height: 661
+      spriteId: 0e32cb8ee02fc4a449199d7098f5db17
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 19
+    guid: -649205423
+    name: pod frame 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: pod frame 2
+      frameIndex: 0
+      cellRect:
+        x: 97
+        y: 233
+        width: 886
+        height: 659
+      spriteId: 8655eb91e4115bd41926d79cb3bd46a3
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 20
+    guid: -205183391
+    name: 'pod frame 3 '
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: 'pod frame 3 '
+      frameIndex: 0
+      cellRect:
+        x: 164
+        y: 233
+        width: 934
+        height: 593
+      spriteId: 076694f9ab9f4d44e9dee10e156d9c7b
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 21
+    guid: -317636224
+    name: ground debree from crash
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: ground debree from crash
+      frameIndex: 0
+      cellRect:
+        x: 129
+        y: 232
+        width: 1055
+        height: 102
+      spriteId: f05ded114d9f5ba4099d1888087be1da
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 22
+    guid: 415857458
+    name: hatch
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: hatch
+      frameIndex: 0
+      cellRect:
+        x: 575
+        y: 354
+        width: 464
+        height: 464
+      spriteId: 0bacf1caec9d8be4fbc43b630211389a
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 23
+    guid: -456788450
+    name: hatch detaling before shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: hatch detaling before shading
+      frameIndex: 0
+      cellRect:
+        x: 596
+        y: 380
+        width: 429
+        height: 424
+      spriteId: a1e2faff6050a9146973928f6f5516ba
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 24
+    guid: -1575260298
+    name: hatch shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: hatch shading
+      frameIndex: 0
+      cellRect:
+        x: 590
+        y: 369
+        width: 427
+        height: 429
+      spriteId: 38c5aa759237e7c4da0c3b27987cef68
+    linkedCells: []
+    parentIndex: 14
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
