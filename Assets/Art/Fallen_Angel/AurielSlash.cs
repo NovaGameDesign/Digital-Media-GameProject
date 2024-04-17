@@ -22,11 +22,7 @@ namespace DigitalMedia
            
             rb = GetComponent<Rigidbody2D>();
             _audioPlayer = GetComponent<AudioSource>();
-        }
-
-        private void OnEnable()
-        {
-            StartCoroutine(veryShortDelay());
+            startingPosition = transform;
         }
 
         private IEnumerator veryShortDelay()
@@ -50,7 +46,7 @@ namespace DigitalMedia
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             var hit = other;
             
             if (hit.transform.root == transform || hit.transform == transform) return;
@@ -74,7 +70,7 @@ namespace DigitalMedia
             if (hit.GetComponent<IDamageable>() != null)
             {
                 
-                hit.GetComponent<IDamageable>().DealDamage(abilityRef.slashDamage, this.gameObject, abilityRef.knockBackAmount, true);
+                hit.GetComponent<IDamageable>().DealDamage(abilityRef.slashDamage, this.gameObject, Elements.Holy, abilityRef.knockBackAmount, true);
                 _audioPlayer.PlayOneShot(abilityRef.sfxHit);
             }
         }

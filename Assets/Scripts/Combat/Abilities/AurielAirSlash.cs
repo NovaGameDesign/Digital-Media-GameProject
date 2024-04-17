@@ -21,6 +21,7 @@ namespace DigitalMedia.Combat.Abilities
             var obj = Instantiate(airSlash, spawnLocation, holder.transform.rotation);
             obj.transform.parent = holder.transform;
             obj.transform.localPosition = spawnLocation;
+            obj.transform.parent = null;
             //Play audio 
             //Play Effects 
 

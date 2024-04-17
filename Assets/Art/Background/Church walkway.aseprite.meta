@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: fe9b208099b403348b77b62b56ee7945
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 0
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 0
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638487823643047145
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Ceiling
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1469
+      width: 1920
+      height: 1404
+    spriteID: b8e0f3ddc9995a74c920b208eb0db009
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1469}
+  - name: back tiles
+    originalName: 
+    pivot: {x: 0.5, y: -0.3190709}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 4
+      width: 1920
+      height: 818
+    spriteID: 73b35a1dd5664aa44af277abfc8474b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 4}
+  - name: shading tiles
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1920
+      height: 1457
+    spriteID: d83834bca5a47c24dab6be448d922b5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: back floor
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 1555
+      width: 1920
+      height: 383
+    spriteID: 8cb3122451e774a479db63526531d5c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 1555}
+  - name: shading column
+    originalName: 
+    pivot: {x: 0.5579246, y: -4.7358494}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 2557
+      width: 1407
+      height: 53
+    spriteID: 72e2afeffaf6b2e4e9023d559e3c1625
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 2557}
+  - name: back floor shading
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 1946
+      width: 1920
+      height: 369
+    spriteID: 5d811cbb224ab2f4493e2c5eac433125
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 1946}
+  - name: front floor
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 2323
+      width: 1920
+      height: 226
+    spriteID: cf275d701f80f2b42be48f45628e7907
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 2323}
+  - name: back columns
+    originalName: 
+    pivot: {x: 0.5, y: -0.5341702}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 830
+      width: 1920
+      height: 717
+    spriteID: 3a3aa3e520e010942948406931ba60ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 830}
+  - name: 'front columns '
+    originalName: 
+    pivot: {x: 0.5, y: -0.22380106}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2881
+      width: 1920
+      height: 1126
+    spriteID: 0be79eb2e3f2f0343bd898659f90b75a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2881}
+  - name: roof
+    originalName: 
+    pivot: {x: 0.5, y: -25.50909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4015
+      width: 1920
+      height: 55
+    spriteID: 9fc0e6a336c8ff0479f63906d4484351
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4015}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 271859823
+    name: Ceiling
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Ceiling
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 1404
+      spriteId: b8e0f3ddc9995a74c920b208eb0db009
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 1
+    guid: 925738509
+    name: back tiles
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back tiles
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 261
+        width: 1920
+        height: 818
+      spriteId: 73b35a1dd5664aa44af277abfc8474b7
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 2
+    guid: -1493931081
+    name: shading tiles
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: shading tiles
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 1457
+      spriteId: d83834bca5a47c24dab6be448d922b5a
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    guid: 1206950284
+    name: back floor
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back floor
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 383
+      spriteId: 8cb3122451e774a479db63526531d5c8
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 4
+    guid: 198830966
+    name: shading column
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: shading column
+      frameIndex: 0
+      cellRect:
+        x: 175
+        y: 251
+        width: 1407
+        height: 53
+      spriteId: 72e2afeffaf6b2e4e9023d559e3c1625
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 5
+    guid: -1831920212
+    name: back floor shading
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back floor shading
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 369
+      spriteId: 5d811cbb224ab2f4493e2c5eac433125
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 6
+    guid: 1824013863
+    name: front floor
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: front floor
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 1920
+        height: 226
+      spriteId: cf275d701f80f2b42be48f45628e7907
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 7
+    guid: -426247383
+    name: back columns
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: back columns
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 383
+        width: 1920
+        height: 717
+      spriteId: 3a3aa3e520e010942948406931ba60ed
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 8
+    guid: -303988694
+    name: 'front columns '
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: 'front columns '
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 252
+        width: 1920
+        height: 1126
+      spriteId: 0be79eb2e3f2f0343bd898659f90b75a
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 9
+    guid: 1919563245
+    name: roof
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: roof
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 1403
+        width: 1920
+        height: 55
+      spriteId: 9fc0e6a336c8ff0479f63906d4484351
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 1920, y: 1480}

@@ -19,7 +19,8 @@ namespace TheKiwiCoder {
 
         protected override State OnUpdate() {
             
-            if (interruptable) {
+            if (interruptable) 
+            {
                 int nextIndex = index.Value;
                 if (nextIndex != currentIndex) {
                     children[currentIndex].Abort();

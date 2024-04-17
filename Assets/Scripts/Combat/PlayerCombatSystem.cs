@@ -1,7 +1,10 @@
+using DigitalMedia.Combat.Abilities;
 using UnityEngine;
 using DigitalMedia.Core;
 using DigitalMedia.Interfaces;
+using DigitalMedia.Misc;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D.Animation;
 using Random = UnityEngine.Random;
 
 namespace DigitalMedia.Combat
@@ -13,33 +16,80 @@ namespace DigitalMedia.Combat
         private PlayerInput _playerInput;
         private InputAction attack;
         private InputAction block;
+       
+        private InputAction swapElement;
         
         #endregion
         
         public GameObject deathblowTarget = null;
-        [SerializeField] protected GameObject deathblowAirSlash;
-
-        private const string ANIM_BLOCK = "Player_Block_Start";
-
+        
         private int soundLastPlayed;
+        
+        private float ElementPrecentage;
+
+        private new PlayerStats stats;
+        
         private void Start()
         {
-            InitateStateChange(State.Idle);
-            //Input
+            InitiateStateChange(State.Idle);
+            
+            //Get Input
             _playerInput = GetComponent<PlayerInput>();
             attack = _playerInput.actions["Attack"];
             block = _playerInput.actions["Block"];
+            swapElement = _playerInput.actions["Swap Element"];
+            
             //Assigning Functionality
             attack.performed += TryToAttack;
             block.performed += TryToBlock;
             block.canceled += TryToBlock;
+            swapElement.performed += SwapElements;
 
             _animator = GetComponent<Animator>();
             _audioPlayer = GetComponent<AudioSource>();
+
+            spriteLibrary = GetComponent<SpriteLibrary>();
+
+            stats = GetComponent<PlayerStats>();
         }
 
-        #region Attack Related Functionality
+        #region Input Activation
 
+        private void SwapElements(InputAction.CallbackContext context)
+        {
+            currentElementIndex++;
+            switch (currentElementIndex)
+            {
+                case 1:
+                {
+                    currentElement = Elements.Fire;
+                    stats.SwapHealthbarUI(1);
+                    break;
+                }
+                case 2:
+                {
+                    currentElement = Elements.Ice;
+                    stats.SwapHealthbarUI(2);
+                    break;
+                }
+                case 3:
+                {
+                    currentElement = Elements.Lightning;
+                    stats.SwapHealthbarUI(3);
+                    break;
+                }
+                default:
+                {
+                    currentElementIndex = 0;
+                    currentElement = Elements.Default;
+                    stats.SwapHealthbarUI(0);
+                    break;
+                }
+            }
+            
+            spriteLibrary.spriteLibraryAsset = elementSprites[currentElementIndex];
+        }
+        
         public virtual void TryToAttack(InputAction.CallbackContext context)
         {
             //Convert this to ability and have functionality for the different deathblow types (ie. boss vs basic enemy). 
@@ -73,25 +123,13 @@ namespace DigitalMedia.Combat
             }
             
         }
-
-
-        public void EndAttackSequence()
-        {
-            InitateStateChange(State.Idle);
-            currentAttackIndex = 0;
-            _animator.Play("Idle");
-        }
-
-        #endregion
-
-
-        #region Parry Related Functionality
-
+        
         private void TryToBlock(InputAction.CallbackContext context)
         {
             if (context.canceled)
             {
-                InitateStateChange(State.Idle);
+                if(currentState != State.Blocking) return;
+                InitiateStateChange(State.Idle);
                 _animator.Play("Player_Block_End");
                 blocking = false;
             }
@@ -99,12 +137,17 @@ namespace DigitalMedia.Combat
             {
                 if (currentState != State.Idle && !canInterruptState) return;
 
-                InitateStateChange(State.Blocking);
+                InitiateStateChange(State.Blocking);
 
-                _animator.Play(ANIM_BLOCK);
+                _animator.Play("Player_Block_Start");
                 blocking = true;
             }
         }
+
+        #endregion
+
+        #region Parry Related Functionality
+        
 
         public void StartStopParrying(string shouldParry)
         {
@@ -121,10 +164,10 @@ namespace DigitalMedia.Combat
             _animator.Play("Player_Parry");
             parrying = false;
             
-            int randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length);
+            int randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length - 1);
             while (soundLastPlayed == randomSound)
             {
-                randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length);
+                randomSound = Random.Range(0, data.CombatData.parrySoundsNormal.Length - 1);
             }
             soundLastPlayed = randomSound;
             _audioPlayer.PlayOneShot(data.CombatData.parrySoundsNormal[randomSound]);
@@ -146,31 +189,38 @@ namespace DigitalMedia.Combat
         
         public void Deathblow()
         {
-            InitateStateChange(State.Deathblowing);
+            InitiateStateChange(State.Deathblowing);
             /*transform.GetComponent<Rigidbody2D>().simulated = false; The idea here is to maybe let the player "teleport" to their destination and do some sort of flash step quick attack deathblow. Idrk I'll probably do it when I have a bit more time to do afterimages for the player teleporting and stuff.
             transform.position = deathblowTarget.transform.Find("Deathblow Position").position;*/
            
-            _animator.Play("Deathblow");
+            _animator.Play("Player_Deathblow");
         }
 
         public void EndDeathblowSequence()
         {
-            InitateStateChange(State.Idle);
-            transform.GetComponent<Rigidbody2D>().simulated = true;
+            InitiateStateChange(State.Idle);
+            _animator.Play("Idle");
+            /*transform.GetComponent<Rigidbody2D>().simulated = true;*/
             //Other stuff
         }
         
         public void SpawnDeathblowSlash()
         {
             //Play animations if we end up having one, otherwise just destroy the target and spawn the slash
-            Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
+            //Instantiate(deathblowAirSlash, deathblowAirSlash.transform);
             
             deathblowTarget.GetComponent<StatsComponent>()?.HandleLives();
+            
             deathblowTarget = null;
         }
         
         #endregion
-        
+
+        public void TransformForwardDeathblow()
+        {
+            transform.position = transform.Find("Deathblow Pos").position;
+            Debug.LogWarning("Moved the player forward during the deathblow.");
+        }
     }
 
 }

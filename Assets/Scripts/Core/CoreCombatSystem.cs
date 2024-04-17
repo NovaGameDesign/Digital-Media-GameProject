@@ -5,10 +5,21 @@ using DigitalMedia.Combat;
 using DigitalMedia.Combat.Abilities;
 using DigitalMedia.Interfaces;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
+using Random = UnityEngine.Random;
 
 
 namespace DigitalMedia.Core
 {
+    public enum Elements
+    {
+        Default,
+        Fire,
+        Ice,
+        Lightning,
+        Holy
+    }
+    
     public class CoreCombatSystem : CoreCharacter
     {
         protected Collider2D[] overlapping;
@@ -36,6 +47,12 @@ namespace DigitalMedia.Core
         
         #endregion
         
+        public Elements currentElement = default;
+        protected int currentElementIndex;
+        protected SpriteLibrary spriteLibrary;
+        public SpriteLibraryAsset[] elementSprites;
+
+        
       
         void Start()
         {
@@ -44,7 +61,7 @@ namespace DigitalMedia.Core
 
             stats = GetComponent<StatsComponent>();
 
-            InitateStateChange(State.Idle);
+            InitiateStateChange(State.Idle);
         }
         
         public virtual void TryToAttack(string desiredAttack)
@@ -52,25 +69,7 @@ namespace DigitalMedia.Core
             TriggerAbility(desiredAttack); 
         }
         
-        /// <summary>
-        /// Abilities themselves should (if possible) only handle additional functionality, ie. moving the player forward, teleporting, etc.
-        /// This monobehavior and others like it should try (as much as possible) to simply interface with and interpret animation events.
-        /// This may mean canceling an ability or changing states, but it should be things the scriptable object can't do.
-        /// What I need to finish writing is how certain events are executed (ie. damage being dealt) while using our new data system from the Ability. Furthermore, in those events we need to actually activate certain things in the Ability such as knockback. 
-        ///
-        /// Furthermore, some functionality that could be in the ability will stay in this class or its children as it never changes, such as the collider check. The data for such checks will, however, be in the ability.
-        /// In the event of damage being dealt, we instead treat the ability like a pure data scriptable object (SO) and only if necessary call additional functions.
-        ///
-        /// If I implement this properly it does a couple things:
-        /// 1. More robust data for different abilities -- self explanatory but now I won't have to have seven billion audio clips on one monobehavior.
-        /// 2. Reducing hard-coded functionality -- Instead of having everything hard coded we can simply pass whatever ability reference we want and theoretically it will execute its own desired code and pass data if needed.
-        /// 3. Reduce amount of code in this or other scripts -- Because some of our functionality is now directly on the data container (which is more or less what the AbilityBase class is) this script gets much smaller but also more robust as it is far more versatile.
-        /// 4. Multi-action changes -- Instead of having a few shared actions across multiple scripts that each need to be individually updated, we can share a single Ability SO across them which updates all rather than one.
-        /// 4.1. A theoretical limitation of this is the event in which we want to have the same attack but different ranges, stamina, damage, etc. In this case we simply need to make another SO and change the data, which becomes even more simple!
-        ///
-        /// My plans for the morning include settings up the audio system to actually do what it needs to, and also finishing this class setup.
-        /// </summary>
-        /// <param name="desiredAbility"></param>
+        
         public void TriggerAbility(string desiredAbility)
         {
             //Store the old ability in case we get in trouble. 
@@ -98,13 +97,13 @@ namespace DigitalMedia.Core
             
             //play animation 
             _animator.Play(currentAbility.animToPlay.name);
-            InitateStateChange(State.Attacking);
+            InitiateStateChange(currentAbility.stateToChangeTo);
         }
 
         /// <summary>
-        /// 
+        /// Ability Usage is handled from animation events 99% of the time. Usage is primarily targeted towards functionality like attacking, though theoretically it can do more. 
         /// </summary>
-        private void HandleAbilityUsage()
+        public void HandleAbilityUsage()
         {
             //currentAbility.currentAbilityState = AbilityBase.AbilityStates.Using;
             
@@ -113,14 +112,18 @@ namespace DigitalMedia.Core
             currentAbility.Activate(this.gameObject);
         }
 
+        /// <summary>
+        /// Ability effect are like Ability usages in that they are usually called from the animation that is currently being played via an event. These effects are usually just things like sounds or VFX intended to be a bonus to actual functionality. 
+        /// </summary>
         public void ActivateAbilityEffects()
         {
             currentAbility.ActivateAbilityEffects(this.gameObject);
         }
+        
         public void EndAbilityUsage()
         {
             currentAttackIndex = 0;
-            InitateStateChange(State.Idle);
+            InitiateStateChange(State.Idle);
             _animator.Play("Idle");
             
             if (currentAbility.hasCooldown)
@@ -182,12 +185,14 @@ namespace DigitalMedia.Core
                     //Check if the ability has any additional functionality it needs to execute after being parried. 
                     if (stats.vitality < 0)
                     {
-                        InitateStateChange(State.Staggered);
+                        InitiateStateChange(State.Staggered);
                         _animator.Play("Staggered");
                         if (this.gameObject.name == "Player") return;
                         
                         hit.GetComponent<PlayerCombatSystem>().deathblowTarget = this.gameObject;
                         targetThatParried = hit.gameObject;
+
+                        Time.timeScale = 0.25f;
                     }
                     overlapping = null;
                     return;
@@ -196,8 +201,9 @@ namespace DigitalMedia.Core
                 if (hit.GetComponent<IDamageable>() != null)
                 {
                     var damage = data.CombatData.weaponData.innateWeaponDamage * data.CombatData.attackPower;
-                    hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, currentAbility.knockBackAmount, true);
-                    _audioPlayer.PlayOneShot(currentAbility.sfxHit);
+                    hit.GetComponent<IDamageable>().DealDamage(damage, this.gameObject, currentElement, currentAbility.knockBackAmount, true);
+                    int soundToPlay = Random.Range(0, hit.GetComponent<CoreCharacter>().data.CombatData.damageSounds.Length - 1);
+                    _audioPlayer.PlayOneShot(hit.GetComponent<CoreCharacter>().data.CombatData.damageSounds[soundToPlay]);
                 }
             }
 
@@ -209,8 +215,8 @@ namespace DigitalMedia.Core
         /// </summary>
         public void EndAttackSequence()
         {
-            InitateStateChange(State.Idle);
-            /*currentAttackIndex = 0;*/
+            InitiateStateChange(State.Idle);
+            currentAttackIndex = 0;
             _animator.Play("Idle");
         }
 
@@ -219,7 +225,7 @@ namespace DigitalMedia.Core
         /// </summary>
         public void DisableDeathblow()
         {
-            InitateStateChange(State.Idle);
+            InitiateStateChange(State.Idle);
             _animator.Play("Idle");
             targetThatParried.GetComponent<PlayerCombatSystem>().deathblowTarget = null;
             stats.vitality = data.BasicData.maxVitality / 4;
@@ -284,6 +290,11 @@ namespace DigitalMedia.Core
                 Gizmos.DrawWireCube(transform.position + (Vector3)data.CombatData.parryOffset,
                     (Vector3)data.CombatData.parryRange);
             }
+        }
+
+        public void ChangeTimeScale(float scale)
+        {
+            Time.timeScale = scale;
         }
     }
 }

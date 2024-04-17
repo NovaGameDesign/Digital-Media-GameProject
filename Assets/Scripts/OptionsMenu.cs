@@ -21,7 +21,6 @@ namespace DigitalMedia
         int SelectedResolution;
         void Start()
         {
-
             isFullscreen = true;
             AllResolutions = Screen.resolutions;
             List<string> ResolutionStringList = new List<string>();

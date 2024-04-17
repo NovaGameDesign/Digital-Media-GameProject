@@ -28,6 +28,9 @@ namespace DigitalMedia.Core
 
         [SerializeField]
         private GameObject statsUI;
+
+        private float damageOverTimeTimer;
+
         
         //[System.NonSerialized]
         private bool _inCombat;
@@ -38,7 +41,7 @@ namespace DigitalMedia.Core
             {
                 if (_inCombat != value)
                 {
-                    Debug.Log("A new value was set for inCombat, the new value is "+value);
+                    //Debug.Log("A new value was set for inCombat, the new value is "+value);
                     _inCombat = value;
                     statsUI.SetActive(_inCombat);
                 }
@@ -46,9 +49,13 @@ namespace DigitalMedia.Core
         }
 
         [SerializeField] protected GameObject blood;
+        [SerializeField] private GameObject iceParticlesPrefab;
+        [SerializeField] private Transform iceParticlesSpawnPoint;
+
 
         protected Rigidbody2D rb;
- 
+
+        private GameObject currentIce;
         private void Start()
         {
             if (!overrideHealthMax)
@@ -64,10 +71,36 @@ namespace DigitalMedia.Core
             rb = this.gameObject.GetComponent<Rigidbody2D>();
         }
 
-        public virtual void DealDamage(float incomingDamage, GameObject attackOrigin, float knockbackForce = .5f, bool interruptAction = true)
+        public virtual void DealDamage(float incomingDamage, GameObject attackOrigin, Elements damageType, float knockbackForce = .5f, bool interruptAction = true)
         {
             //write a more complex damage function to account for defense, damage type, etc. 
             /*Debug.Log("The enemy took damage. " +this.gameObject.name);*/
+            if (currentState == State.Dying) return;
+            
+            if (damageType is Elements.Fire)
+            {
+                //Start coroutine to deal DOT 
+                damageOverTimeTimer = Time.time;
+                StartCoroutine(DamageOverTime(1, 3));
+            }
+            else if (damageType is Elements.Ice)
+            {
+                if (currentIce != null)
+                {
+                    currentIce.GetComponent<IcicleSpawner>().spawnDuration += 5; //Increase the spawn duration by five. 
+                }
+                else
+                {
+                    currentIce = Instantiate(iceParticlesPrefab, iceParticlesSpawnPoint);
+                    
+                    currentIce.transform.position = iceParticlesSpawnPoint.position;
+                }
+                
+                
+                DealVitalityDamage(incomingDamage/2);
+                knockbackForce *= 2;
+            }
+            
             health -= incomingDamage;
             healthbar.value = health / data.BasicData.maxHealth;
 
@@ -107,6 +140,21 @@ namespace DigitalMedia.Core
                 HandleLives();
             }
         }
+
+        IEnumerator DamageOverTime(float damage, float duration)
+        {
+            
+            yield return new WaitForSeconds(.1f);
+            
+            health -= damage;
+            healthbar.value = health / data.BasicData.maxHealth;
+            
+            // Continue to check if the correct time has passed. 
+            if (Time.time < damageOverTimeTimer + duration)
+            {
+                StartCoroutine(DamageOverTime(damage, duration));
+            }
+        }
         
         
         //I honestly had no clue what to call this. There may be a better name out there. 
@@ -121,6 +169,8 @@ namespace DigitalMedia.Core
                 Destroy(this.gameObject);
             }
             
+            InitiateStateChange(State.Dying);
+            
             health = data.BasicData.maxHealth;
             vitality = data.BasicData.maxVitality;
             vitalityBar.value = 1;
@@ -131,10 +181,7 @@ namespace DigitalMedia.Core
             livesUI.ElementAt(currentLives).SetActive(false);
             
             //3. Re-enabling enemy states if they were attacking -- or just turn their BTs back on. 
-            InitateStateChange(State.Idle);
-            
-            //4. Check if there are any lives remaining and destroy the object if needed. Theoretically we may need to do it first.
-           
+            InitiateStateChange(State.Idle);
         }
 
         public void DealVitalityDamage(float incomingVitalityDamage)

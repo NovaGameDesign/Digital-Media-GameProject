@@ -1,0 +1,417 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Boss_Idle_0
+      m_Hash: 466617452
+      m_Sprite: {fileID: -274043877, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2002459626, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    - m_Name: Boss_Idle_1
+      m_Hash: 752301306
+      m_Sprite: {fileID: 1727324791, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 415197456, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    - m_Name: Boss_Idle_2
+      m_Hash: 903767360
+      m_Sprite: {fileID: 765832013, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 552619148, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    - m_Name: Boss_Idle_3
+      m_Hash: 47797718
+      m_Sprite: {fileID: 858253775, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1429673998, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    - m_Name: Boss_Idle_4
+      m_Hash: 482197621
+      m_Sprite: {fileID: 598634119, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -913325891, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    - m_Name: Boss_Idle_5
+      m_Hash: 733671651
+      m_Sprite: {fileID: -702727221, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -114034341, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    - m_Name: Boss_Idle_6
+      m_Hash: 850633049
+      m_Sprite: {fileID: -1922277504, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1398709142, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    - m_Name: Boss_Idle_7
+      m_Hash: 95719887
+      m_Sprite: {fileID: 891722190, guid: 3d9c12df45c6d9f4a904f28fd059e3da, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1622552985, guid: df3f4940e96978647a5b6c4c1c06db16, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 8
+  - m_Name: Combo 1
+    m_Hash: 644950500
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: BossAttack_0
+      m_Hash: 267085327
+      m_Sprite: {fileID: 582804502, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 582804502, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_1
+      m_Hash: 955012761
+      m_Sprite: {fileID: -759845148, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -759845148, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_2
+      m_Hash: 568657699
+      m_Sprite: {fileID: 207684297, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 207684297, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_3
+      m_Hash: 383924149
+      m_Sprite: {fileID: 2092952665, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2092952665, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_4
+      m_Hash: 143041046
+      m_Sprite: {fileID: -1526470660, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1526470660, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_5
+      m_Hash: 1065456256
+      m_Sprite: {fileID: 1279726462, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1279726462, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_6
+      m_Hash: 646497082
+      m_Sprite: {fileID: -1203928934, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1203928934, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_7
+      m_Hash: 294646700
+      m_Sprite: {fileID: 171331499, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 171331499, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_8
+      m_Hash: 19983933
+      m_Sprite: {fileID: -1813829272, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1813829272, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_9
+      m_Hash: 909631147
+      m_Sprite: {fileID: 153512566, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 153512566, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_10
+      m_Hash: 1030756503
+      m_Sprite: {fileID: 1430595935, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1430595935, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_11
+      m_Hash: 175581185
+      m_Sprite: {fileID: 1863430088, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1863430088, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_12
+      m_Hash: 327055803
+      m_Sprite: {fileID: 954827154, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 954827154, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_13
+      m_Hash: 611928365
+      m_Sprite: {fileID: 1242633402, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1242633402, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_14
+      m_Hash: 975035534
+      m_Sprite: {fileID: 947050382, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 947050382, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_15
+      m_Hash: 219868184
+      m_Sprite: {fileID: -765179829, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -765179829, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_16
+      m_Hash: 336838050
+      m_Sprite: {fileID: -1978792047, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1978792047, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_17
+      m_Hash: 588549428
+      m_Sprite: {fileID: -951830527, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -951830527, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_18
+      m_Hash: 866881701
+      m_Sprite: {fileID: -1231609839, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1231609839, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_19
+      m_Hash: 78422067
+      m_Sprite: {fileID: 481733378, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 481733378, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_20
+      m_Hash: 375212884
+      m_Sprite: {fileID: -1496377036, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1496377036, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    - m_Name: BossAttack_21
+      m_Hash: 559578050
+      m_Sprite: {fileID: 534930870, guid: 34f03974adac6fa479864ab43173d292, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 534930870, guid: 1ff9f91314997df479dc265f8b6afed0, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 22
+  - m_Name: Combo 2
+    m_Hash: 1064859742
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Boss Attack 2 Rough r_0
+      m_Hash: 648491385
+      m_Sprite: {fileID: 298808568, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 298808568, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_1
+      m_Hash: 295698927
+      m_Sprite: {fileID: -1014487966, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1014487966, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_2
+      m_Hash: 145313877
+      m_Sprite: {fileID: 2047387024, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2047387024, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_3
+      m_Hash: 1068392643
+      m_Sprite: {fileID: -779727587, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -779727587, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_4
+      m_Hash: 566949216
+      m_Sprite: {fileID: -144837635, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -144837635, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_5
+      m_Hash: 382584310
+      m_Sprite: {fileID: -1820710688, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1820710688, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_6
+      m_Hash: 264541260
+      m_Sprite: {fileID: 868335567, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 868335567, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_7
+      m_Hash: 952345818
+      m_Sprite: {fileID: 1297277020, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1297277020, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_8
+      m_Hash: 679262539
+      m_Sprite: {fileID: -1548974131, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1548974131, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_9
+      m_Hash: 528189917
+      m_Sprite: {fileID: 669220472, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 669220472, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_10
+      m_Hash: 71270601
+      m_Sprite: {fileID: -1625432251, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1625432251, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_11
+      m_Hash: 859353183
+      m_Sprite: {fileID: -2105177499, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2105177499, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_12
+      m_Hash: 707912165
+      m_Sprite: {fileID: 455734768, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 455734768, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_13
+      m_Hash: 490131827
+      m_Sprite: {fileID: -1400937730, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1400937730, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_14
+      m_Hash: 55723216
+      m_Sprite: {fileID: 172820580, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 172820580, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_15
+      m_Hash: 878015558
+      m_Sprite: {fileID: 1786975344, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1786975344, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_16
+      m_Hash: 761013756
+      m_Sprite: {fileID: -1287364135, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1287364135, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_17
+      m_Hash: 442176874
+      m_Sprite: {fileID: 2037896193, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2037896193, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_18
+      m_Hash: 182716667
+      m_Sprite: {fileID: 1045897509, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1045897509, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_19
+      m_Hash: 1038301293
+      m_Sprite: {fileID: 1807493919, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1807493919, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_20
+      m_Hash: 789762826
+      m_Sprite: {fileID: -2100047076, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2100047076, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_21
+      m_Hash: 404087708
+      m_Sprite: {fileID: -1925607411, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1925607411, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_22
+      m_Hash: 18657830
+      m_Sprite: {fileID: -1953036271, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1953036271, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_23
+      m_Hash: 907772592
+      m_Sprite: {fileID: 1282509629, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1282509629, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_24
+      m_Hash: 679417619
+      m_Sprite: {fileID: -151131755, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -151131755, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_25
+      m_Hash: 527968133
+      m_Sprite: {fileID: 1234869331, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1234869331, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    - m_Name: Boss Attack 2 Rough r_26
+      m_Hash: 108099135
+      m_Sprite: {fileID: 2046449295, guid: 1c9122f5818219c4ba761abf7a8dde97, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2046449295, guid: a97437dbf53dddc478c64ab0751b1f4a, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 27
+  - m_Name: Special 1
+    m_Hash: 71792061
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Boss_Air_Slash_Temp_0
+      m_Hash: 398570225
+      m_Sprite: {fileID: -485618681, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -485618681, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_1
+      m_Hash: 549880423
+      m_Sprite: {fileID: -2063983419, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2063983419, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_2
+      m_Hash: 969921501
+      m_Sprite: {fileID: -1470208328, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1470208328, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_3
+      m_Hash: 248046411
+      m_Sprite: {fileID: -1638839641, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1638839641, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_4
+      m_Hash: 279738088
+      m_Sprite: {fileID: 314796459, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 314796459, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_5
+      m_Hash: 665536126
+      m_Sprite: {fileID: -1122260699, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1122260699, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_6
+      m_Hash: 1050810308
+      m_Sprite: {fileID: 1500263960, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1500263960, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_7
+      m_Hash: 161818450
+      m_Sprite: {fileID: -1198527298, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1198527298, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_8
+      m_Hash: 421149379
+      m_Sprite: {fileID: 1830543499, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1830543499, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_9
+      m_Hash: 773655125
+      m_Sprite: {fileID: 1231979968, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1231979968, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_10
+      m_Hash: 669904216
+      m_Sprite: {fileID: -1857657404, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1857657404, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_11
+      m_Hash: 283827662
+      m_Sprite: {fileID: -1586252130, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1586252130, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_12
+      m_Hash: 165907572
+      m_Sprite: {fileID: -1254626793, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1254626793, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_13
+      m_Hash: 1055177954
+      m_Sprite: {fileID: 1524828695, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1524828695, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_14
+      m_Hash: 545270081
+      m_Sprite: {fileID: 1717871325, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1717871325, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_15
+      m_Hash: 394729943
+      m_Sprite: {fileID: -1760735586, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1760735586, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_16
+      m_Hash: 244205677
+      m_Sprite: {fileID: -860893027, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -860893027, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    - m_Name: Boss_Air_Slash_Temp_17
+      m_Hash: 965310715
+      m_Sprite: {fileID: -1884338509, guid: 215a75595729c8e4d9046faa551a50f1, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1884338509, guid: 13f6ef7a7c0c27a4e906e3ab28dc835e, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 18
+  m_PrimaryLibraryGUID: 09fdc47007b305a4e986e2159a7469ec
+  m_ModificationHash: 638487930647375306
+  m_Version: 1

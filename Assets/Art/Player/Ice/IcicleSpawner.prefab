@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7480924690556159637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3266902571787103831}
+  - component: {fileID: 5904592153173292390}
+  m_Layer: 0
+  m_Name: IcicleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3266902571787103831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7480924690556159637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.62, y: 1.708, z: -1.3515407}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5904592153173292390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7480924690556159637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32d9b75bd54b7846993ea64598066da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleSprites:
+  - {fileID: 1987635912, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -328014521, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -2006371107, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -336941469, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -880784121, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -1699338133, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: 566547101, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -1543773194, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -228997071, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -1718371947, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: 1159283029, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: 1579428897, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -791045243, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  - {fileID: -1758667600, guid: a53a37ed2ce77f74b8ea7bf36166d73d, type: 3}
+  iciclePrefab: {fileID: 7250306823684641428, guid: 3766b0a40bb83d7439acceb476d5e0ed, type: 3}
+  spawnDuration: 5
+  spawnFrequency: 0.1
+  spawnRangeX: 1
+  spawnRangeY: 0.3

@@ -39,6 +39,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9209186418680258641}
+  - {fileID: 2487609360281736795}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5191036674185710151
@@ -105,7 +106,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 74d6902b9ad13a846941e11ad5365c4c, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -210,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 238ab8f30cd828e40ad10e9dc3854a98, type: 2}
-  validate: 0
+  behaviourTree: {fileID: 11400000, guid: 7280e9712b0387644bc7a8032019ddbb, type: 2}
+  validate: 1
   blackboardOverrides:
   - key:
       rid: 3939234741473509401
@@ -260,6 +261,8 @@ MonoBehaviour:
   vitalityBar: {fileID: 7156911662084417108}
   statsUI: {fileID: 1690146559821964813}
   blood: {fileID: 7150051775368357156, guid: 27a2ed7675c61e340b7babf009115e3c, type: 3}
+  iceParticlesPrefab: {fileID: 7480924690556159637, guid: b5a5f05ed1ab79f40993e6e71b01bdaf, type: 3}
+  iceParticlesSpawnPoint: {fileID: 2487609360281736795}
 --- !u!114 &5487160598272473432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,12 +281,15 @@ MonoBehaviour:
     m_Bits: 4294967295
   layersToCheck:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   parrying: 0
   abilities:
     _serializedList:
     - Key: Attack_Combo
       Value: {fileID: 11400000, guid: bbc09e00adc47f24bb5ce77fc8eb9450, type: 2}
+  currentElement: 0
+  elementSprites:
+  - {fileID: 7108339969198208228, guid: c269f708828911d4ca83fbb055a6782b, type: 3}
   isAnAgent: 0
   behaviourTreeInstance: {fileID: 6631169985997930655}
   player: {fileID: 0}
@@ -392,6 +398,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7133667539353162229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2487609360281736795}
+  m_Layer: 8
+  m_Name: IcicleSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2487609360281736795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133667539353162229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8339901359765856364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2798175448296679326
 PrefabInstance:
   m_ObjectHideFlags: 0
