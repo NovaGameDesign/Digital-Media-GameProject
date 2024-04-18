@@ -1,3 +1,4 @@
+using System;
 using DigitalMedia.Combat.Abilities;
 using UnityEngine;
 using DigitalMedia.Core;
@@ -27,6 +28,8 @@ namespace DigitalMedia.Combat
         
         private float ElementPrecentage;
 
+
+        public GameObject[] sparks;
         private new PlayerStats stats;
         
         private void Start()
@@ -51,6 +54,38 @@ namespace DigitalMedia.Combat
             spriteLibrary = GetComponent<SpriteLibrary>();
 
             stats = GetComponent<PlayerStats>();
+        }
+
+        private void OnEnable()
+        {
+            _playerInput = GetComponent<PlayerInput>();
+            attack = _playerInput.actions["Attack"];
+            block = _playerInput.actions["Block"];
+            swapElement = _playerInput.actions["Swap Element"];
+            
+            //Assigning Functionality
+            attack.Enable();
+            attack.performed += TryToAttack;
+            
+            block.Enable();
+            block.performed += TryToBlock;
+            block.canceled += TryToBlock;
+            
+            block.Enable();
+            swapElement.performed += SwapElements;;
+        }
+
+        private void OnDisable()
+        {
+            attack.performed -= TryToAttack;
+            attack.Disable();
+            
+            block.performed -= TryToBlock;
+            block.canceled -= TryToBlock;
+            block.Disable();
+            
+            swapElement.performed -= SwapElements;
+            swapElement.Disable();
         }
 
         #region Input Activation
@@ -171,15 +206,17 @@ namespace DigitalMedia.Combat
             }
             soundLastPlayed = randomSound;
             _audioPlayer.PlayOneShot(data.CombatData.parrySoundsNormal[randomSound]);
-            
-            GameObject sparks = ObjectPool.SharedInstance.GetPooledObject(); 
-            if (sparks != null)
+
+           
+            /*GameObject sparks = ObjectPool.SharedInstance.GetPooledObject(); */
+            if (sparks[currentElementIndex] != null)
             {
                 Transform sparksSpawnLocation = this.transform.Find("ParrySparksLocation").transform;
-                sparks.transform.position = sparksSpawnLocation.position;
+                Instantiate(sparks[currentElementIndex], sparksSpawnLocation.position, sparksSpawnLocation.rotation);
+                /*sparks.transform.position = sparksSpawnLocation.position;
                 sparks.transform.rotation = sparksSpawnLocation.rotation;
-                sparks.SetActive(true);
-                sparks.GetComponent<ParticleSystem>()?.Play();
+                sparks.SetActive(true);*/
+                /*sparks[currentElementIndex].GetComponent<ParticleSystem>().PL*/
             }
         }
 

@@ -74,7 +74,38 @@ namespace DigitalMedia
             
             _animator = GetComponent<Animator>();
         }
-       
+
+        private void OnEnable()
+        {
+            _playerInput = GetComponent<PlayerInput>();
+            move = _playerInput.actions["Move"];
+            jump = _playerInput.actions["Jump"];
+            dash = _playerInput.actions["Dash"];
+            
+            jump.Enable();
+            jump.performed += Jump;
+            
+            dash.Enable();
+            dash.performed += StartDash;
+            
+            move.Enable();
+            move.performed += IsMoving;
+            move.canceled += IsMoving;
+        }
+
+        private void OnDisable()
+        {
+            jump.performed -= Jump;
+            jump.Disable(); 
+            
+            dash.performed -= StartDash;
+            dash.Disable();
+            
+            move.performed -= IsMoving;
+            move.canceled -= IsMoving;
+            move.Disable();
+        }
+
         private void FixedUpdate()
         {
             if(moving) Move();
@@ -196,8 +227,11 @@ namespace DigitalMedia
         private void StartDash(InputAction.CallbackContext context)
         {
 
+            if(dashOnCooldown) return;
+            
             dashOnCooldown = true;
             dashCooldownStartTime = Time.time;
+            StartCoroutine(DashCooldown(dashCooldown));
             
             //Play an animation and begin moving forward. 
             _animator.Play("Player_Dash-Default");
@@ -205,15 +239,10 @@ namespace DigitalMedia
 
             
             dashStartPosition = transform.position;
-            if (transform.rotation.y > 0)
-            {
-                dashHitPosition  = Physics2D.Raycast(transform.position, transform.right, dashDistance, groundLayer);
-            }
-            else if (transform.rotation.y <= 0)
-            {
-                dashHitPosition  = Physics2D.Raycast(transform.position, -transform.right, dashDistance, groundLayer);
-            }
+            dashHitPosition = Physics2D.Raycast(transform.position, -transform.right, dashDistance, groundLayer);
             
+            Debug.Log($"The right position is: {transform.right}");
+
             distanceToTarget = dashHitPosition.distance;
             if (dashHitPosition.collider != null) //If we did hit something.
             {
@@ -271,6 +300,12 @@ namespace DigitalMedia
             }
         }
 
+        IEnumerator DashCooldown(float cooldown)
+        {
+            yield return new WaitForSeconds(cooldown);
+
+            dashOnCooldown = false;
+        }
    
 
         #endregion

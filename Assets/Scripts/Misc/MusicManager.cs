@@ -16,6 +16,7 @@ namespace DigitalMedia
         {
             _audioSource = GetComponent<AudioSource>();
             _audioSource.clip = defaultSong;
+            _audioSource.Play();
         }
 
         public void PlayMusic(AudioClip songToPlay)

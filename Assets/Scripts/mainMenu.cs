@@ -8,7 +8,7 @@ namespace DigitalMedia
     {
        public void PlayGame()
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Tutorial");
         }
        public void QuitGame()
         {

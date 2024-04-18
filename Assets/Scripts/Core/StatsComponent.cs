@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DigitalMedia.Combat;
 using DigitalMedia.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
@@ -69,6 +70,8 @@ namespace DigitalMedia.Core
             healthbar = GetComponentInChildren<Slider>();
 
             rb = this.gameObject.GetComponent<Rigidbody2D>();
+
+            _animator = GetComponent<Animator>();
         }
 
         public virtual void DealDamage(float incomingDamage, GameObject attackOrigin, Elements damageType, float knockbackForce = .5f, bool interruptAction = true)
@@ -81,6 +84,7 @@ namespace DigitalMedia.Core
             {
                 //Start coroutine to deal DOT 
                 damageOverTimeTimer = Time.time;
+                StopCoroutine(DamageOverTime(1, 3));
                 StartCoroutine(DamageOverTime(1, 3));
             }
             else if (damageType is Elements.Ice)
@@ -98,6 +102,10 @@ namespace DigitalMedia.Core
                 
                 
                 DealVitalityDamage(incomingDamage/2);
+                if (vitality <= 0)
+                {
+                    StartDeathBlow(attackOrigin);
+                }
                 knockbackForce *= 2;
             }
             
@@ -137,10 +145,21 @@ namespace DigitalMedia.Core
             
             if (health <= 0)
             {
-                HandleLives();
+               StartDeathBlow(attackOrigin);
             }
         }
 
+        private void StartDeathBlow(GameObject attackOrigin)
+        {
+            InitiateStateChange(State.Staggered);
+            _animator.Play("Staggered");
+            if (this.gameObject.name == "Player") return;
+                        
+            attackOrigin.GetComponent<PlayerCombatSystem>().deathblowTarget = this.gameObject;
+            this.gameObject.GetComponent<CoreCombatSystem>().targetThatParried = attackOrigin;
+
+            Time.timeScale = 0.25f;
+        }
         IEnumerator DamageOverTime(float damage, float duration)
         {
             
@@ -148,6 +167,11 @@ namespace DigitalMedia.Core
             
             health -= damage;
             healthbar.value = health / data.BasicData.maxHealth;
+
+            if (health <= 0)
+            {
+                HandleLives();
+            }
             
             // Continue to check if the correct time has passed. 
             if (Time.time < damageOverTimeTimer + duration)
@@ -160,6 +184,7 @@ namespace DigitalMedia.Core
         //I honestly had no clue what to call this. There may be a better name out there. 
         public virtual void HandleLives()
         {
+            Time.timeScale = 1f;
             //1. Correct the values to match the new lives remaining and change health to max.
             currentLives -= 1;
             if (currentLives <= 0)

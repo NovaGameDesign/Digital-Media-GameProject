@@ -29,7 +29,7 @@ namespace DigitalMedia.Core
         [NonSerialized] public int currentAttackIndex = 0;
         public bool parrying;
         [System.NonSerialized] public bool blocking;
-        private GameObject targetThatParried;
+        [System.NonSerialized] public GameObject targetThatParried;
         
         //Unlike the Player character's animation names, these are intended to be used across the base version of all that inherits from these. In other words, these should work on both the player and enemy. 
 

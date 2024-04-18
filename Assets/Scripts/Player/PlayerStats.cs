@@ -132,13 +132,8 @@ namespace DigitalMedia
             
             //2. Check if we now have too few lives to revive, if so start the death process. 
             if (currentLives <= 0)
-            { 
-                _animator.Play("Player_Death");
-                
-                Debug.Log("The player has died.");
-                
-                dyingUI.SetActive(false);
-                deadUI.SetActive(true);
+            {
+                StartCoroutine(DeathDelay());
             }
             else
             {
@@ -155,6 +150,16 @@ namespace DigitalMedia
 
         public void PlayerWantsToDie(InputAction.CallbackContext context)
         {
+            Time.timeScale = 1;
+            _animator.Play("Player_Death");
+            Debug.Log("The player has lost a life and chose to die.");
+            dyingUI.SetActive(false);
+            deadUI.SetActive(true);
+        }
+
+        IEnumerator DeathDelay()
+        {
+            yield return new WaitForSeconds(0.25f);
             Time.timeScale = 1;
             _animator.Play("Player_Death");
             Debug.Log("The player has lost a life and chose to die.");
@@ -192,5 +197,6 @@ namespace DigitalMedia
             _playerInput.SwitchCurrentActionMap("Player");
             SceneManager.LoadScene("Main");
         }
+        
     }
 }

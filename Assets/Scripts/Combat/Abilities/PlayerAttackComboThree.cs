@@ -10,6 +10,10 @@ namespace DigitalMedia.Combat.Abilities
         [SerializeField] private Vector2 weaponOffset; 
         [SerializeField] private Vector2 weaponRange; 
         
+        [Header("Fire Weapon Range")]
+        [SerializeField] private Vector2 fireWeaponOffset; 
+        [SerializeField] private Vector2 fireWeaponRange; 
+        
         [Header("Lightning Element Info")]
         [SerializeField] private GameObject lightningSlash;
         [SerializeField] public float slashDamage;
@@ -18,7 +22,15 @@ namespace DigitalMedia.Combat.Abilities
         public override void Activate(GameObject holder)
         {
             PlayerCombatSystem combatSystem = holder.GetComponent<PlayerCombatSystem>();
-            combatSystem?.HandleBasicAttack(weaponOffset, weaponRange);
+            if (holder.GetComponent<PlayerCombatSystem>().currentElement == Elements.Fire)
+            {
+                combatSystem.HandleBasicAttack(fireWeaponOffset, fireWeaponRange);
+            }
+            else
+            {
+                combatSystem.HandleBasicAttack(weaponOffset, weaponRange);
+            }
+            
             combatSystem.currentAttackIndex++;
 
             if(combatSystem.currentElement is Elements.Lightning)

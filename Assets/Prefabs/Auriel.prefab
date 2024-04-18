@@ -358,7 +358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.485304, y: 49.944294}
+  m_AnchoredPosition: {x: 37.1, y: 49.944294}
   m_SizeDelta: {x: 472.319, y: 37.9113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5633415055407032113
@@ -391,8 +391,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Auriel, The Forgotten '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: deaf76776da1f234e8967bae5bc10686, type: 2}
+  m_sharedMaterial: {fileID: -1008349566770264231, guid: deaf76776da1f234e8967bae5bc10686, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -603,7 +603,7 @@ RectTransform:
   m_Father: {fileID: 4255071467632050052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -20.3992, y: -15.8594055}
   m_SizeDelta: {x: 237.5323, y: 15.8085}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -671,7 +671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6268569701883027873
 Transform:
   m_ObjectHideFlags: 0
@@ -1462,7 +1462,7 @@ RectTransform:
   m_Father: {fileID: 4255071467632050052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 16.602112, y: 9.872711}
   m_SizeDelta: {x: 249.97107, y: 92.76849}
   m_Pivot: {x: 0.5, y: 0.5}

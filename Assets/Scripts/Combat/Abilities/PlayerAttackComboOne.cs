@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DigitalMedia.Core;
+using UnityEngine;
 
 namespace DigitalMedia.Combat.Abilities
 {
@@ -9,10 +10,21 @@ namespace DigitalMedia.Combat.Abilities
         [SerializeField] private Vector2 weaponOffset; 
         [SerializeField] private Vector2 weaponRange;
         
+        [Header("Fire Weapon Range")]
+        [SerializeField] private Vector2 fireWeaponOffset; 
+        [SerializeField] private Vector2 fireWeaponRange; 
+        
         public override void Activate(GameObject holder)
         {
             PlayerCombatSystem combatSystem = holder.GetComponent<PlayerCombatSystem>();
-            combatSystem?.HandleBasicAttack(weaponOffset, weaponRange);
+            if (holder.GetComponent<PlayerCombatSystem>().currentElement == Elements.Fire)
+            {
+                combatSystem.HandleBasicAttack(fireWeaponOffset, fireWeaponRange);
+            }
+            else
+            {
+                combatSystem.HandleBasicAttack(weaponOffset, weaponRange);
+            }
             combatSystem.currentAttackIndex++;
             
         }
