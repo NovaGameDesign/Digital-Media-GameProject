@@ -10,5 +10,5 @@ This project was made for our Digital Media and Interaction class in Spring 2024
 
 •	Herbert Duarte was the Environment artist responsible for all game backgrounds, foliage, and tile maps. 
 
-•	Crosley Brady did supplementary coding, primarily working on the game start screen and rebinding. 
+•	Crosley Brady did additional coding, primarily working on the game start screen and rebinding. 
 
